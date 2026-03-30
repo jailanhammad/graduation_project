@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 import Nav from '../components/nav';
+import Search from '../components/search';
 
 const Home = () => {
     return ( 
@@ -8,7 +9,7 @@ const Home = () => {
 <div>
 
 <Nav />
-
+<Search />
 
 
 </div>
