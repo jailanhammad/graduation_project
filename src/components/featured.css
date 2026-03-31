@@ -11,7 +11,7 @@
 .container-3 {
     max-width: 1200px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 390px;
+    gap: 420px;
 }
 
 .section-title {
@@ -71,11 +71,17 @@
     transform: translateX(5px);
 }
 
-.vehicle-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+.vehicle-grid-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 95%;
+    gap: 10px;
+
 }
+
 
 .vehicle-card {
     background-color: #1a1a1a;
@@ -85,6 +91,7 @@
     cursor: pointer;
     margin-top: 40px;
 }
+
 
 .vehicle-card:hover {
     transform: translateY(-5px);
@@ -165,10 +172,6 @@
 }
 
 @media (max-width: 1024px) {
-    .vehicle-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
     
     .section-title {
         font-size: 28px;
@@ -179,6 +182,9 @@
 }
 
 @media (max-width: 768px) {
+    .section-title {
+        font-size: 24px;
+    }
     .featured-vehicles {
         padding: 30px 0;
     }
@@ -187,12 +193,29 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
+        margin-left: 20px;
     }
 
-    .vehicle-grid {
+    .vehicle-grid-2{
         grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
     }
-
+    .view-all {
+        color: #d32f2f;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .next-icon{
+        width: 16px;
+        height: 16px;
+    }
     .vehicle-card {
     background-color: #1a1a1a;
     border-radius: 12px;
@@ -201,7 +224,6 @@
     cursor: pointer;
     margin-top: 40px;
     width: 90%;
-    margin-left: 15px;
 }
     .card-image-wrap {
         height: 200px; 

@@ -11,7 +11,6 @@ const Featured = () => {
         <>
         
         <section class="featured-vehicles">
-    <div class="container-3">
 
         <div class="section-header">
             <h2 class="section-title">Featured Vehicles</h2>
@@ -21,7 +20,10 @@ const Featured = () => {
             </div>
         </div>
 
-        <div class="vehicle-grid">
+    <div class="container-3">
+
+        <div class="vehicle-grid-2">
+
             <div class="vehicle-card">
                 <div class="card-image-wrap">
                 <img src={img1} className='vehicle-img' alt="Porsche 911 GT3 RS" />
@@ -93,7 +95,11 @@ const Featured = () => {
                     <a href="#" class="view-details-btn">View Details</a>
                 </div>
             </div>
-        </div> </div> </section>
+
+        </div> 
+
+    </div> 
+        </section>
         
         
         
