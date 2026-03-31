@@ -5,6 +5,7 @@ import Search from '../components/search';
 import Cars from '../components/carsection';
 import Featured from '../components/featured';
 import Browse from '../components/browse';
+import Gallery from '../components/gallery';
 
 const Home = () => {
     return ( 
@@ -16,6 +17,8 @@ const Home = () => {
 <Cars />
 <Featured />
 <Browse />
+<Gallery />
+
 
 </div>
 
