@@ -1,0 +1,131 @@
+
+.browse-section {
+    background-color: #0c0c0c;
+    padding: 10px 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.container-4{
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title-4{
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* Red accent line from Hammad Motors design */
+.section-title-4::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 70px;
+    height: 4px;
+    background: #d32f2f;
+}
+
+/* Desktop: 5 Columns */
+.type-grid {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.type-card {
+    position: relative;
+    width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    /* background: #1a1a1a; */
+    
+    /* Animation Entrance */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.type-bg {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+
+.type-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 25px;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 40%);
+}
+
+.car-count {
+    font-size: 13px;
+    color: #bbb;
+    display: block;
+}
+
+.car-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* Hover Zoom Effect */
+.type-card:hover .type-bg {
+    transform: scale(1.15);
+    border-radius: 15px;
+
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet: 1024px */
+@media (max-width: 1024px) {
+    .type-grid {
+        grid-template-columns: repeat(3, 1fr); /* Snaps to 3 columns */
+        gap: 25px;
+    }
+    .type-card {
+        height: 260px;
+    }
+}
+
+/* Mobile: 768px */
+@media (max-width: 768px) {
+    .type-grid {
+        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+}
+
+/* Small Mobile: 480px */
+@media (max-width: 480px) {
+    .type-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-title-4{
+        font-size: 22px;
+    }
+}
