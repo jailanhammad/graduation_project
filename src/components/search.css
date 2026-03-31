@@ -56,7 +56,7 @@
     flex-direction: row;
     align-items: center;
     background: #fff;
-    border-radius: 50px; /* Pill shape like your image */
+    border-radius: 50px; 
     padding: 8px 20px;
     transition: all 0.3s ease;
     width: 100%;
@@ -84,7 +84,6 @@
     cursor: pointer;
 }
 
-/* Custom Select Arrow */
 .select-wrapper {
     display: flex;
     align-items: center;
@@ -100,7 +99,6 @@
     background: #1F0203; 
     color: #fff;
     border: none;
-    /* padding: 15px 40px; */
     border-radius: 12px;
     font-size: 14px;
     display: flex;
@@ -116,7 +114,6 @@
     transform: scale(1.02);
 }
 
-/* Responsive */
 @media (max-width: 992px) {
     .search-bar {
         flex-direction: column;
@@ -156,49 +153,45 @@
     }
 
     .search-bar {
-        flex-direction: row; /* Force horizontal alignment, NEVER vertical */
-        flex-wrap: nowrap; /* Do not let items wrap to a new line */
+        flex-direction: row; 
+        flex-wrap: nowrap; 
         justify-content: flex-start;
-        padding: 5px; /* Very tight inner padding */
-        gap: 0; /* Remove gaps between items */
-        border-radius: 8px; /* Slightly tighter corners */
+        padding: 5px; 
+        gap: 0; 
+        border-radius: 8px; 
     }
 
-    /* 3. Hide the bulky labels on mobile to save vertical space */
     .search-item label {
         display: none;
     }
 
-    /* 4. Style the input areas to be ultra-condensed */
     .search-item {
-        flex: 1; /* Each item takes equal horizontal space */
-        min-width: 0; /* Allows items to shrink smaller than their content */
-        padding: 8px; /* Add small padding inside the item */
+        flex: 1; 
+        min-width: 0;
+        padding: 8px;
     }
 
-    /* Add vertical separator lines between the items */
     .search-item:not(:last-child) {
         border-right: 1px solid #eee; 
     }
 
     .search-item .value, 
     .search-item select {
-        font-size: 11px; /* The text "Audi" must be tiny on mobile */
+        font-size: 11px; 
         width: 100%;
-        text-align: center; /* Center the text for a balanced look */
+        text-align: center; 
     }
 
-    /* 5. Compact the Search Button */
     .search-btn {
-        width: auto; /* Shrink button width */
-        padding: 8px 12px; /* Tighten button padding */
+        width: auto; 
+        padding: 8px 12px; 
         font-size: 11px;
         border-radius: 6px;
-        margin-left: 5px; /* Separate it from the last dropdown */
+        margin-left: 5px;
     }
 
     .search-btn i {
-        font-size: 10px; /* Smaller search icon */
+        font-size: 10px; 
     }
 }
 
@@ -208,10 +201,9 @@
     .row {
         padding: 10px 15px;
         gap: 10px;
-        border-radius: 15px; /* Boxier look for tablet */
+        border-radius: 15px; 
     }
 
-    /* Keep items visible but make text smaller */
     .search-item label {
         font-size: 12px;
     }
@@ -230,15 +222,13 @@
 
 @media (max-width: 768px) {
     .row {
-        background: rgba(255, 255, 255, 0.449); /* Translucent background like your image */
+        background: rgba(255, 255, 255, 0.449); 
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         padding: 12px 20px;
-        justify-content: flex-start; /* Align search icon to the left */
+        justify-content: flex-start; 
         height: 50px;
     }
-
-    /* HIDE the detailed dropdowns on Mobile to match the image */
     .search-item {
         display: none; 
     }
