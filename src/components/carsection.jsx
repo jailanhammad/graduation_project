@@ -2,6 +2,7 @@ import React from 'react';
 import './carsection.css';
 import car1 from "../assets/home/car1.svg";
 import car2 from "../assets/home/car2.svg";
+import up from "../assets/home/up.svg";
 
 const Cars = () => {
     return (
@@ -18,6 +19,7 @@ const Cars = () => {
                 <p>We are committed to providing our customers with exceptional service.</p>
                 <button className="cta-btn">
                     Get Started <i className="fas fa-arrow-right"></i>
+                    <img src={up}  className='up-icon'/>
                 </button>
             </div>
         </div>
@@ -29,6 +31,7 @@ const Cars = () => {
                 <p>We are committed to providing our customers with exceptional service.</p>
                 <button className="cta-btn">
                     Get Started <i className="fas fa-arrow-right"></i>
+                    <img src={up}  className='up-icon'/>
                 </button>
             </div>
         </div>

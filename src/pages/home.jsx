@@ -3,6 +3,7 @@ import './home.css';
 import Nav from '../components/nav';
 import Search from '../components/search';
 import Cars from '../components/carsection';
+import Featured from '../components/featured';
 
 const Home = () => {
     return ( 
@@ -12,6 +13,7 @@ const Home = () => {
 <Nav />
 <Search />
 <Cars />
+<Featured />
 
 </div>
 
