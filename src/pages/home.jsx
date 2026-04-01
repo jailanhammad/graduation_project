@@ -6,6 +6,7 @@ import Cars from '../components/carsection';
 import Featured from '../components/featured';
 import Browse from '../components/browse';
 import Gallery from '../components/gallery';
+import Whyus from '../components/whyus';
 
 const Home = () => {
     return ( 
@@ -18,6 +19,7 @@ const Home = () => {
 <Featured />
 <Browse />
 <Gallery />
+<Whyus />
 
 
 </div>

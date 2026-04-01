@@ -2,7 +2,7 @@
 
 .interior-360-section {
     background-color: #0c0c0c;
-    padding: 60px 0;
+    padding: 20px 0;
     font-family: 'Poppins', sans-serif;
     color: #fff;
     text-align: center;
@@ -105,7 +105,7 @@
     gap: 20px;
 } */
 .scroll-hint {
-    /* margin-top: 20px; */
+    margin-top: 20px;
     font-size: 14px;
     color: #666;
     text-transform: uppercase;
@@ -130,5 +130,12 @@
     
     .section-title-6{
         font-size: 24px;
+    }
+    .scroll-hint {
+        margin-top: 40px;
+        font-size: 12px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
 }

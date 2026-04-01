@@ -1,0 +1,128 @@
+/* --- Global Section Settings --- */
+.why-choose-section {
+    background-color: #0c0c0c;
+    padding: 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.responsive-container {
+    max-width: 1440px; /* Your requested desktop maximum */
+    margin: 0 auto;
+}
+
+.section-header-7{
+    margin-bottom: 60px;
+}
+
+.section-header-7 .title {
+    font-size: clamp(24px, 5vw, 26px); /* Responsive font scaling */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.section-header-7 .subtitle {
+    font-size: 15px;
+    color: #999;
+    font-weight: 300;
+}
+.icon-medal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/* --- Features Grid Layout --- */
+.features-grid-2{
+    display: grid;
+    /* Default: 1 column for Mobile */
+    grid-template-columns: 1fr; 
+    gap: 25px;
+
+}
+
+/* --- Feature Card Styling --- */
+.feature-card {
+    background: #151515;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+ 
+    /* Animation Entrance */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: var(--delay);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: #d32f2f; /* Hammad Motors Red */
+    background: linear-gradient(145deg, #1a1a1a, #111);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(211, 47, 47, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: #d32f2f;
+    font-size: 24px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+/* --- Keyframe Animation --- */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .features-grid-2{
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+
+    }
+    .section-header-7 {
+        text-align: left;
+    }
+ 
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .features-grid-2{
+        grid-template-columns: repeat(3, 1fr); /* 3 columns matches your screenshot */
+        gap: 30px;
+    
+    }
+}
+
+/* Large Desktop (1440px) */
+@media (min-width: 1440px) {
+    .why-choose-section {
+        padding: 100px 0;
+    }
+}
