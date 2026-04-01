@@ -7,6 +7,8 @@ import Featured from '../components/featured';
 import Browse from '../components/browse';
 import Gallery from '../components/gallery';
 import Whyus from '../components/whyus';
+import Reviews from '../components/reviews';
+import Footer from '../components/footer';
 
 const Home = () => {
     return ( 
@@ -20,6 +22,8 @@ const Home = () => {
 <Browse />
 <Gallery />
 <Whyus />
+<Reviews />
+<Footer />
 
 
 </div>

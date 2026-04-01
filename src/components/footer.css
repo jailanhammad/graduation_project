@@ -1,0 +1,200 @@
+.footer-section {
+    background-color: #0c0c0c;
+    padding: 80px 0 30px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.responsive-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Grid layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.5fr; /* Custom widths for desktop */
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Branding Column */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    background: #d32f2f;
+    padding: 5px 8px;
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.logo-text {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ED1C24;
+    font-family: poppins;
+}
+
+.footer-desc {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #391E1E;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.fab{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.social-links a:hover {
+    background: #d32f2f;
+    transform: translateY(-3px);
+}
+
+/* Common Column Styles */
+.col-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links, .contact-list {
+    list-style: none;
+    
+}
+
+.footer-links li, .contact-list li {
+    margin-bottom: 15px;
+    color: #bbb;
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #d32f2f;
+    padding-left: 5px;
+}
+
+/* Newsletter Styles */
+.newsletter-text {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.newsletter-form input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.btn-subscribe {
+    width: 100%;
+    padding: 15px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-subscribe:hover {
+    background: #d32f2f;
+    color: #fff;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #666;
+}
+
+.bottom-links a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+    }
+}
+
+/* Mobile (768px) */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        text-align: center;
+    }
+    
+    .footer-logo, .social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .bottom-links a {
+        margin: 0 10px;
+    }
+}
