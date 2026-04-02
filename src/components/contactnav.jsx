@@ -1,5 +1,5 @@
 import React from 'react';
-import './aboutnav.css';
+import './contactnav.css';
 import { Link } from "react-router-dom";
 import logo from "../assets/home/logo.svg";
 import phone from "../assets/home/phone.svg";
@@ -11,7 +11,7 @@ import dark from "../assets/home/darkmood.svg";
 import translate from "../assets/home/translate.svg";
 
 
-const AboutNav = () => {
+const ContactNav = () => {
     return ( 
 
 <>
@@ -74,11 +74,11 @@ const AboutNav = () => {
                 <li><a href="#" >
                 <Link to="/">Home</Link>
                 </a></li>
-                <li><a href="#" class="active">
+                <li><a href="#" >
                 <Link to="/About-us">About</Link>
                 </a></li>
                 
-                <li><a href="#">
+                <li><a href="#" class="active">
                 <Link to="/Contact-us">Contact</Link>
                 </a></li>
                 <li><a href="#">Vehicles</a></li>
@@ -136,4 +136,4 @@ const AboutNav = () => {
 
 
  
-export default AboutNav;
+export default ContactNav;

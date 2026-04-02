@@ -80,7 +80,9 @@ const Nav = () => {
                 <Link to="/About-us">About</Link>
                 </a></li>
                 
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">
+                <Link to="/Contact-us">Contact</Link>
+                </a></li>
                 <li><a href="#">Vehicles</a></li>
 
 
@@ -95,7 +97,9 @@ const Nav = () => {
                     <li><a href="#brands">
                     <Link to="/About-us">About</Link>
                     </a></li>
-                    <li><a href="#brands">Contact</a></li>
+                    <li><a href="#brands">                    
+                    <Link to="/Contact-us">Contact</Link>
+                    </a></li>
                     <li><a href="#brands">Vehicles</a></li>
                     <li><a href="#brands">Brands</a></li>
                     <li><a href="#services">Services</a></li>
