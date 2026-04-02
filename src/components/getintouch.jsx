@@ -23,16 +23,13 @@ const Getintouch = () => {
 
 <section class="get-in-touch">
 
+            <div className='get-coloumn'>
 
             <div class="section-title-9">
             <h2>Get In Touch</h2>
             <p>Have questions? We are here to help. Reach out to our team today.</p>
             </div>
-
-
-            <div className='get-coloumn'>
-
-        <div className='rows'>
+            <div className='rows'>
 
         <form class="contact-form" onSubmit={handleFormSubmit}>
 

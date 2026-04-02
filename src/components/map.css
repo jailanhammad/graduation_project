@@ -1,0 +1,65 @@
+.directions-section {
+    padding: 60px 20px;
+    background-color: #0a0a0a;
+}
+
+.container-9 {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.directions-section h3 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.map-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #222;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: fadeIn 1.5s ease-out;
+}
+
+.map-wrapper iframe {
+    filter: invert(90%) hue-rotate(180deg) grayscale(0.7) contrast(1.2);
+    transition: filter 0.5s ease;
+}
+
+.map-wrapper:hover iframe {
+    filter: none;
+}
+
+.map-overlay-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.map-overlay-btn .send-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .map-wrapper iframe {
+        height: 350px;
+    }
+    .directions-section h3 {
+        text-align: center;
+    }
+}
