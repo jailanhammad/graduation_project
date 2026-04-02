@@ -81,7 +81,9 @@ const AboutNav = () => {
                 <li><a href="#">
                 <Link to="/Contact-us">Contact</Link>
                 </a></li>
-                <li><a href="#">Vehicles</a></li>
+                <li><a href="#" >                    
+                <Link to="/Vehicles">Vehicles</Link>
+                </a></li>
 
 
                 <li class="dropdown">
@@ -98,7 +100,9 @@ const AboutNav = () => {
                     <li><a href="#brands">
                     <Link to="/Contact-us">Contact</Link>
                     </a></li>
-                    <li><a href="#brands">Vehicles</a></li>
+                    <li><a href="#brands">                
+                    <Link to="/Vehicles">Vehicles</Link>
+                    </a></li>
                     <li><a href="#brands">Brands</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#reviews">Reviews</a></li>

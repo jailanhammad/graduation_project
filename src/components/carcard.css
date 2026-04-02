@@ -1,0 +1,277 @@
+.hmv-featured-section {
+    padding: 100px 80px;
+    background-color: #0a0a0a;
+}
+
+.hmv-section-header {
+    text-align: left;
+    margin-bottom: 70px;
+}
+
+.hmv-section-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+}
+
+.hmv-underline {
+    width: 60px;
+    height: 3px;
+    background-color: #d32f2f;
+    margin-top: 10px;
+}
+
+.hmv-vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 40px;
+    transition: 0.5s ease; 
+}
+
+.hmv-car-card {
+    background: #111;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    opacity: 0; 
+    backface-visibility: hidden; 
+}
+
+.hmv-car-card:hover {
+    border-color: #d32f2f; 
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(211, 47, 47, 0.1);
+}
+
+.hmv-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.hmv-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.hmv-car-card:hover .hmv-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.hmv-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #333;
+    color: #fff;
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.hmv-tag-red {
+    background-color: #d32f2f;
+}
+
+.hmv-car-details {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.hmv-car-details h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hmv-spec-row {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.hmv-action-row {
+    margin-top: auto;
+    display: flex;
+    gap: 15px;
+}
+
+.hmv-btn-outlined {
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.hmv-btn-outlined:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+
+@keyframes hmv-slide-left-rotate {
+    from {
+        opacity: 0;
+        transform: rotateY(90deg) translateX(-100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0deg) translateX(0) scale(1);
+    }
+}
+
+@keyframes hmv-rotate-in {
+    from {
+        opacity: 0;
+        transform: rotateY(-180deg) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+    }
+}
+
+@keyframes hmv-slide-right-rotate {
+    from {
+        opacity: 0;
+        transform: rotateY(-90deg) translateX(100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0deg) translateX(0) scale(1);
+    }
+}
+
+@keyframes hmv-fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hmv-animate-up { animation: hmv-fade-up 0.8s ease forwards; }
+
+.hmv-card-left { animation: hmv-slide-left-rotate 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+.hmv-card-rotate-in { animation: hmv-rotate-in 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+.hmv-card-right { animation: hmv-slide-right-rotate 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+
+.hmv-delay-1 { animation-delay: 0.1s; }
+.hmv-delay-2 { animation-delay: 0.2s; }
+.hmv-delay-3 { animation-delay: 0.3s; }
+
+@media (min-width: 1440px) {
+    .hmv-vehicle-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1300px) {
+    .hmv-container {
+        padding: 0 60px;
+    }
+    .hmv-vehicle-grid {
+        grid-template-columns: repeat(3, minmax(290px, 1fr));
+        gap: 30px;
+    }
+
+    .hmv-featured-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .hmv-container {
+        padding: 0 40px;
+    }
+
+    .hmv-hero-section {
+        height: 70vh; 
+    }
+
+    .hmv-section-header {
+        margin-bottom: 50px;
+    }
+
+    .hmv-vehicle-grid {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .hmv-featured-section {
+        padding: 60px 0;
+    }
+    .hmv-car-card {
+        animation-duration: 0.8s;
+        transform-origin: center center;
+    }
+    
+    .hmv-card-left, .hmv-card-right, .hmv-card-rotate-in {
+        animation: hmv-fade-up 0.8s ease forwards;
+    }
+}
+
+@media (max-width: 768px) {
+    .hmv-container {
+        padding: 0 20px;
+    }
+
+    .hmv-hero-section {
+        height: 60vh;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hmv-hero-container {
+        padding: 0 20px;
+    }
+
+    .hmv-hero-text h1 {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+
+    .hmv-hero-text p {
+        font-size: 16px;
+        margin: 0 auto;
+    }
+
+    .hmv-featured-section {
+        padding: 60px 0;
+    }
+
+    .hmv-section-header h2 {
+        font-size: 28px;
+    }
+
+    .hmv-vehicle-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .hmv-car-card {
+        transform-origin: center top;
+    }
+
+    .hmv-spec-row {
+        gap: 10px;
+        font-size: 12px;
+    }
+    
+    .hmv-btn-outlined {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
