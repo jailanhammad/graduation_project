@@ -1,6 +1,6 @@
 import React from 'react';
 import './nav.css';
-
+import { Link } from "react-router-dom";
 import logo from "../assets/home/logo.svg";
 import phone from "../assets/home/phone.svg";
 import email from "../assets/home/email.svg";
@@ -19,6 +19,7 @@ const Nav = () => {
     return ( 
 
 <>
+
 <header class="header">
     
     <div class="top-bar">
@@ -72,11 +73,49 @@ const Nav = () => {
             </label>
 
             <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" class="active">
+                <Link to="/">Home</Link>
+                </a></li>
+                <li><a href="#">
+                <Link to="/About-us">About</Link>
+                </a></li>
+                
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Vehicles</a></li>
-                <li class="dropdown"><a href="#">Menu <i class="fas fa-caret-down"></i></a></li>
+
+
+                <li class="dropdown">
+                <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+
+                <ul class="dropdown-content">
+                    
+                    <li><a href="#brands">
+                    <Link to="/">Home</Link>
+                    </a></li>
+                    <li><a href="#brands">
+                    <Link to="/About-us">About</Link>
+                    </a></li>
+                    <li><a href="#brands">Contact</a></li>
+                    <li><a href="#brands">Vehicles</a></li>
+                    <li><a href="#brands">Brands</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#most-sold">Most sold</a></li>
+                    <li><a href="#installments">Installments</a></li>
+                    <li><a href="#test-drive">Test drive</a></li>
+                    <li><a href="#service-center">Service center</a></li>
+                    <li><a href="#recommended">Recommended</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+
+                <li class="mobile-close-li">
+
+        <label for="menu-toggle" class="close-menu">
+            <i class="fas fa-times"></i> Close
+        </label>
+    </li>
+                </ul>
+                </li>
+
             </ul>
         </div>
         
@@ -84,17 +123,6 @@ const Nav = () => {
     
 </header>
 
-
-{/* 
-<div className='hero-div'>
-
-<img src={h1} className='h1-svg'/>
-<img src={h2} className='h2-svg'/>
-<img src={m} className='m-svg'/>
-<img src={hero} className='hero-car'/>
-
-
-</div> */}
 
 
 

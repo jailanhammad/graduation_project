@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
+import About from './pages/about';
 
 
 const RoutingApp = () => {
@@ -10,6 +11,8 @@ const RoutingApp = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/About-us" element={<About />} />
+
       </Routes>
     </BrowserRouter>
         

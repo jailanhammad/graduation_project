@@ -1,0 +1,134 @@
+.values-section {
+    background-color: #0c0c0c;
+    padding: 100px 0;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.responsive-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-title-8 {
+    font-size: 26px; /* Your requested size */
+    font-weight: 700;
+    margin-bottom: 60px;
+    text-align: left;
+    color: #ffffff;
+    position: relative; /* Essential for the absolute line positioning */
+    display: inline-block; /* Ensures the underline only spans the width of the text */
+}
+
+.section-title-8::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px; 
+    width: 60px; 
+    height: 4px;
+    background-color: #d32f2f;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .section-title-8 {
+        font-size: 22px;
+        display: block; 
+        text-align: center;
+    }
+    
+    .section-title-8::after {
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+}
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.value-card {
+    background: #151515;
+    padding: 50px 30px;
+    border-radius: 24px;
+    border: 1px solid #222;
+    text-align: center;
+    transition: all 0.4s ease;
+    
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.value-card:hover {
+    border-color: #d32f2f;
+    transform: translateY(-10px);
+    background: #200505;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 24px;
+}
+
+.value-card h3 {
+    font-size: 22px; /* Normal size range as requested */
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+/* Keyframe for staggered entrance */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (1024px to 768px) */
+@media (max-width: 1024px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+    }
+    .section-title-8{
+        font-size: 24px;
+    }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+    .responsive-container {
+        padding: 0 20px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+    .section-title-8{
+        font-size: 22px; /* Minimum requested size */
+        text-align: center;
+    }
+    .value-card {
+        padding: 40px 20px;
+    }
+}

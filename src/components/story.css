@@ -1,0 +1,173 @@
+.story-section {
+    background-color: #0c0c0c;
+    padding: 130px 0;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.responsive-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* TOP GRID LAYOUT */
+.story-top-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.sub-label {
+    color: #888;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.main-headline {
+    font-size: 26px; /* Your requested size */
+    color: #ED1C24;
+    font-weight: 700;
+    margin: 15px 0 30px;
+    line-height: 1.3;
+}
+
+.story-text p {
+    color: #bbb;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* STATS BOXES */
+.stats-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.stat-box {
+    border: 1px solid #333;
+    padding: 25px 40px;
+    border-radius: 15px;
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stat-desc {
+    font-size: 14px;
+    color: #888;
+}
+
+/* IMAGE STYLING */
+.founder-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* MISSION & VISION CARDS */
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px; /* Centered narrow grid like the screenshot */
+    margin: 0 auto;
+}
+
+.mv-card {
+    background: #151515;
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #222;
+    text-align: center;
+    transition: 0.4s;
+    /* Entrance Animation */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.mv-card:hover {
+    border-color: #d32f2f;
+    background: #1a1a1a;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+}
+
+.mv-card h3 {
+    font-size: 22px; /* Your requested size */
+    margin-bottom: 15px;
+}
+
+.mv-card p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+    .story-top-grid {
+        grid-template-columns: 1fr; /* Stack text and image */
+        text-align: center;
+    }
+    .stats-row {
+        justify-content: center;
+    }
+    .main-headline {
+        font-size: 24px;
+    }
+}
+
+/* Mobile (768px) */
+@media (max-width: 768px) {
+    .responsive-container {
+        padding: 0 20px;
+    }
+    .mission-vision-grid {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+    .main-headline {
+        font-size: 22px;
+    }
+    .stat-box {
+        padding: 20px;
+    }
+    .story-section {
+        background-color: #0c0c0c;
+        padding: 160px 0;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+}
