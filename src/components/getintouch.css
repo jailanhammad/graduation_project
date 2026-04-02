@@ -1,0 +1,248 @@
+.get-in-touch {
+    padding: 40px 0;
+    background-color: #0a0a0a;
+    color: #fff;
+    width: 100%;
+}
+
+.section-title-9 {
+    margin-bottom: 50px;
+    max-width: 1200px;
+    margin-left: 70px;
+    margin-right: auto;
+}
+
+.section-title-9 h2 {
+    font-size: clamp(28px, 5vw, 36px); 
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-title-9 p {
+    color: #888;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px; 
+    padding: 0 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.contact-form, 
+.info-container {
+    background: #200505;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #222;
+    width: 100%;
+    max-width: 580px;
+    min-height: 580px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-box label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+.input-box input, 
+.input-box textarea {
+    width: 100%;
+    padding: 12px;
+    background: #0c0c0c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+}
+
+.input-box input:focus {
+    border-color: #d32f2f;
+}
+
+.send-btn {
+    width: 100%;
+    padding: 15px;
+    background: #352828;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: auto; 
+    transition: 0.3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+}
+.send{
+    width: 16px;
+    height: 16px;
+}
+
+.send-btn:hover {
+    background: #b71c1c;
+    transform: translateY(-3px);
+}
+
+.info-container {
+    gap: 30px;
+    justify-content: center;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.icon-box {
+    min-width: 60px; 
+    height: 60px;
+    background: #352828; 
+    border: #b71c1c 1px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-box img {
+    width: 25px; 
+    height: auto;
+}
+
+.info-text h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.info-text span {
+    display: block;
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+@media (max-width: 1100px) {
+    .rows {
+        gap: 30px;
+    }
+    .contact-form, 
+    .info-container {
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title-9 {
+        text-align: center;
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+    .rows {
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px;
+    }
+
+    .contact-form, 
+    .info-container {
+        max-width: 100%; 
+        padding: 25px;
+        min-height: auto; 
+    }
+
+    .info-item {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+
+.input-box input:invalid:focus {
+    border-color: #ff3e3e;
+}
+
+.send-btn:active {
+    transform: scale(0.95);
+    background-color: #350101;
+}
+
+
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.contact-form {
+    background: #200505;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #222;
+    width: 100%;
+    max-width: 580px;
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.info-container {
+    background: #200505;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #222;
+    width: 100%;
+    max-width: 580px;
+    min-height: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    /* Animation Properties */
+    animation: slideInRight 1s ease-out forwards;
+}
+
+.section-title-9 {
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
