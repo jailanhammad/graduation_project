@@ -47,7 +47,7 @@ const Search = () => {
         </div>
 
         <button class="search-btn">
-            <img src={search}  className='search-icon' />
+            <img src={search}  />
             <i class="fas fa-search"></i> Search
         </button>
 
