@@ -1,0 +1,103 @@
+.hms-fin-section {
+    background: linear-gradient(to bottom, #0a0a0a, #1a0505);
+    padding: 100px 20px;
+    color: #fff;
+    text-align: left;
+}
+
+.hms-fin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.hms-fin-header h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: poppins;
+}
+
+.hms-fin-subtitle {
+    color: #aaa;
+    max-width: 700px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.hms-fin-label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.hms-fin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Card Styling from Screenshot */
+.hms-fin-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 60px 20px;
+    text-align: center;
+    transition: 0.3s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.hms-fin-card:hover {
+    border-color: #d32f2f;
+    background: rgba(211, 47, 47, 0.05);
+    transform: translateY(-10px);
+}
+
+.hms-fin-icon {
+    font-size: 40px;
+    color: #8e7d73; /* Matches the bronze/gray icon color in your screenshot */
+    margin-bottom: 20px;
+}
+
+.hms-fin-card h3 {
+    font-size: 18px;
+    color: #888;
+    font-weight: 500;
+}
+
+/* Footer Highlight */
+.hms-fin-footer {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.hms-fin-footer span {
+    color: #d32f2f;
+    font-size: 32px;
+}
+
+/* --- Animations --- */
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hms-reveal-up {
+    opacity: 0;
+    animation: revealUp 0.8s ease-out forwards;
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .hms-fin-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .hms-fin-grid { grid-template-columns: 1fr; }
+    .hms-fin-header { text-align: center; }
+    .hms-fin-subtitle { margin: 0 auto 40px; }
+}
