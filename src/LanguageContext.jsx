@@ -8,17 +8,9 @@ export const LanguageProvider = ({ children }) => {
     const toggleLanguage = () => setIsArabic(!isArabic);
 
     useEffect(() => {
-        // This automatically flips the entire website's direction
         document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
         document.documentElement.lang = isArabic ? 'ar' : 'en';
     }, [isArabic]);
-
-
-
-
-
-
-
     
     return (
         <LanguageContext.Provider value={{ isArabic, toggleLanguage }}>
