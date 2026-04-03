@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/home/logo.svg";
 import phone from "../assets/home/phone.svg";
 import email from "../assets/home/email.svg";
-
+import { useLanguage } from '../LanguageContext';
 import login from "../assets/home/login.svg";
 import music from "../assets/home/music.svg";
 import dark from "../assets/home/darkmood.svg";
@@ -16,7 +16,36 @@ import heroo from "../assets/home/heroo.svg";
 
 const Nav = () => {
 
+
+    const { isArabic, toggleLanguage } = useLanguage();
     const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+
+    const t = {
+        phone: "+02 01000444401",
+        email: "mahmoud@hammadmotors.com",
+        login: isArabic ? "تسجيل الدخول" : "Login",
+        brand: isArabic ? "حماد موتورز" : "HAMMAD MOTORS",
+        home: isArabic ? "الرئيسية" : "Home",
+        about: isArabic ? "من نحن" : "About",
+        contact: isArabic ? "اتصل بنا" : "Contact",
+        vehicles: isArabic ? "السيارات" : "Vehicles",
+        menu: isArabic ? "القائمة" : "Menu",
+        close: isArabic ? "إغلاق" : "Close",
+        herosub: isArabic ? "امتلك الطريق مع" : "Own the Road with",
+        // Dropdown
+        services: isArabic ? "خدماتنا" : "Services",
+        reviews: isArabic ? "الآراء" : "Reviews",
+        brands: isArabic ? "الماركات" : "Brands",
+        mostsold: isArabic ? "الأكثر مبيعاً" : "Most sold",
+        installments: isArabic ? "تقسيط" : "Installments",
+        testdrive: isArabic ? "تجربة قيادة" : "Test drive",
+        servicecenter: isArabic ? "مركز الخدمة" : "Service center",
+        recommended: isArabic ? "مقترح لك" : "Recommended",
+        gallery: isArabic ? "المعرض" : "Gallery"
+    };
+
+
 
 useEffect(() => {
     const checkStatus = (e) => {
@@ -25,6 +54,7 @@ useEffect(() => {
     window.addEventListener('music-status', checkStatus);
     return () => window.removeEventListener('music-status', checkStatus);
 }, []);
+
 
 
     return ( 
@@ -41,12 +71,12 @@ useEffect(() => {
 
                 <div className='phone-div'>
                 <img src={phone} className='small-icon'/>
-                <span><i class="fas fa-phone"></i> +02 01000444401</span>
+                <span><i class="fas fa-phone"></i> {t.phone}</span>
                 </div>
 
                 <div className='phone-div'>
                 <img src={email} className='small-icon' />
-                <span><i class="fas fa-envelope"></i> mahmoud@hammadmotors.com</span>
+                <span><i class="fas fa-envelope"></i>{t.email}</span>
                 </div>
 
             </div>
@@ -70,8 +100,11 @@ useEffect(() => {
             </button>
 
             <img src={dark}  className='small-icon' />
-            <img src={translate}  className='small-icon'/>
 
+         
+                <i className="fas fa-globe" onClick={toggleLanguage} >
+                <img src={translate}  className='small-icon'/>
+                </i> 
             
             </div>
 
@@ -80,7 +113,7 @@ useEffect(() => {
 
             <img src={login} className='small-icon' />
             <a href="#" class="login-btn"><i class="fas fa-user"></i> 
-            <Link to="/Login">Login</Link>
+            <Link to="/Login">{t.login}</Link>
             </a>
 
             </div>
@@ -94,7 +127,7 @@ useEffect(() => {
         <div class="container">
             <div className='word-logo'>
             <img src={logo} className='logo-svg'/>
-            <h1 className='word-logo-text'>HAMMAD MOTORS</h1>
+            <h1 className='word-logo-text'>{t.brand}</h1>
             </div>
      
 
@@ -108,53 +141,53 @@ useEffect(() => {
 
             <ul class="nav-links">
                 <li><a href="#" class="active" >
-                <Link to="/">Home</Link>
+                <Link to="/">{t.home}</Link>
                 </a></li>
                 <li><a href="#">
-                <Link to="/About-us">About</Link>
+                <Link to="/About-us">{t.about}</Link>
                 </a></li>
                 
                 <li><a href="#">
-                <Link to="/Contact-us">Contact</Link>
+                <Link to="/Contact-us">{t.contact}</Link>
                 </a></li>
                 <li><a href="#" >                    
-                <Link to="/Vehicles">Vehicles</Link>
+                <Link to="/Vehicles">{t.vehicles}</Link>
                 </a></li>
 
 
                 <li class="dropdown">
-                <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+                <a href="#">{t.menu} <i class="fas fa-caret-down"></i></a>
 
                 <ul class="dropdown-content">
                     
                     <li><a href="#brands">
-                    <Link to="/">Home</Link>
+                    <Link to="/">{t.home}</Link>
                     </a></li>
                     <li><a href="#brands">
-                    <Link to="/About-us">About</Link>
+                    <Link to="/About-us">{t.about}</Link>
                     </a></li>
                     <li><a href="#brands">                    
-                    <Link to="/Contact-us">Contact</Link>
+                    <Link to="/Contact-us">{t.contact}</Link>
                     </a></li>
                     <li><a href="#brands">                    
-                    <Link to="/Vehicles">Vehicles</Link>
+                    <Link to="/Vehicles">{t.vehicles}</Link>
                     </a></li>
                     <li><a href="#services">                    
-                    <Link to="/Services">Services</Link>
+                    <Link to="/Services">{t.services}</Link>
                     </a></li>                    
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#brands">Brands</a></li>
-                    <li><a href="#most-sold">Most sold</a></li>
-                    <li><a href="#installments">Installments</a></li>
-                    <li><a href="#test-drive">Test drive</a></li>
-                    <li><a href="#service-center">Service center</a></li>
-                    <li><a href="#recommended">Recommended</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">{t.reviews}</a></li>
+                    <li><a href="#brands">{t.brands}</a></li>
+                    <li><a href="#most-sold">{t.mostsold}</a></li>
+                    <li><a href="#installments">{t.installments}</a></li>
+                    <li><a href="#test-drive">{t.testdrive}</a></li>
+                    <li><a href="#service-center">{t.servicecenter}</a></li>
+                    <li><a href="#recommended">{t.recommended}</a></li>
+                    <li><a href="#gallery">{t.gallery}</a></li>
 
                 <li class="mobile-close-li">
 
         <label for="menu-toggle" class="close-menu">
-            <i class="fas fa-times"></i> Close
+            <i class="fas fa-times"></i> {t.close}
         </label>
     </li>
                 </ul>
@@ -178,8 +211,8 @@ useEffect(() => {
                 </div>
                 
                 <div class="hero-footer">
-                    <p class="sub-text">Own the Road with</p>
-                    <h2 class="brand-name">HAMMAD MOTORS</h2>
+                    <p class="sub-text">{t.herosub}</p>
+                    <h2 class="brand-name">{t.brand}</h2>
                 </div>
 
 
