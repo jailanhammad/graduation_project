@@ -1,149 +1,162 @@
 .container-2 {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    max-width: 1250px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 40px 40px;
-
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 25px;
 }
 
+.cta-section {
+    background: #0a0a0a;
+    padding: 60px 0;
+    font-family: poppins;
+}
+
+/* Card Styling */
 .cta-card {
     position: relative;
-    flex: 1; 
-    height: 450px; 
-    border-radius: 24px;
+    width: 100%;
+    height: 400px; /* Standard desktop height */
+    border-radius: 30px;
     overflow: hidden;
-    background-color: #1a1a1a;
     display: flex;
-
+    align-items: center;
 }
-.up-icon{
-    width: 12px;
-    height: 12px;
 
-}
 .car-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents image stretching */
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: center; 
     z-index: 1;
-    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.cta-card:hover .car-img {
-    transform: scale(1.08);
-
-}
-
+/* Text Overlay with Gradient for Readability */
 .cta-overlay {
     position: relative;
-    z-index: 2; 
+    z-index: 2;
+    padding: 40px;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 100%);
     width: 100%;
     height: 100%;
-    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: poppins;
-    color: #fff;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
-
 }
 
 .cta-overlay h3 {
-    font-size: 0.5rem;
-    font-weight: 700;
+    color: #fff;
+    font-size: clamp(20px, 4vw, 28px); /* Fluid typography */
     margin-bottom: 15px;
+    line-height: 1.2;
 }
 
 .cta-overlay p {
-    font-size: 0.8rem;
-    max-width: 350px;
-    margin-bottom: 30px;
-    opacity: 0.9;
+    color: #ccc;
+    font-size: 14px;
+    max-width: 300px;
+    margin-bottom: 25px;
 }
 
-.cta-btn{
-    width: fit-content;
-    padding: 14px 30px;
-    background: #fff;
-    color: #000;
+
+/* Styling for the Get Started Button */
+.cta-btn {
+    background-color: #ED1C24;
+    color: #ffffff;
     border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: 0.3s;
+    padding: 12px 28px;
+    border-radius: 50px; /* Makes it a pill shape */
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    align-content: center;
-    gap: 5px;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content; /* FIX: Prevents the button from stretching too wide */
+    min-width: 160px;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Hover Effect - Glow & Lift */
 .cta-btn:hover {
-    background: #e30613; 
-    color: #fff;
+    background-color: #760004; /* Turns Brand Red on hover */
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 5px rgba(36, 0, 0, 0.4);
+}
+
+/* Icon Styling inside the button */
+.up-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.cta-btn:hover .up-icon {
+    transform: translate(3px, -3px); /* Makes the arrow "take off" on hover */
+    filter: brightness(0) invert(1); /* Turns black icon white on hover */
 }
 
 
+/* Responsive Breakpoints */
+
+/* Tablets */
 @media (max-width: 1024px) {
     .container-2 {
-        flex-direction: column; 
+        grid-template-columns: 1fr 1fr; /* Stay side-by-side but reduce gap */
+        gap: 15px;
     }
-
     .cta-card {
-        height: 380px; 
+        height: 350px;
     }
-
-    .cta-overlay h3 {
-        font-size: 1.5rem;
-    }
-
-    
 }
 
+/* Mobile Phones */
 @media (max-width: 768px) {
+    .container-2 {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        padding: 15px;
+    }
+    
     .cta-card {
-        height: 320px; 
+        height: 300px; /* Shorter cards for mobile screens */
     }
 
     .cta-overlay {
-        padding: 30px;
-        background: rgba(0, 0, 0, 0.5); 
+        padding: 20px;
+        /* Center content for mobile if preferred */
+        align-items: flex-start; 
     }
+}
 
-    .cta-overlay h3 {
-        font-size: 1rem;
-    }
-    
-    .cta-overlay p {
-        font-size: 0.7rem;
-        max-width: 100%;
-    }
 
-    .cta-btn {
-        width: fit-content;
-        padding: 10px 25px;
-        background: #fff;
-        color: #000;
-        border: none;
-        border-radius: 12px;
-        font-weight: 600;
-        font-size: 0.5rem;
-        cursor: pointer;
-        transition: 0.3s;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        gap: 5px;
-    }
+/* Initial hidden states */
+.hms-reveal-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hms-reveal-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* The class that triggers the movement */
+.hms-active {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Optional: Slight delay for the second card to make it look smoother */
+.card-right.hms-active {
+    transition-delay: 0.2s;
 }

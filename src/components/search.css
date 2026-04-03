@@ -112,11 +112,7 @@
     .search-item {
         flex: 1 1 100%; 
     }
-    .search-section {
-        padding: 0 40px;
 
-    }
-    
     .search-btn {
         width: 100%;
         justify-content: center;
