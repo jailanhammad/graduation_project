@@ -4,6 +4,8 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import Vehicles from './pages/vehicles';
 import Services from "./pages/services";
+import Login from './pages/login';
+import Error from './pages/error';
 
 
 const RoutingApp = () => {
@@ -18,6 +20,12 @@ const RoutingApp = () => {
         <Route path="/Contact-us" element={<Contact />} />
         <Route path="/Vehicles" element={<Vehicles />} />
         <Route path="/Services" element={<Services />} />
+        <Route path="/Login" element={<Login />} />
+
+
+
+
+        <Route path="/*" element={<Error />} />
 
       </Routes>
     </BrowserRouter>

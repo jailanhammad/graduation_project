@@ -53,7 +53,9 @@ const Nav = () => {
             <div className='login-div'>
 
             <img src={login} className='small-icon' />
-            <a href="#" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            <a href="#" class="login-btn"><i class="fas fa-user"></i> 
+            <Link to="/Login">Login</Link>
+            </a>
 
             </div>
 

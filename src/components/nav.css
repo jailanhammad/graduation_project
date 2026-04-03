@@ -91,8 +91,6 @@ body {
     position: relative;
 }
 
-
-
 .nav-links {
     list-style: none;
     display: flex;
@@ -420,6 +418,7 @@ header {
     border-radius: 12px;
     padding: 10px 0;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
 }
 
 .dropdown:hover .dropdown-content { display: block; }
@@ -596,5 +595,25 @@ header {
     .mobile-close-li {
         order: -2; 
     }
+}
+
+.login-link {
+    text-decoration: none;
+    color: #ffffff; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-link:hover {
+    color: #d32f2f; 
+}
+a {
+    text-decoration: none !important;
+    color: inherit; 
+}
+
+a:visited {
+    color: inherit;
 }
 
