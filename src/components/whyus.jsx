@@ -3,8 +3,38 @@ import './whyus.css';
 import quality from "../assets/home/quality.svg";
 import best from "../assets/home/best.svg";
 import support from "../assets/home/support.svg";
+import { useLanguage } from '../LanguageContext';
 
 const Whyus = () => {
+
+
+    const { isArabic } = useLanguage();
+
+    const t = {
+        title: isArabic ? "لماذا تختار حماد موتورز" : "Why Choose Hammad Motors",
+        subtitle: isArabic 
+            ? "التميز ليس مجرد معيار، بل هو نقطة انطلاقنا." 
+            : "Excellence is not just a standard, it's our starting point.",
+        
+        // Feature 1
+        qTitle: isArabic ? "جودة ممتازة" : "Premium Quality",
+        qDesc: isArabic 
+            ? "تخضع كل سيارة لفحص دقيق يشمل 150 نقطة لضمان المثالية." 
+            : "Every vehicle undergoes a rigorous 150-point inspection to ensure perfection.",
+            
+        // Feature 2
+        fTitle: isArabic ? "أفضل تمويل" : "Best Financing",
+        fDesc: isArabic 
+            ? "أسعار تمويل حصرية وباقات مخصصة لتناسب أسلوب حياتك." 
+            : "Exclusive financing rates and tailored packages to suit your lifestyle.",
+            
+        // Feature 3
+        sTitle: isArabic ? "دعم عالمي" : "Global Support",
+        sDesc: isArabic 
+            ? "من خلال فروعنا المتعددة، نقدم التميز في كل مكان." 
+            : "With multiple branches, we deliver excellence everywhere.",
+    };
+
     return ( 
         <>
         
@@ -13,8 +43,8 @@ const Whyus = () => {
         <section class="why-choose-section">
     <div class="responsive-container">
         <div class="section-header-7">
-            <h2 class="title">Why Choose Hammad Motors</h2>
-            <p class="subtitle">Excellence is not just a standard, it's our starting point.</p>
+            <h2 class="title">{t.title}</h2>
+            <p class="subtitle">{t.subtitle}</p>
         </div>
 
         <div class="features-grid-2">
@@ -23,8 +53,8 @@ const Whyus = () => {
                     <i class="icon-shield"></i> 
                     <img src={quality}/>
                 </div>
-                <h3>Premium Quality</h3>
-                <p>Every vehicle undergoes a rigorous 150-point inspection to ensure perfection.</p>
+                <h3>{t.qTitle}</h3>
+                <p>{t.qDesc}</p>
             </div>
 
             <div class="feature-card">
@@ -33,8 +63,8 @@ const Whyus = () => {
                     <img src={best}/>
                     </i>
                 </div>
-                <h3>Best Financing</h3>
-                <p>Exclusive financing rates and tailored packages to suit your lifestyle.</p>
+                <h3>{t.fTitle}</h3>
+                <p>{t.fDesc}</p>
             </div>
 
             <div class="feature-card">
@@ -43,8 +73,8 @@ const Whyus = () => {
                     <img src={support}/>
                     </i>
                 </div>
-                <h3>Global Support</h3>
-                <p>With multiple branches and global shipping, we deliver excellence everywhere.</p>
+                <h3>{t.sTitle}</h3>
+                <p>{t.sDesc}</p>
             </div>
         </div>
     </div>

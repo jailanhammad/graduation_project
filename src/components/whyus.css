@@ -1,4 +1,3 @@
-/* --- Global Section Settings --- */
 .why-choose-section {
     background-color: #0c0c0c;
     padding: 20px 0px;
@@ -8,7 +7,7 @@
 }
 
 .responsive-container {
-    max-width: 1440px; /* Your requested desktop maximum */
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .section-header-7 .title {
-    font-size: clamp(24px, 5vw, 26px); /* Responsive font scaling */
+    font-size: clamp(24px, 5vw, 26px);
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -33,16 +32,13 @@
     align-content: center;
 }
 
-/* --- Features Grid Layout --- */
 .features-grid-2{
     display: grid;
-    /* Default: 1 column for Mobile */
+ 
     grid-template-columns: 1fr; 
     gap: 25px;
 
 }
-
-/* --- Feature Card Styling --- */
 .feature-card {
     background: #151515;
     padding: 40px 30px;
@@ -50,8 +46,6 @@
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: transform 0.4s ease, border-color 0.4s ease;
- 
-    /* Animation Entrance */
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s ease forwards;
@@ -60,7 +54,7 @@
 
 .feature-card:hover {
     transform: translateY(-10px);
-    border-color: #d32f2f; /* Hammad Motors Red */
+    border-color: #d32f2f; 
     background: linear-gradient(145deg, #1a1a1a, #111);
 }
 
@@ -89,7 +83,6 @@
     line-height: 1.6;
 }
 
-/* --- Keyframe Animation --- */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -97,12 +90,10 @@
     }
 }
 
-/* --- Responsive Breakpoints --- */
 
-/* Tablet (768px and up) */
 @media (min-width: 768px) {
     .features-grid-2{
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-columns: repeat(2, 1fr);
 
     }
     .section-header-7 {
@@ -111,18 +102,40 @@
  
 }
 
-/* Desktop (1024px and up) */
 @media (min-width: 1024px) {
     .features-grid-2{
-        grid-template-columns: repeat(3, 1fr); /* 3 columns matches your screenshot */
+        grid-template-columns: repeat(3, 1fr); 
         gap: 30px;
     
     }
 }
 
-/* Large Desktop (1440px) */
 @media (min-width: 1440px) {
     .why-choose-section {
         padding: 100px 0;
     }
+}
+[dir="rtl"] .section-header-7 {
+    text-align: center; 
+}
+[dir="rtl"] .title {
+    text-align: right; 
+}
+[dir="rtl"] .subtitle {
+    text-align: right;
+}
+
+
+[dir="rtl"] .feature-card {
+    text-align: center;
+}
+
+[dir="rtl"] .icon-wrapper {
+    margin-left: 0;
+}
+
+[dir="rtl"] .feature-card .icon-wrapper {
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
 }
