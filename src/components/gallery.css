@@ -188,3 +188,65 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
 }
+
+
+
+/* Fix for the missing images in Arabic */
+[dir="rtl"] .panorama-loop {
+    display: flex;
+    flex-direction: row; /* Force LTR behavior for the slider logic */
+    left: 0;
+    right: auto;
+}
+
+[dir="rtl"] .row-img {
+    display: flex;
+}
+
+/* Fix for the missing hint text */
+[dir="rtl"] .scroll-hint {
+    display: block !important;
+    visibility: visible !important;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    color: white; /* Ensure it's not black-on-black */
+}
+
+/* Fix for the red underline in Arabic */
+[dir="rtl"] .section-title-6 {
+    text-align: right;
+}
+
+[dir="rtl"] .section-title-6::after {
+    right: 10%;
+    left: auto;
+}
+
+
+/* Fix for Arabic Gallery Layout */
+[dir="rtl"] .gallery-section {
+    text-align: right;
+    padding-right: 50px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .section-title-6::after {
+    right: 0;
+    left: auto;
+}
+
+/* Forces the container to stay visible when the site flips */
+[dir="rtl"] .container-6 {
+    margin: 0 auto;
+    direction: ltr !important; 
+}
+
+/* Ensures hint text is centered and visible */
+[dir="rtl"] .scroll-hint {
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: white;
+}

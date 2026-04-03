@@ -124,3 +124,14 @@
         height: 180px;
     }
 }
+
+[dir="rtl"] .car-name {
+    direction: rtl;
+    unicode-bidi: embed;
+    text-align: right;
+}
+[dir="rtl"] .car-count {
+    direction: rtl;
+    unicode-bidi: embed;
+    text-align: right;
+}
