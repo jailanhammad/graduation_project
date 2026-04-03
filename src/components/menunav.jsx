@@ -1,5 +1,5 @@
 import React from 'react';
-import './aboutnav.css';
+import './menunav.css';
 import { Link } from "react-router-dom";
 import logo from "../assets/home/logo.svg";
 import phone from "../assets/home/phone.svg";
@@ -10,12 +10,12 @@ import music from "../assets/home/music.svg";
 import dark from "../assets/home/darkmood.svg";
 import translate from "../assets/home/translate.svg";
 
-
-const AboutNav = () => {
+const Menunav = () => {
     return ( 
-
-<>
-<header class="header">
+        <>
+        
+        
+        <header class="header">
     
     <div class="top-bar">
 
@@ -74,7 +74,7 @@ const AboutNav = () => {
                 <li><a href="#" >
                 <Link to="/">Home</Link>
                 </a></li>
-                <li><a href="#" class="active">
+                <li><a href="#" >
                 <Link to="/About-us">About</Link>
                 </a></li>
                 
@@ -87,7 +87,7 @@ const AboutNav = () => {
 
 
                 <li class="dropdown">
-                <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+                <a href="#" class="active">Menu <i class="fas fa-caret-down"></i></a>
 
                 <ul class="dropdown-content">
                     
@@ -106,7 +106,7 @@ const AboutNav = () => {
                     <li><a href="#brands">Brands</a></li>
                     <li><a href="#services">                    
                     <Link to="/Services">Services</Link>
-                    </a></li>                    
+                    </a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#most-sold">Most sold</a></li>
                     <li><a href="#installments">Installments</a></li>
@@ -134,12 +134,15 @@ const AboutNav = () => {
     
 </header>
 
-
-</>
-
+        
+        
+        
+        
+        
+        
+        
+        </>
      );
 }
-
-
  
-export default AboutNav;
+export default Menunav;
