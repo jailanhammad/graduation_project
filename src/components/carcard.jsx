@@ -26,8 +26,8 @@ const Carcard = (props) => {
                     </div>
 
                     <div class="hmv-action-row">
-                        <a href="#" class="hmv-btn-outlined">{props.btn1}</a>
-                        <a href="#" class="hmv-btn-outlined">{props.btn2}</a>
+                        <a href="#" class="btn-outlined">{props.btn1}</a>
+                        <a href="#" class="btn-outlined">{props.btn2}</a>
                     </div>
                 </div>
             </article>

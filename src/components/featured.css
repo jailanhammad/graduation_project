@@ -1,112 +1,97 @@
 
 .featured-vehicles {
-    background-color: #0c0c0c;
+    background: #0a0a0a;
+    padding: 80px 20px;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
-    padding: 60px 0;
-    display: flex;
-    flex-direction: column;
 }
 
 .container-3 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
 }
-.view{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-.section-header {
+
+.section-header-0 {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 420px;
+    align-items: flex-end; 
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 20px;
+    gap: 900px;
 }
 
 .section-title {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     position: relative;
-    padding-bottom: 10px;
 }
 
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -21px;
     left: 0;
     width: 60px;
     height: 3px;
-    background-color: #d32f2f; 
+    background: #d32f2f; 
 }
 
-.view-all {
-    color: #d32f2f;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.view-all i {
-    margin-left: 8px;
-    transition: transform 0.3s ease;
-}
-.next-icon{
-    width: 18px;
-    height: 18px;
-}
-.view-all:hover {
-    color: #fff;
-}
-
-.view-all:hover i {
-    transform: translateX(5px);
-}
-
-.vehicle-grid-2{
+.view {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    align-content: center;
-    width: 95%;
     gap: 10px;
-
 }
 
+.view-all-2 {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.view-all-2:hover {
+    color: #d32f2f;
+}
+
+.next-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.vehicle-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
 
 .vehicle-card {
-    background-color: #1a1a1a;
-    border-radius: 12px;
+    background: #111;
+    border-radius: 15px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    margin-top: 40px;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-
 .vehicle-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+    border-color: #d32f2f;
 }
 
 .card-image-wrap {
     width: 100%;
-    height: 180px;
+    height: 200px;
     overflow: hidden;
 }
 
 .vehicle-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.vehicle-card:hover .vehicle-img {
+    transform: scale(1.1);
 }
 
 .card-content {
@@ -114,126 +99,73 @@
 }
 
 .card-content h3 {
-    font-size: 16px;
+    font-size: 18px;
+    margin-bottom: 10px;
     font-weight: 600;
-    margin-bottom: 5px;
-    color: #fff;
 }
 
 .specs {
-    font-size: 11px;
-    color: #bbb;
-    margin-bottom: 15px;
-    font-weight: 300;
-}
-
-.specs span {
-    margin: 0 2px;
-}
-
-.price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 12px;
+    color: #666;
     margin-bottom: 20px;
 }
 
 .price {
     color: #d32f2f;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-}
-
-.car-icon {
-    width: 20px;
-    height: auto;
-    opacity: 0.7;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .view-details-btn {
     display: block;
-    width: 100%;
-    padding: 12px;
     text-align: center;
-    background: none;
+    padding: 10px;
     border: 1px solid #333;
-    border-radius: 25px;
+    border-radius: 50px;
     color: #fff;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 400;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 13px;
+    transition: 0.3s;
 }
 
 .view-details-btn:hover {
-    background-color: #333;
-    border-color: #333;
+    background: #fff;
+    color: #000;
 }
 
-@media (max-width: 1024px) {
-    
-    .section-title {
-        font-size: 28px;
+
+@media (max-width: 1200px) {
+    .vehicle-grid-2 { grid-template-columns: repeat(3, 1fr); 
     }
-    .card-content {
-        padding: 20px 20px;
+    .section-header-0 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; 
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 20px;
+        gap: 750px;
     }
+}
+
+@media (max-width: 900px) {
+    .vehicle-grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .section-header-0 { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+@media (max-width: 600px) {
+    .vehicle-grid-2 { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
-    .section-title {
-        font-size: 24px;
-    }
-    .featured-vehicles {
-        padding: 30px 0;
-    }
-
-    .section-header {
+    .section-header-0{
         flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-        margin-left: 20px;
-    }
-
-    .vehicle-grid-2{
-        grid-template-columns: 1fr;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
-    .view-all {
-        color: #d32f2f;
-        text-decoration: none;
-        font-size: 10px;
-        font-weight: 500;
-        transition: color 0.3s ease;
+        align-items: flex-start; 
     }
     
-    .next-icon{
-        width: 16px;
-        height: 16px;
-    }
-    .vehicle-card {
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    margin-top: 40px;
-    width: 90%;
-}
-    .card-image-wrap {
-        height: 200px; 
-    }
-
-    .view-all {
-        font-size: 13px;
-    }
-    .card-content {
-        padding: 20px 20px;
+    .view {
+        margin-top: 10px;
     }
 }
-
-

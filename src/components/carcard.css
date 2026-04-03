@@ -108,19 +108,20 @@
     gap: 15px;
 }
 
-.hmv-btn-outlined {
+.btn-outlined {
     padding: 10px 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: white;
     border-radius: 8px;
     font-size: 13px;
     font-weight: 500;
     text-align: center;
+    text-decoration: none;
 }
 
-.hmv-btn-outlined:hover {
+.btn-outlined:hover {
     background: #fff;
-    color: #000;
+    color: #000000;
     border-color: #fff;
 }
 
@@ -270,7 +271,7 @@
         font-size: 12px;
     }
     
-    .hmv-btn-outlined {
+    .btn-outlined {
         padding: 8px 15px;
         font-size: 12px;
     }
