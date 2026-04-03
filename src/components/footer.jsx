@@ -8,8 +8,39 @@ import wp from "../assets/home/wp.svg";
 import loc from "../assets/home/loc.svg";
 import mobile2 from "../assets/home/mobile2.svg";
 import email2 from "../assets/home/email2.svg";
+import { useLanguage } from '../LanguageContext';
 
 const Footer = () => {
+
+
+    const { isArabic } = useLanguage();
+
+    const t = {
+        brand: isArabic ? "حماد موتورز" : "HAMMAD MOTORS",
+        desc: isArabic 
+            ? "شريكك الموثوق للعثور على السيارة المثالية. نقدم مجموعة واسعة من السيارات الفاخرة مع خدمة استثنائية." 
+            : "Your trusted partner for finding the perfect vehicle. We offer a wide range of premium cars with exceptional service.",
+        
+        col1Title: isArabic ? "روابط سريعة" : "Quick Links",
+        about: isArabic ? "من نحن" : "About Us",
+        allVehicles: isArabic ? "كل السيارات" : "All Vehicles",
+        services: isArabic ? "خدماتنا" : "Our Services",
+        contact: isArabic ? "اتصل بنا" : "Contact Us",
+        privacy: isArabic ? "سياسة الخصوصية" : "Privacy Policy",
+
+        col2Title: isArabic ? "معلومات الاتصال" : "Contact Info",
+        address: isArabic ? "١٥ عمار بن ياسر، مصر الجديدة" : "15 Ammar ibn yasser, Masr El Gdida",
+        phone: "+02 01000444401",
+
+        col3Title: isArabic ? "النشرة الإخبارية" : "Newsletter",
+        newsletterText: isArabic ? "اشترك في نشرتنا الإخبارية للحصول على أحدث التحديثات والعروض." : "Subscribe to our newsletter for the latest updates and offers.",
+        placeholder: isArabic ? "عنوان بريدك الإلكتروني" : "Your Email Address",
+        subscribe: isArabic ? "اشترك الآن" : "Subscribe Now",
+
+        copyright: isArabic ? "٢٠٢٦ حماد موتورز. جميع الحقوق محفوظة." : " 2026 Hammad Motors. All rights reserved.",
+        terms: isArabic ? "الشروط والأحكام" : "Terms & Conditions"
+    };
+
     return (
         <>
         
@@ -21,10 +52,10 @@ const Footer = () => {
             <div class="footer-col branding">
                 <div class="footer-logo">
                 <img src={logo} className='logo-svg'/>
-                    <span class="logo-text">HAMMAD MOTORS</span>
+                    <span class="logo-text">{t.brand}</span>
                 </div>
                 <p class="footer-desc">
-                    Your trusted partner for finding the perfect vehicle. We offer a wide range of premium cars with exceptional service.
+                {t.desc}
                 </p>
                 <div class="social-links">
                     <a href="#"><i class="fab">
@@ -43,25 +74,25 @@ const Footer = () => {
             </div>
 
             <div class="footer-col">
-                <h4 class="col-title">Quick Links</h4>
+                <h4 class="col-title">{t.col1Title}</h4>
                 <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">All Vehicles</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">{t.about}</a></li>
+                    <li><a href="#">{t.allVehicles}</a></li>
+                    <li><a href="#">{t.services}</a></li>
+                    <li><a href="#">{t.contact}</a></li>
+                    <li><a href="#">{t.privacy}</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h4 class="col-title">Contact Info</h4>
+                <h4 class="col-title">{t.col2Title}</h4>
                 <ul class="contact-list">
                     <li><i class="fas fa-map-marker-alt">
                     <img src={loc} className='fb-svg'/>
-                    </i>15 Ammar ibn yasser, Masr El Gdida</li>
+                    </i>{t.address}</li>
                     <li><i class="fas fa-phone-alt">
                     <img src={mobile2} className='fb-svg'/>
-                    </i> +02 01000444401</li>
+                    </i> {t.phone}</li>
                     <li><i class="fas fa-envelope">
                     <img src={email2} className='fb-svg'/>
                     </i> mahmoud@hammadmotors.com</li>
@@ -69,20 +100,20 @@ const Footer = () => {
             </div>
 
             <div class="footer-col">
-                <h4 class="col-title">Newsletter</h4>
-                <p class="newsletter-text">Subscribe to our newsletter for the latest updates and offers.</p>
+                <h4 class="col-title">{t.col3Title}</h4>
+                <p class="newsletter-text">{t.newsletterText}</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Your Email Address" required/>
-                    <button type="submit" class="btn-subscribe">Subscribe Now</button>
+                    <input type="email" placeholder={t.placeholder} required/>
+                    <button type="submit" class="btn-subscribe">{t.subscribe}</button>
                 </form>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Hammad Motors. All rights reserved.</p>
+            <p>&copy;{t.copyright}</p>
             <div class="bottom-links">
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
+                <a href="#">{t.terms}</a>
+                <a href="#">{t.privacy}</a>
             </div>
         </div>
     </div>

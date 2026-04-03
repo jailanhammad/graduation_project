@@ -1,4 +1,3 @@
-/* --- Section Basics --- */
 .reviews-section {
     background-color: #200505;
     padding: 60px 0;
@@ -12,7 +11,6 @@
     padding: 0 40px;
 }
 
-/* --- Header & Nav Arrows --- */
 .reviews-header {
     display: flex;
     justify-content: space-between;
