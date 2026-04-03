@@ -66,7 +66,12 @@ const Nav = () => {
         
         
         <div class="container">
-        <img src={logo} className='logo-svg'/>
+            <div className='word-logo'>
+            <img src={logo} className='logo-svg'/>
+            <h1 className='word-logo-text'>HAMMAD MOTORS</h1>
+            </div>
+     
+
 
             <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
             <label for="menu-toggle" class="hamburger">
