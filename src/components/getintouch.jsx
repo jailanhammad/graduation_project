@@ -67,7 +67,7 @@ const Getintouch = () => {
                 <div class="info-text">
                     <h4>Phone</h4>
                     <span>+02 01000444401</span>
-                    <span>+02 01000024471</span>
+                    <span>+02 01000004471</span>
                 </div>
             </div>
 

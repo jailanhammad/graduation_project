@@ -596,3 +596,39 @@ header {
         order: -2; 
     }
 }
+
+@media (max-width: 992px) {
+    .hamburger {
+        display: flex; 
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #0a0a0a;
+        flex-direction: column;
+        padding: 80px 40px;
+        transition: 0.4s ease-in-out;
+        align-items: flex-start; 
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    #menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
+
+    .dropdown-content {
+        position: static;
+        display: block;
+        background: transparent;
+        padding-left: 20px;
+        box-shadow: none;
+        border: none;
+    }
+}

@@ -3,6 +3,7 @@ import './reviews.css';
 import revpic from "../assets/home/rev-pic.svg";
 import white from "../assets/home/white-arrow.svg";
 import black from "../assets/home/black-arrow.svg";
+import girl from "../assets/home/girl.svg";
 
 const Reviews = () => {
     return ( 
@@ -38,7 +39,7 @@ const Reviews = () => {
                     <div class="user-info">
                         <img src={revpic} alt="John Doe" class="avatar"/>
                         <div class="name-stars">
-                            <h3>John Doe</h3>
+                            <h3>Mohamed Ali</h3>
                             <div class="stars">★★★★★</div>
                         </div>
                     </div>
@@ -52,17 +53,16 @@ const Reviews = () => {
             <div class="review-card">
                 <div class="card-header">
                     <div class="user-info">
-                        <img src={revpic} alt="John Doe" class="avatar"/>
+                        <img src={girl} alt="John Doe" class="avatar"/>
                         <div class="name-stars">
-                            <h3>John Doe</h3>
+                            <h3>Salma Ahmed</h3>
                             <div class="stars">★★★★★</div>
                         </div>
                     </div>
                     <i class="fas fa-quote-right quote-icon"></i>
                 </div>
                 <p class="review-text">
-                    "Great service! The team was very professional and helped me find the perfect car for my needs. Highly recommended!"
-                </p>
+                “Buying my first car was easy and stress-free. Everything was clear and organized.”                </p>
             </div>
         </div>
 

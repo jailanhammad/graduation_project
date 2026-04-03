@@ -5,6 +5,7 @@ import sedan from "../assets/home/sedan.svg";
 import hybrid from "../assets/home/hybrid.svg";
 import convert from "../assets/home/convert.svg";
 import hatchback from "../assets/home/hatchback.svg";
+import { Link } from "react-router-dom";
 
 const Browse = () => {
 
@@ -33,10 +34,16 @@ const Browse = () => {
               style={{ animationDelay: `${(index + 1) * 0.1}s` }}
             >
               <img src={cat.img} alt={cat.name} className="type-bg" />
+  
+              <Link to="/Vehicles">
+
               <div className="type-overlay">
                 <span className="car-count">{cat.count} Cars</span>
                 <h3 className="car-name">{cat.name}</h3>
               </div>
+
+              </Link>
+
             </div>
           ))}
         </div>

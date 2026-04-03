@@ -102,11 +102,11 @@ const ContactNav = () => {
                     <li><a href="#brands">                
                     <Link to="/Vehicles">Vehicles</Link>
                     </a></li>
-                    <li><a href="#brands">Brands</a></li>
                     <li><a href="#services">                    
                     <Link to="/Services">Services</Link>
                     </a></li>                    
                     <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#brands">Brands</a></li>
                     <li><a href="#most-sold">Most sold</a></li>
                     <li><a href="#installments">Installments</a></li>
                     <li><a href="#test-drive">Test drive</a></li>
