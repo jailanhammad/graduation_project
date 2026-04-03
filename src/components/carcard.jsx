@@ -1,7 +1,6 @@
 import React from 'react';
 import './carcard.css'
 
-
 const Carcard = (props) => {
 
     const getTagColor = () => {

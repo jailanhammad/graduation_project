@@ -62,7 +62,7 @@ const Featured = () => {
 
             <div class="vehicle-card">
                 <div class="card-image-wrap">
-                <img src={mercedes} className='vehicle-img' alt="Porsche 911 GT3 RS" />
+                <img src={mercedes} className='vehicle-img' alt="Mercedes C180 2023" />
                 </div>
                 <div class="card-content">
                     <h3>{t.carname}</h3>
@@ -80,7 +80,7 @@ const Featured = () => {
 
             <div class="vehicle-card">
                 <div class="card-image-wrap">
-                <img src={rover} className='vehicle-img' alt="Porsche 911 GT3 RS" />
+                <img src={rover} className='vehicle-img' alt="Range Rover Evouqe 2020" />
                 </div>
                 <div class="card-content">
                 <h3>{t.carname2}</h3>
@@ -98,7 +98,7 @@ const Featured = () => {
 
             <div class="vehicle-card">
                 <div class="card-image-wrap">
-                <img src={c180} className='vehicle-img' alt="Porsche 911 GT3 RS" />
+                <img src={c180} className='vehicle-img' alt="Mercedes C180 2018" />
                 </div>
                 <div class="card-content">
                 <h3>{t.carname3}</h3>
@@ -116,7 +116,7 @@ const Featured = () => {
 
             <div class="vehicle-card">
                 <div class="card-image-wrap">
-                <img src={bmw} className='vehicle-img' alt="Porsche 911 GT3 RS" />
+                <img src={bmw} className='vehicle-img' alt="Bmw 318 2018" />
                 </div>
                 <div class="card-content">
                 <h3>{t.carname4}</h3>
