@@ -6,8 +6,9 @@
 }
 
 .hmo-container {
-    max-width: 1200px;
+    max-width: 1350px;
     margin: 0 auto;
+
 }
 
 .hmo-sub-label {
@@ -16,24 +17,22 @@
     font-size: 30px;
     margin-bottom: 50px;
     font-weight: 700;
-    text-align: left; /* Aligns with your screenshot */
+    text-align: left;
 }
 
-/* Grid System - 3 columns on Desktop, 1 on Mobile */
 .hmo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
-/* Card Styling with your Screenshot's Gradient */
 .hmo-card {
     background: linear-gradient(145deg, #1a0505 0%, #0a0a0a 100%);
     padding: 50px 30px;
     border-radius: 25px;
     border: 1px solid #221010;
     transition: transform 0.4s ease, border-color 0.4s ease;
-    opacity: 0; /* For animation */
+    opacity: 0; 
 }
 
 .hmo-card:hover {
@@ -41,7 +40,6 @@
     border-color: #d32f2f;
 }
 
-/* Icon Styling */
 .hmo-icon-circle {
     width: 80px;
     height: 80px;
@@ -70,7 +68,6 @@
     line-height: 1.6;
 }
 
-/* --- ANIMATIONS --- */
 @keyframes hmoFadeUp {
     from {
         opacity: 0;
@@ -86,16 +83,13 @@
     animation: hmoFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
 
-/* Tablet (2 columns) */
 @media (max-width: 992px) {
     .hmo-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Mobile (1 column) */
 @media (max-width: 600px) {
     .hmo-grid {
         grid-template-columns: 1fr;
@@ -110,9 +104,6 @@
     }
 }
 
-
-
-
 .hmo-card {
     position: relative;
     background: linear-gradient(145deg, #1a0505 0%, #0a0a0a 100%);
@@ -122,7 +113,6 @@
     transition: 0.4s ease;
 }
 
-/* 1. Hide the image by default */
 .hmo-hover-img {
     position: absolute;
     top: 0;
@@ -131,12 +121,11 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0; /* <--- CRITICAL: Hidden by default */
+    opacity: 0; 
     transition: opacity 0.5s ease-in-out;
     z-index: 1;
 }
 
-/* 2. Add a dark tint over the image so text stays readable */
 .hmo-hover-img::after {
     content: '';
     position: absolute;
@@ -144,19 +133,16 @@
     background: rgba(0, 0, 0, 0.376); 
 }
 
-/* 3. Ensure content stays on top of the image */
 .hmo-card-content {
     position: relative;
-    z-index: 2; /* High z-index to stay above hmo-hover-img */
+    z-index: 2; 
     padding: 50px 30px;
 }
 
-/* 4. THE HOVER TRIGGER: Show image ONLY on hover */
 .hmo-card:hover .hmo-hover-img {
     opacity: 1;
 }
 
-/* Optional: Slight lift effect on hover */
 .hmo-card:hover {
     transform: translateY(-10px);
     border: 1px solid #d32f2f;

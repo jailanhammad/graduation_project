@@ -1,0 +1,177 @@
+.hms-sell-section {
+    background-color: #111; 
+    padding: 100px 20px;
+    color: #fff;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+.hms-sell-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hms-sell-image-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.hms-main-img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+}
+
+.hms-trusted-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: #fff;
+    color: #000;
+    padding: 25px 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hms-trusted-badge h2 { font-size: 32px; font-weight: 800; margin: 0; }
+.hms-trusted-badge p { font-size: 14px; margin: 0; color: #666; font-weight: 600; }
+
+.hms-sell-content {
+    flex: 1;
+}
+
+.hms-sell-title { font-size: 42px; font-weight: 700; margin-bottom: 5px; }
+.hms-sell-subtitle { color: #ED1C24; font-size: 24px; margin-bottom: 20px; }
+.hms-sell-description { color: #aaa; line-height: 1.6; margin-bottom: 30px; }
+
+.hms-sell-features { list-style: none; padding: 0; margin-bottom: 40px; }
+.hms-sell-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #ddd;
+    font-size: 16px;
+}
+
+.hms-sell-features i { color: #fff; font-size: 20px; }
+
+.hms-whatsapp-btn {
+    background: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hms-whatsapp-btn i { color: #25D366; font-size: 20px; }
+.hms-whatsapp-btn:hover { background: #222; transform: translateY(-3px); border-color: #25D366; }
+
+@keyframes revealLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes revealRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.hms-reveal-left { animation: revealLeft 1s ease-out forwards; }
+.hms-reveal-right { animation: revealRight 1s ease-out forwards; }
+
+
+@media (max-width: 1024px) {
+    .hms-sell-container { gap: 30px; }
+    .hms-sell-title { font-size: 34px; }
+}
+
+@media (max-width: 768px) {
+    .hms-sell-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hms-sell-image-wrapper { width: 90%; margin-bottom: 40px; }
+
+    .hms-trusted-badge {
+        right: 50%;
+        transform: translateX(50%); 
+        bottom: -30px;
+        padding: 15px 25px;
+    }
+
+    .hms-sell-features li { justify-content: center; }
+    .hms-whatsapp-btn { margin: 0 auto; }
+}
+
+
+.hms-hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1s ease-out;
+}
+
+.hms-from-left {
+    transform: translateX(-100px);
+}
+
+.hms-from-right {
+    transform: translateX(100px);
+}
+
+.hms-from-bottom {
+    transform: translateY(50px);
+}
+
+.hms-show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0);
+}
+
+.hms-show .hms-trusted-badge {
+    animation: hms-pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation-delay: 0.8s;
+}
+
+@keyframes hms-pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.hms-sell-features li.hms-show {
+    transform: translateY(0);
+}
+.hms-whatsapp-btn:hover {
+    background: #25D366; 
+    color: #fff;
+    border-color: #25D366;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    transform: translateY(-5px);
+}
+
+.hms-whatsapp-btn:hover i {
+    color: #fff; 
+}
+
+.hms-whatsapp-link {
+    text-decoration: none !important;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.hms-whatsapp-btn {
+    cursor: pointer;
+}

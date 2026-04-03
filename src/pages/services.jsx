@@ -3,6 +3,7 @@ import './services.css';
 import Menunav from '../components/menunav';
 import Serviceshero from '../components/serviceshero';
 import Weoffer from '../components/weoffer';
+import Sell from '../components/sell';
 
 const Services = () => {
 
@@ -13,6 +14,7 @@ const Services = () => {
         <Menunav />
         <Serviceshero />
         <Weoffer />
+        <Sell />
 
 
         
