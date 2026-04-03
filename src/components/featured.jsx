@@ -1,12 +1,7 @@
 import React from 'react';
-import './featured.css';
-import img1 from "../assets/home/img1.svg";
-import img2 from "../assets/home/img2.svg";
-import img3 from "../assets/home/img3.svg";
-import img4 from "../assets/home/img4.svg";
-import next from "../assets/home/next.svg";
 import { Link } from "react-router-dom";
-
+import './featured.css';
+import next from "../assets/home/next.svg";
 import mercedes from "../assets/vehicles/mercedes.svg";
 import rover from "../assets/vehicles/rover.svg";
 import c180 from "../assets/vehicles/c180.svg";
@@ -20,7 +15,7 @@ const Featured = () => {
 
         <div class="section-header-0">
             <h2 class="section-title">Featured Vehicles</h2>
-            <div className='view'>
+            <div className='view-2'>
             <a href="#" class="view-all-2">
             <Link to="/Vehicles">View All Inventory</Link>
             <i class="fas fa-arrow-right"></i></a>
@@ -46,7 +41,7 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">2,800,000 LE</span>
                     </div>
-                    <a href="#" class="view-details-btn">View Details</a>
+                    <a href="#" class="view-details-btn-2">View Details</a>
                 </div>
             </div>
 
@@ -64,7 +59,7 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">2,600,000 LE</span>
                     </div>
-                    <a href="#" class="view-details-btn">View Details</a>
+                    <a href="#" class="view-details-btn-2">View Details</a>
                 </div>
             </div>
 
@@ -82,7 +77,7 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">1,950,000 LE</span>
                     </div>
-                    <a href="#" class="view-details-btn">View Details</a>
+                    <a href="#" class="view-details-btn-2">View Details</a>
                 </div>
             </div>
 
@@ -100,7 +95,7 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">1,350,000 LE</span>
                     </div>
-                    <a href="#" class="view-details-btn">View Details</a>
+                    <a href="#" class="view-details-btn-2">View Details</a>
                 </div>
             </div>
 

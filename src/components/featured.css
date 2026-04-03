@@ -36,7 +36,7 @@
     background: #d32f2f; 
 }
 
-.view {
+.view-2 {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -118,7 +118,7 @@
     margin-bottom: 20px;
 }
 
-.view-details-btn {
+.view-details-btn-2 {
     display: block;
     text-align: center;
     padding: 10px;
@@ -130,7 +130,7 @@
     transition: 0.3s;
 }
 
-.view-details-btn:hover {
+.view-details-btn-2:hover {
     background: #fff;
     color: #000;
 }
@@ -165,7 +165,7 @@
         align-items: flex-start; 
     }
     
-    .view {
+    .view-2 {
         margin-top: 10px;
     }
 }

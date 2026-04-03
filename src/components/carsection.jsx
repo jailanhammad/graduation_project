@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import './carsection.css';
+import { Link } from "react-router-dom";
+
 import car1 from "../assets/home/car1.svg";
 import car2 from "../assets/home/car2.svg";
 import up from "../assets/home/up.svg";
@@ -36,7 +38,8 @@ const Cars = () => {
                         <h3>Are You Looking <br/> For a Car?</h3>
                         <p>We are committed to providing our customers with exceptional service.</p>
                         <button className="cta-btn">
-                            Get Started <img src={up} className='up-icon' alt="up" />
+                        <Link to="/Vehicles">Get Started</Link>
+                        <img src={up} className='up-icon' alt="up" /> 
                         </button>
                     </div>
                 </div>
@@ -47,7 +50,8 @@ const Cars = () => {
                         <h3 className='h3'>Do You Want to <br/> Sell a Car?</h3>
                         <p>We are committed to providing our customers with exceptional service.</p>
                         <button className="cta-btn">
-                            Get Started <img src={up} className='up-icon' alt="up" />
+                        <Link to="/Services">Get Started</Link>
+                        <img src={up} className='up-icon' alt="up" /> 
                         </button>
                     </div>
                 </div>

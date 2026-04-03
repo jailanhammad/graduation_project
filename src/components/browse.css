@@ -1,91 +1,96 @@
 
 .browse-section {
-    background-color: #0c0c0c;
-    padding: 10px 0;
-    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    padding: 80px 20px;
     color: #fff;
+    overflow: hidden;
 }
 
-.container-4{
+.container-4 {
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.section-title-4{
-    font-size: 26px;
+.section-title-4 {
+    font-size: 32px;
     font-weight: 700;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
 }
 
-/* Red accent line from Hammad Motors design */
 .section-title-4::after {
     content: '';
     position: absolute;
-    bottom: -12px;
+    bottom: 0;
     left: 0;
-    width: 70px;
+    width: 60px;
     height: 4px;
     background: #d32f2f;
+    border-radius: 2px;
 }
 
-/* Desktop: 5 Columns */
 .type-grid {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
 }
 
 .type-card {
     position: relative;
-    width: 90%;
-    border-radius: 15px;
+    height: 220px;
+    border-radius: 20px;
     overflow: hidden;
+    background: #111;
     cursor: pointer;
-    /* background: #1a1a1a; */
-    
-    /* Animation Entrance */
-    opacity: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+        opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.6s ease forwards;
 }
 
 .type-bg {
-    position: absolute;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 1;
+    transition: transform 0.5s ease;
+    opacity: 0.7; 
 }
 
 .type-overlay {
     position: absolute;
-    inset: 0;
-    padding: 25px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     z-index: 2;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 40%);
+    text-align: left; 
 }
 
 .car-count {
-    font-size: 13px;
-    color: #bbb;
     display: block;
+    font-size: 12px;
+    color: #d32f2f;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .car-name {
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
 }
 
-/* Hover Zoom Effect */
 .type-card:hover .type-bg {
-    transform: scale(1.15);
-    border-radius: 15px;
+    transform: scale(1.1);
+    opacity: 1;
+}
 
+.type-card:hover {
+    border-color: #d32f2f;
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.2);
 }
 
 @keyframes fadeInUp {
@@ -95,38 +100,27 @@
     }
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
 
-/* Tablet: 1024px */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
     .type-grid {
-        grid-template-columns: repeat(3, 1fr); /* Snaps to 3 columns */
-        gap: 25px;
-    }
-    .type-card {
-        height: 260px;
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
 
-/* Mobile: 768px */
 @media (max-width: 768px) {
     .type-grid {
         grid-template-columns: repeat(2, 1fr);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
+    }
+    .section-title-4 {
+        font-size: 26px;
     }
 }
 
-/* Small Mobile: 480px */
 @media (max-width: 480px) {
     .type-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; 
     }
-    .section-title-4{
-        font-size: 22px;
+    .type-card {
+        height: 180px;
     }
 }
-
