@@ -9,10 +9,10 @@ const FloatingContact = () => {
     return (
         <div className={`floating-container ${isOpen ? 'open' : ''}`}>
             <div className="phone-menu">
-                <a href="tel:0201000444401" className="phone-link">
+                <a href="tel:01000444401" className="phone-link">
                     01000444401
                 </a>
-                <a href="tel:0201000004471" className="phone-link">
+                <a href="tel:01000004471" className="phone-link">
                     01000004471
                 </a>
             </div>
