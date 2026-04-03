@@ -1,0 +1,10 @@
+.music-active {
+    color: #d32f2f !important;
+    animation: musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+    0% { transform: scale(1); text-shadow: 0 0 0px #d32f2f; }
+    50% { transform: scale(1.2); text-shadow: 0 0 10px #d32f2f; }
+    100% { transform: scale(1); text-shadow: 0 0 0px #d32f2f; }
+}

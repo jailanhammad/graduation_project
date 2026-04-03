@@ -1,5 +1,4 @@
-import React from 'react';
-import './nav.css';
+import React, { useState, useEffect } from 'react';import './nav.css';
 import { Link } from "react-router-dom";
 import logo from "../assets/home/logo.svg";
 import phone from "../assets/home/phone.svg";
@@ -16,6 +15,18 @@ import h2 from "../assets/home/h2.svg";
 import heroo from "../assets/home/heroo.svg";
 
 const Nav = () => {
+
+    const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+useEffect(() => {
+    const checkStatus = (e) => {
+        setIsMusicPlaying(e.detail);
+    };
+    window.addEventListener('music-status', checkStatus);
+    return () => window.removeEventListener('music-status', checkStatus);
+}, []);
+
+
     return ( 
 
 <>
@@ -42,7 +53,22 @@ const Nav = () => {
 
             <div class="utility-icons">
 
-            <img src={music} className='small-icon' />
+    
+            <button 
+                onClick={() => window.dispatchEvent(new Event('toggle-music'))}
+                style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+                {isMusicPlaying ? (
+                    <i className="fas fa-music">
+                        <img src={music}  className='small-icon' />
+                    </i>
+                ) : (
+                    <i className="fas fa-volume-mute">
+                        <img src={music}  className='small-icon' />
+                    </i>
+                )}
+            </button>
+
             <img src={dark}  className='small-icon' />
             <img src={translate}  className='small-icon'/>
 

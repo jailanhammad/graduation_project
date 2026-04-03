@@ -92,6 +92,9 @@ body {
     transition: opacity 0.3s;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     gap: 10px;
 }
 .logo-svg{
@@ -685,3 +688,25 @@ a:visited {
         border: none;
     }
 }
+
+
+.music-active {
+    color: #d32f2f !important;
+    animation: musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+    0% { transform: scale(1); text-shadow: 0 0 0px #d32f2f; }
+    50% { transform: scale(1.2); text-shadow: 0 0 10px #d32f2f; }
+    100% { transform: scale(1); text-shadow: 0 0 0px #d32f2f; }
+}
+
+.fa-music {
+    animation: musicBounce 1.2s infinite ease-in-out;
+}
+
+@keyframes musicBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
