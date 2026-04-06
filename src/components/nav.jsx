@@ -175,7 +175,7 @@ useEffect(() => {
                     <li><a href="#services">                    
                     <Link to="/Services">{t.services}</Link>
                     </a></li>                    
-                    <li><a href="#reviews">{t.reviews}</a></li>
+                    <Link to="/Reviews">{t.reviews}</Link>
                     <li><a href="#brands">{t.brands}</a></li>
                     <li><a href="#most-sold">{t.mostsold}</a></li>
                     <li><a href="#installments">{t.installments}</a></li>

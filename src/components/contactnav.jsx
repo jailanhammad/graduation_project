@@ -105,7 +105,7 @@ const ContactNav = () => {
                     <li><a href="#services">                    
                     <Link to="/Services">Services</Link>
                     </a></li>                    
-                    <li><a href="#reviews">Reviews</a></li>
+                    <Link to="/Reviews">Reviews</Link>
                     <li><a href="#brands">Brands</a></li>
                     <li><a href="#most-sold">Most sold</a></li>
                     <li><a href="#installments">Installments</a></li>
