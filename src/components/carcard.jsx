@@ -18,7 +18,7 @@ const Carcard = (props) => {
                     <span class="hmv-tag" style={{ backgroundColor: getTagColor() }}>{props.stock}</span>
                 </div>
                 <div class="hmv-car-details">
-                    <h4>{props.carname}</h4>
+                    <h4>{props.carname} {props.carmodel} </h4>
                     <div class="hmv-spec-row">
                         <span><i class="fas fa-gas-pump"></i>{props.kilometer}</span>
                         <span><i class="fas fa-cog"></i>{props.category}</span>
