@@ -1,23 +1,23 @@
 import React from 'react';
 import './allcars.css';
 import hero from "../assets/gallery/back.svg";
-import velar from "../assets/gallery/velar.png";
-import mercedes from "../assets/gallery/mercedes.png";
-import glc from "../assets/gallery/glc.png";
-import bmw from "../assets/gallery/bmw.png";
 import video from '../assets/gallery/Hammad Video.mp4';
 import img from "../assets/gallery/front.png";
-import tosan from "../assets/gallery/tosan.png";
-import rangler from "../assets/gallery/rangler.png";
-import cn7 from "../assets/gallery/cn7.png";
-import c180 from "../assets/gallery/c180.png";
-import jeep from "../assets/gallery/jeep.png";
-import cetro from "../assets/gallery/cetro.png";
-import evouqe from "../assets/gallery/evouqe.png";
-import cap from "../assets/gallery/cap.png";
-import captiva from "../assets/gallery/captiva.png";
-import c200 from "../assets/gallery/c200.png";
-import s from "../assets/gallery/s.png";
+import img1 from "../assets/gallery/img1.png";
+import img2 from "../assets/gallery/img2.png";
+import img3 from "../assets/gallery/img3.png";
+import img4 from "../assets/gallery/img4.png";
+import img5 from "../assets/gallery/img5.png";
+import img6 from "../assets/gallery/img6.png";
+import img7 from "../assets/gallery/img7.png";
+import img8 from "../assets/gallery/img8.png";
+import img9 from "../assets/gallery/img9.png";
+import img10 from "../assets/gallery/img10.png";
+import img11 from "../assets/gallery/img11.png";
+import img12 from "../assets/gallery/img12.png";
+import img13 from "../assets/gallery/img13.png";
+import img14 from "../assets/gallery/img14.png";
+import img15 from "../assets/gallery/img15.png";
 
 import Menunav from '../components/menunav';
 import Reviews from '../components/reviews';
@@ -26,7 +26,7 @@ import CarImg from './carimg';
 import { Link } from "react-router-dom";
 
 
-const AllCars = () => {
+const Interior = () => {
     return (
         <>
         
@@ -51,8 +51,10 @@ const AllCars = () => {
 
     <div className="gal-nav-container">
     <nav className="gal-filter-nav">
-        <button className="gal-filter-btn active">All Cars</button>
         <button className="gal-filter-btn">
+        <Link to="/Gallery">All Cars</Link>
+        </button>
+        <button className="gal-filter-btn active">
         <Link to="/Interior">Interior</Link>
         </button>
         <button className="gal-filter-btn">Exterior</button>
@@ -63,25 +65,28 @@ const AllCars = () => {
 
         <section class="gal-main-section">
 
-            <h2 class="gal-section-heading">All Cars</h2>
+            <h2 class="gal-section-heading">Interior</h2>
 
         <div class="gal-grid">
-            <CarImg  img={s} span="Mercedes S450" />
-            <CarImg  img={velar} span="Range Rover Velar" />
-            <CarImg  img={mercedes} span="Mercedes C180" />
-            <CarImg  img={glc} span="Glc 200" />
-            <CarImg  img={bmw} span="Bmw 318" />
-            <CarImg  img={c200} span="Mercedes C200" />
-            <CarImg  img={evouqe} span="Range Rover Evouqe" />
-            <CarImg  img={c180} span="Mercedes C180" />
-            <CarImg  img={cap} span="Mercedes C180 Cabriolet" />
-            <CarImg  img={jeep} span="Jeep Grand Cherokkee" />
-            <CarImg  img={tosan} span="Hyundai Tucson" />
-            <CarImg  img={cn7} span="Elantra Cn7" />
-            <CarImg  img={rangler} span="Jeep Wrangler" />
-            <CarImg  img={captiva} span="Chevrolet Captiva" />
-            <CarImg  img={cetro} span="Cetroen C5" />
-         
+            <CarImg  img={img1} span="Mercedes C200" />
+            <CarImg  img={img2} span="Mercedes C200" />
+            <CarImg  img={img3} span="Mercedes C200" />
+
+            <CarImg  img={img4} span="Range Rover Evouqe" />
+            <CarImg  img={img5} span="Range Rover Evouqe" />
+            <CarImg  img={img6} span="Range Rover Evouqe" />
+
+            <CarImg  img={img7} span="Mercedes C180" />
+            <CarImg  img={img8} span="Mercedes C180" />
+            <CarImg  img={img9} span="Mercedes C180" />
+
+            <CarImg  img={img10} span="Mercedes C180" />
+            <CarImg  img={img11} span="Mercedes C180" />
+            <CarImg  img={img12} span="Mercedes C180" />
+
+            <CarImg  img={img13} span="Hyundai Tucson" />
+            <CarImg  img={img14} span="Hyundai Tucson" />
+            <CarImg  img={img15} span="Hyundai Tucson" />
 
         </div>
         </section>
@@ -109,4 +114,4 @@ const AllCars = () => {
       );
 }
  
-export default AllCars;
+export default Interior;

@@ -9,6 +9,7 @@ import Login from './pages/login';
 import Error from './pages/error';
 import Reviews from './pages/reviews';
 import Gallery from "./pages/gallery";
+import Interior from "./components/interior";
 
 
 const RoutingApp = () => {
@@ -26,6 +27,7 @@ const RoutingApp = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/Reviews" element={<Reviews />} />
         <Route path="/Gallery" element={<Gallery />} />
+        <Route path="/Interior" element={<Interior />} />
 
 
 
