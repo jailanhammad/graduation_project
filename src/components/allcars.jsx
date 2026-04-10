@@ -62,21 +62,21 @@ const AllCars = () => {
             <h2 class="gal-section-heading">All Cars</h2>
 
         <div class="gal-grid">
-            <CarImg  img={s} span="Range Rover Velar" />
+            <CarImg  img={s} span="Mercedes S450" />
             <CarImg  img={velar} span="Range Rover Velar" />
-            <CarImg  img={mercedes} span="Range Rover Velar" />
-            <CarImg  img={glc} span="Range Rover Velar" />
-            <CarImg  img={bmw} span="Range Rover Velar" />
-            <CarImg  img={c200} span="Range Rover Velar" />
-            <CarImg  img={evouqe} span="Range Rover Velar" />
-            <CarImg  img={c180} span="Range Rover Velar" />
-            <CarImg  img={cap} span="Range Rover Velar" />
-            <CarImg  img={jeep} span="Range Rover Velar" />
-            <CarImg  img={tosan} span="Range Rover Velar" />
-            <CarImg  img={cn7} span="Range Rover Velar" />
-            <CarImg  img={rangler} span="Range Rover Velar" />
-            <CarImg  img={captiva} span="Range Rover Velar" />
-            <CarImg  img={cetro} span="Range Rover Velar" />
+            <CarImg  img={mercedes} span="Mercedes C180" />
+            <CarImg  img={glc} span="Glc 200" />
+            <CarImg  img={bmw} span="Bmw 318" />
+            <CarImg  img={c200} span="Mercedes C200" />
+            <CarImg  img={evouqe} span="Range Rover Evouqe" />
+            <CarImg  img={c180} span="Mercedes C180" />
+            <CarImg  img={cap} span="Mercedes C180 Cabriolet" />
+            <CarImg  img={jeep} span="Jeep Grand Cherokkee" />
+            <CarImg  img={tosan} span="Hyundai Tucson" />
+            <CarImg  img={cn7} span="Elantra Cn7" />
+            <CarImg  img={rangler} span="Jeep Wrangler" />
+            <CarImg  img={captiva} span="Chevrolet Captiva" />
+            <CarImg  img={cetro} span="Cetroen C5" />
          
 
         </div>
