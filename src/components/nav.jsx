@@ -182,7 +182,7 @@ useEffect(() => {
                     <li><a href="#test-drive">{t.testdrive}</a></li>
                     <li><a href="#service-center">{t.servicecenter}</a></li>
                     <li><a href="#recommended">{t.recommended}</a></li>
-                    <li><a href="#gallery">{t.gallery}</a></li>
+                    <Link to="/Gallery">{t.gallery}</Link>
 
                 <li class="mobile-close-li">
 

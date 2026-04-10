@@ -8,6 +8,7 @@ import Services from "./pages/services";
 import Login from './pages/login';
 import Error from './pages/error';
 import Reviews from './pages/reviews';
+import Gallery from "./pages/gallery";
 
 
 const RoutingApp = () => {
@@ -24,6 +25,7 @@ const RoutingApp = () => {
         <Route path="/Services" element={<Services />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Reviews" element={<Reviews />} />
+        <Route path="/Gallery" element={<Gallery />} />
 
 
 
