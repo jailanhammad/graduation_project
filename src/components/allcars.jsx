@@ -51,13 +51,21 @@ const AllCars = () => {
 
     <div className="gal-nav-container">
     <nav className="gal-filter-nav">
-        <button className="gal-filter-btn active">All Cars</button>
+        <button className="gal-filter-btn active">
+        <Link to="/Gallery">All Cars</Link>
+        </button>
         <button className="gal-filter-btn">
         <Link to="/Interior">Interior</Link>
         </button>
-        <button className="gal-filter-btn">Exterior</button>
-        <button className="gal-filter-btn">Showroom</button>
-        <button className="gal-filter-btn">Events</button>
+        <button className="gal-filter-btn">
+        <Link to="/Exterior">Exterior</Link>
+        </button>
+        <button className="gal-filter-btn">
+        <Link to="/Showroom">Showroom</Link>
+        </button>
+        <button className="gal-filter-btn">
+        <Link to="/Tv-shows">Tv Shows</Link>
+        </button>
     </nav>
     </div>
 

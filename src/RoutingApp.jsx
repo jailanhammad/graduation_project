@@ -4,12 +4,15 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import Vehicles from './pages/vehicles';
 import Services from "./pages/services";
-
 import Login from './pages/login';
 import Error from './pages/error';
 import Reviews from './pages/reviews';
 import Gallery from "./pages/gallery";
+
 import Interior from "./components/interior";
+import Exterior from "./components/exterior";
+import Showroom from "./components/showroom";
+import Tvshows from "./components/tvshows";
 
 
 const RoutingApp = () => {
@@ -28,6 +31,11 @@ const RoutingApp = () => {
         <Route path="/Reviews" element={<Reviews />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/Interior" element={<Interior />} />
+        <Route path="/Exterior" element={<Exterior />} />
+        <Route path="/Showroom" element={<Showroom />} />
+        <Route path="/Tv-shows" element={<Tvshows />} />
+
+
 
 
 

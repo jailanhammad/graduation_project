@@ -12,9 +12,9 @@ import img6 from "../assets/gallery/img6.png";
 import img7 from "../assets/gallery/img7.png";
 import img8 from "../assets/gallery/img8.png";
 import img9 from "../assets/gallery/img9.png";
-import img10 from "../assets/gallery/img10.png";
-import img11 from "../assets/gallery/img11.png";
-import img12 from "../assets/gallery/img12.png";
+import in1 from "../assets/gallery/in1.png";
+import in2 from "../assets/gallery/in2.png";
+import in3 from "../assets/gallery/in3.png";
 import img13 from "../assets/gallery/img13.png";
 import img14 from "../assets/gallery/img14.png";
 import img15 from "../assets/gallery/img15.png";
@@ -24,6 +24,7 @@ import Reviews from '../components/reviews';
 import Footer from '../components/footer';
 import CarImg from './carimg';
 import { Link } from "react-router-dom";
+import Exterior from './exterior';
 
 
 const Interior = () => {
@@ -57,9 +58,15 @@ const Interior = () => {
         <button className="gal-filter-btn active">
         <Link to="/Interior">Interior</Link>
         </button>
-        <button className="gal-filter-btn">Exterior</button>
-        <button className="gal-filter-btn">Showroom</button>
-        <button className="gal-filter-btn">Events</button>
+        <button className="gal-filter-btn">
+        <Link to="/Exterior">Exterior</Link>
+        </button>
+        <button className="gal-filter-btn">
+        <Link to="/Showroom">Showroom</Link>
+        </button>
+        <button className="gal-filter-btn">
+        <Link to="/Tv-shows">Tv Shows</Link>
+        </button>
     </nav>
     </div>
 
@@ -80,9 +87,9 @@ const Interior = () => {
             <CarImg  img={img8} span="Mercedes C180" />
             <CarImg  img={img9} span="Mercedes C180" />
 
-            <CarImg  img={img10} span="Mercedes C180" />
-            <CarImg  img={img11} span="Mercedes C180" />
-            <CarImg  img={img12} span="Mercedes C180" />
+            <CarImg  img={in1} span="Mercedes CLA200" />
+            <CarImg  img={in2} span="Mercedes CLA200" />
+            <CarImg  img={in3} span="Mercedes CLA200" />
 
             <CarImg  img={img13} span="Hyundai Tucson" />
             <CarImg  img={img14} span="Hyundai Tucson" />
