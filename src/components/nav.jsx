@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';import './nav.css';
-import { Link } from "react-router-dom";
 import logo from "../assets/home/logo.svg";
 import phone from "../assets/home/phone.svg";
 import email from "../assets/home/email.svg";
@@ -8,18 +7,17 @@ import login from "../assets/home/login.svg";
 import music from "../assets/home/music.svg";
 import dark from "../assets/home/darkmood.svg";
 import translate from "../assets/home/translate.svg";
-import hero from "../assets/home/porsche.svg";
-import h1 from "../assets/home/h1.svg";
-import m from "../assets/home/m.svg";
-import h2 from "../assets/home/h2.svg";
-import heroo from "../assets/home/heroo.svg";
+import { Link, useLocation } from 'react-router-dom';
 
 const Nav = () => {
 
 
+    const location = useLocation(); 
+
+    const isActive = (path) => location.pathname === path;
+
     const { isArabic, toggleLanguage } = useLanguage();
     const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-
 
     const t = {
         phone: "+02 01000444401",
@@ -57,17 +55,19 @@ useEffect(() => {
 
 
 
+
+
     return ( 
 
 <>
 
-<header class="header">
+<header className="header">
     
-    <div class="top-bar">
+    <div className="top-bar">
 
-        <div class="container">
+        <div className="container-0">
 
-            <div class="contact-info">
+            <div className="contact-info">
 
                 <div className='phone-div'>
                 <img src={phone} className='small-icon'/>
@@ -81,7 +81,7 @@ useEffect(() => {
 
             </div>
 
-            <div class="utility-icons">
+            <div className="utility-icons">
 
     
             <button 
@@ -112,7 +112,7 @@ useEffect(() => {
             <div className='login-div'>
 
             <img src={login} className='small-icon' />
-            <a href="#" class="login-btn"><i class="fas fa-user"></i> 
+            <a href="#" className="login-btn"><i className="fas fa-user"></i> 
             <Link to="/Login">{t.login}</Link>
             </a>
 
@@ -121,10 +121,10 @@ useEffect(() => {
         </div>
     </div>
 
-    <nav class="main-nav">
+    <nav className="main-nav">
         
         
-        <div class="container">
+        <div className="container">
             <div className='word-logo'>
             <img src={logo} className='logo-svg'/>
             <h1 className='word-logo-text'>{t.brand}</h1>
@@ -132,62 +132,105 @@ useEffect(() => {
      
 
 
-            <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
-            <label for="menu-toggle" class="hamburger">
+            <input type="checkbox" id="menu-toggle" className="menu-toggle"/>
+            <label for="menu-toggle" className="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
 
-            <ul class="nav-links">
-                <li><a href="#" class="active" >
-                <Link to="/">{t.home}</Link>
-                </a></li>
-                <li><a href="#">
-                <Link to="/About-us">{t.about}</Link>
-                </a></li>
+            <ul className="nav-links">
+
+                <li>
+                <Link to="/"  className={`nav-link ${isActive('/') ? 'active' : ''}`}>{t.home}</Link>
+                </li>
+                <li>
+                <Link to="/About-us" className={`nav-link ${isActive('/About-us') ? 'active' : ''}`}>{t.about}</Link>
+                </li>
                 
-                <li><a href="#">
-                <Link to="/Contact-us">{t.contact}</Link>
-                </a></li>
-                <li><a href="#" >                    
-                <Link to="/Vehicles">{t.vehicles}</Link>
-                </a></li>
+                <li>
+                <Link to="/Contact-us"  className={`nav-link ${isActive('/Contact-us') ? 'active' : ''}`}>{t.contact}</Link>
+                </li>
+                <li>                  
+                <Link to="/Vehicles" className={`nav-link ${isActive('/Vehicles') ? 'active' : ''}`}>{t.vehicles}</Link>
+                </li>
 
 
-                <li class="dropdown">
-                <a href="#">{t.menu} <i class="fas fa-caret-down"></i></a>
 
+                <li className="dropdown">
+                <span className="menu-btn">
+                    {t.menu}
+                </span>
                 <ul class="dropdown-content">
                     
-                    <li><a href="#brands">
-                    <Link to="/">{t.home}</Link>
-                    </a></li>
-                    <li><a href="#brands">
-                    <Link to="/About-us">{t.about}</Link>
-                    </a></li>
-                    <li><a href="#brands">                    
-                    <Link to="/Contact-us">{t.contact}</Link>
-                    </a></li>
-                    <li><a href="#brands">                    
-                    <Link to="/Vehicles">{t.vehicles}</Link>
-                    </a></li>
-                    <li><a href="#services">                    
-                    <Link to="/Services">{t.services}</Link>
-                    </a></li>                    
-                    <Link to="/Reviews">{t.reviews}</Link>
-                    <li><a href="#brands">{t.brands}</a></li>
-                    <li><a href="#most-sold">{t.mostsold}</a></li>
-                    <li><a href="#installments">{t.installments}</a></li>
-                    <li><a href="#test-drive">{t.testdrive}</a></li>
-                    <li><a href="#service-center">{t.servicecenter}</a></li>
-                    <li><a href="#recommended">{t.recommended}</a></li>
-                    <Link to="/Gallery">{t.gallery}</Link>
+                    <li>
+                    <Link to="/" className="nav-link">{t.home}</Link>
+                    </li>
 
-                <li class="mobile-close-li">
 
-        <label for="menu-toggle" class="close-menu">
-            <i class="fas fa-times"></i> {t.close}
+                    <li>
+                    <Link to="/About-us" className="nav-link">{t.about}</Link>
+                    </li>
+
+
+                    <li>                  
+                    <Link to="/Contact-us" className="nav-link">{t.contact}</Link>
+                    </li>
+
+
+                    <li>                   
+                    <Link to="/Vehicles" className="nav-link">{t.vehicles}</Link>
+                    </li>
+
+
+                    <li>                   
+                    <Link to="/Services" className="nav-link">{t.services}</Link>
+                    </li>  
+
+
+                    <li>
+                    <Link to="/Reviews" className="nav-link">{t.reviews}</Link>
+                    </li>  
+
+
+                    <li>
+                    <Link to="/Brands" className="nav-link"> {t.brands}</Link>
+                    </li>
+
+
+                    <li>
+                    <Link to="/Most-sold" className="nav-link">{t.mostsold}</Link>
+                    </li>
+
+
+                    <li>
+                    <Link to="/Installments" className="nav-link"> {t.installments}</Link>
+                    </li>
+
+
+                    <li>
+                    <Link to="/Test-drive" className="nav-link"> {t.testdrive}</Link>
+                    </li>
+
+
+                    <li>
+                    <Link to="/Service-center" className="nav-link"> {t.servicecenter}</Link>
+                    </li>
+
+
+                    <li>
+                    <Link to="/Recommended" className="nav-link"> {t.recommended}</Link>
+                    </li>
+
+
+                    <li>
+                    <Link to="/Gallery" className="nav-link"> {t.gallery}</Link>
+                    </li>
+
+                <li className="mobile-close-li">
+
+        <label for="menu-toggle" className="close-menu">
+            <i className="fas fa-times"></i> {t.close}
         </label>
     </li>
                 </ul>
@@ -199,26 +242,6 @@ useEffect(() => {
     </nav>
     
 </header>
-
-
-
-
-<section class="hero">
-
-            <div class="hero-content">
-                <div class="car-wrapper">
-                <img src={heroo} className='hero-car'/>
-                </div>
-                
-                <div class="hero-footer">
-                    <p class="sub-text">{t.herosub}</p>
-                    <h2 class="brand-name">{t.brand}</h2>
-                </div>
-
-
-            </div>
-</section>
-
 
 </>
 

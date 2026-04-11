@@ -19,18 +19,18 @@ import t1 from "../assets/gallery/t1.png";
 import t2 from "../assets/gallery/t2.png";
 import t3 from "../assets/gallery/t3.png";
 
-import Menunav from '../components/menunav';
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
 import CarImg from './carimg';
 import { Link } from "react-router-dom";
+import Nav from './nav';
 
 
 const Exterior = () => {
     return (
         <>
         
-<Menunav />
+<Nav />
  <section class="gal-hero-wrapper">
     <div class="gal-hero-bg">
     <img src={hero}  alt="Range Rover Hero" class="gal-hero-img" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import './about.css';
-import AboutNav from '../components/aboutnav';
+import Nav from '../components/nav';
 import Story from '../components/story';
 import Values from '../components/values';
 import Whysection from '../components/whysection';
@@ -13,7 +13,7 @@ const About = () => {
 <>
 <div>
 
-<AboutNav />
+<Nav />
 <Story />
 <Values />
 <Whysection />

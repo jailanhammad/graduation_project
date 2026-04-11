@@ -11,19 +11,17 @@ import tv3 from "../assets/gallery/tv3.png";
 import tv4 from "../assets/gallery/tv4.png";
 import videoo from "../assets/vd.mp4";
 
-
-
-import Menunav from '../components/menunav';
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
 import { Link } from "react-router-dom";
+import Nav from './nav';
 
 
 const Tvshows = () => {
     return (
         <>
         
-<Menunav />
+        <Nav />
  <section class="gal-hero-wrapper">
     <div class="gal-hero-bg">
     <img src={hero}  alt="Range Rover Hero" class="gal-hero-img" />

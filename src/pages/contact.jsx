@@ -1,6 +1,6 @@
 import React from 'react';
 import './contact.css';
-import ContactNav from '../components/contactnav';
+import Nav from '../components/nav';
 import Contacthero from '../components/contacthero';
 import Getintouch from '../components/getintouch';
 import Map from '../components/map';
@@ -12,7 +12,7 @@ const Contact = () => {
         <>
         
         
-        <ContactNav />
+        <Nav />
         <Contacthero />
         <Getintouch />
         <Map />

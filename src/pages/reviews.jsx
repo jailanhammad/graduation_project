@@ -1,15 +1,15 @@
 import React from 'react';
 import './reviews.css';
-import MenuNav from '../components/menunav';
 import ReviewsCard from '../components/reviewscard';
 import Footer from '../components/footer';
+import Nav from '../components/nav';
 
 
 const Reviews = () => {
     return ( 
         <>
  
-    <MenuNav />
+    <Nav />
     <ReviewsCard />
     <Footer />
         </>

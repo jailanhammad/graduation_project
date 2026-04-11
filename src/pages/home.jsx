@@ -9,6 +9,7 @@ import Gallery from '../components/gallery';
 import Whyus from '../components/whyus';
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
+import Hero from '../components/hero';
 
 const Home = () => {
     return ( 
@@ -16,6 +17,7 @@ const Home = () => {
 <div>
 
 <Nav />
+<Hero />
 <Search />
 <Cars />
 <Featured />
