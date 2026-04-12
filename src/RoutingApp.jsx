@@ -13,6 +13,7 @@ import Interior from "./components/interior";
 import Exterior from "./components/exterior";
 import Showroom from "./components/showroom";
 import Tvshows from "./components/tvshows";
+import Installments from "./pages/installments";
 
 
 const RoutingApp = () => {
@@ -27,6 +28,8 @@ const RoutingApp = () => {
         <Route path="/Contact-us" element={<Contact />} />
         <Route path="/Vehicles" element={<Vehicles />} />
         <Route path="/Services" element={<Services />} />
+        <Route path="/Installments" element={<Installments />} />
+
         <Route path="/Login" element={<Login />} />
         <Route path="/Reviews" element={<Reviews />} />
         <Route path="/Gallery" element={<Gallery />} />
