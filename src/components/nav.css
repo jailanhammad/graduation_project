@@ -13,6 +13,17 @@
     box-sizing: border-box;
     font-family: "poppins";
 }
+.class-mobile{
+    visibility: visible;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 30px;
+    list-style: none;
+
+}
 
 html:has(#menu-toggle:checked),
 body:has(#menu-toggle:checked) {
@@ -161,7 +172,6 @@ body {
     align-items: center;
     gap: 30px;
     font-size: 1rem;
-
 }
 .nav-link {
     position: relative;
@@ -253,6 +263,7 @@ body {
     backdrop-filter: blur(10px);
 
 }
+
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -384,7 +395,7 @@ body {
         align-items: center;
         justify-content: flex-start;
         padding: 100px 0; 
-        gap: 25px; 
+        gap: 30px; 
         transition: 0.4s ease-in-out;
         z-index: 1000;
         overflow-y: auto;
@@ -399,6 +410,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        display: contents;
     }
 
     .menu-btn {
@@ -406,6 +418,7 @@ body {
     }
 
     .dropdown-content li {
+        display: block;
         list-style: none;
     }
 
@@ -423,6 +436,7 @@ body {
         color: var(--primary-red);
     }
 
+    
 .mobile-close-li {
     display: flex;
     justify-content: center;
@@ -683,3 +697,35 @@ header {
     }
 }
 
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: static; 
+        display: block; 
+        background: transparent; 
+        border: none;
+        box-shadow: none;
+        min-width: 100%;
+        text-align: center;
+        backdrop-filter: none;
+    }
+
+    .class-mobile{
+        display: none;
+        visibility: hidden;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content li a, 
+    .dropdown-content .nav-link {
+        padding: 25px 0px;
+        font-size: 1.2rem; 
+        color: var(--text-white);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    }
+
+    .menu-btn::after {
+        display: none;
+    }
+}

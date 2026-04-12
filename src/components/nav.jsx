@@ -141,6 +141,7 @@ useEffect(() => {
 
             <ul className="nav-links">
 
+                <div className='class-mobile'>
                 <li>
                 <Link to="/"  className={`nav-link ${isActive('/') ? 'active' : ''}`}>{t.home}</Link>
                 </li>
@@ -154,8 +155,9 @@ useEffect(() => {
                 <li>                  
                 <Link to="/Vehicles" className={`nav-link ${isActive('/Vehicles') ? 'active' : ''}`}>{t.vehicles}</Link>
                 </li>
+                </div>
 
-
+       
 
                 <li className="dropdown">
                 <span className="menu-btn">
