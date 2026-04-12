@@ -393,11 +393,7 @@ body {
     .menu-toggle:checked ~ .nav-links {
         right: 0;
     }
-
-    .nav-links > li:not(.dropdown):not(.mobile-close-li) {
-        display: none;
-    }
-
+ 
     .dropdown {
         width: 100%;
         display: flex;
@@ -471,6 +467,7 @@ body {
         gap: 15px;
     }
 }
+
 
 
 .red-button-class a, 
