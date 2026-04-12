@@ -1,7 +1,7 @@
 import React from 'react';
 import './allcars.css';
 import hero from "../assets/gallery/back.svg";
-import video from '../assets/gallery/Hammad Video.mp4';
+// import video from '../assets/gallery/Hammad Video.mp4';
 import img from "../assets/gallery/front.png";
 import thumb from "../assets/gallery/thumb.png";
 
@@ -9,7 +9,7 @@ import tv1 from "../assets/gallery/tv1.png";
 import tv2 from "../assets/gallery/tv2.png";
 import tv3 from "../assets/gallery/tv3.png";
 import tv4 from "../assets/gallery/tv4.png";
-import videoo from "../assets/vd.mp4";
+// import videoo from "../assets/vd.mp4";
 
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
@@ -86,7 +86,7 @@ const Tvshows = () => {
 
 <div class="gal-video-wrapper">
 <video controls poster={thumb} class="gal-video-player">
-  <source src={videoo} type="video/mp4"/>
+  {/* <source src={videoo} type="video/mp4"/> */}
 </video>  
 </div>
 
@@ -110,7 +110,7 @@ Watch Full Video on YouTube
             <h2 class="gal-section-heading">Cinematic Showcase</h2>
             <div class="gal-video-wrapper">
                 <video controls poster={img} class="gal-video-player">
-                    <source src={video} type="video/mp4"/>
+                    {/* <source src={video} type="video/mp4"/> */}
                     Your browser does not support the video tag.
                 </video>
             </div>
