@@ -1,7 +1,7 @@
 import React from 'react';
 import './allcars.css';
 import hero from "../assets/gallery/back.svg";
-import video from '../assets/gallery/Hammad Video.mp4';
+// import video from '../assets/gallery/Hammad Video.mp4';
 import img from "../assets/gallery/front.png";
 import room1 from "../assets/gallery/room1.png";
 import room2 from "../assets/gallery/room2.png";
@@ -86,7 +86,7 @@ const Showroom = () => {
             <h2 class="gal-section-heading">Cinematic Showcase</h2>
             <div class="gal-video-wrapper">
                 <video controls poster={img} class="gal-video-player">
-                    <source src={video} type="video/mp4"/>
+                    {/* <source src={video} type="video/mp4"/> */}
                     Your browser does not support the video tag.
                 </video>
             </div>
