@@ -45,10 +45,10 @@ const Steps = () => {
         
         {steps.map((step, index) => (
           <div className="step-card" key={index} style={{ '--delay': `${index * 0.2}s` }}>
-            <div className="icon-wrapper">
+            <div className="icon-wrapper-00">
               <span className="step-number-bg">{step.number}</span>
-              <div className="icon-box">
-            <span className="actual-icon">
+              <div className="icon-box-00">
+            <span className="actual-icon-00">
             <img src={step.icon} alt="icons" className='steps-icon' />        
             </span>
               </div>
@@ -65,7 +65,7 @@ const Steps = () => {
                     rel="noopener noreferrer"
                     className="hms-whatsapp-link"
                 >
-                    <button className="cta-button" style={{ transitionDelay: '800ms' }}>
+                    <button className="cta-button">
                     Get Approved Now<i className="fab fa-whatsapp">
                         <img src={wp} alt="check icon" /></i>
                     </button>

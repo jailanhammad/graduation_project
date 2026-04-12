@@ -67,7 +67,7 @@ const Sell = () => {
                     rel="noopener noreferrer"
                     className="hms-whatsapp-link"
                 >
-                    <button className="hms-whatsapp-btn hms-hidden hms-from-bottom" style={{ transitionDelay: '800ms' }}>
+                    <button className="hms-whatsapp-btn hms-hidden hms-from-bottom">
                         Send Your Car <i className="fab fa-whatsapp">
                         <img src={whatsapp} alt="check icon" /></i>
                     </button>
