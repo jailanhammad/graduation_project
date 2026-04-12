@@ -22,16 +22,16 @@ const Installments = () => {
 <Nav />
 
 
-    <div className="home">
+    <div className="home-00">
 
-    <section className="hero">
+    <section className="hero-00">
 
-        <div className="overlay">
+        <div className="overlay-00">
         <img src={hero} alt="" className='hero-in' />
 
         </div>
 
-        <div className="hero-content">
+        <div className="hero-content-00">
             <h1>Flexible Financing Solutions</h1>
             <p>
             Drive your dream car today with customized financing
@@ -41,7 +41,7 @@ const Installments = () => {
 
     </section>
 
-      <section className="cards">
+      <section className="cards-00">
 
 
         <BankCard 

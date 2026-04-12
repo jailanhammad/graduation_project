@@ -4,15 +4,11 @@ import './bankcard.css';
 const BankCard = (props) => {
     return ( 
 <>
-<div>
 
-
-    <div className="home">
-
-    <section className="cards">
+    <section className="cards-00">
 
     
-      <div className="card">
+      <div className="card-00">
         <img src={props.img} alt="Low Down Payment Icon" />
           <h3>{props.title}</h3>
           <p>{props.paragraph}</p>
@@ -25,11 +21,6 @@ const BankCard = (props) => {
 
     </section>
 
-    </div>
-
-
-
-</div>
 
 </>
 

@@ -10,53 +10,67 @@
     background: #0b0b0b;
     color: white;
   }
-.hero {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0 60px;
-  }
-  .hero-in{
-    width: 100%;
-  }
-  
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.85),
-      rgba(0, 0, 0, 0.2)
-    );
-  }
-  
-  .hero-content {
-    position: relative;
-    max-width: 600px;
-    z-index: 2;
-  }
-  
-  .hero h1 {
-    font-size: 48px;
-    color: red;
-  }
-  
-  .hero p {
-    font-size: 18px;
-    opacity: 0.8;
-    margin-top: 15px;
-  }
 
-  
-  .cards {
+.hero-00 {
+    position: relative;
+    height: 85vh; 
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    padding-left: 5%;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.overlay-00 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+}
+
+.hero-in {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5; 
+}
+
+.hero-content-00 {
+    position: relative;
+    z-index: 10; 
+    max-width: 650px; 
+    text-align: left; 
+}
+
+.hero-content-00 h1 {
+    font-size: 3.5rem; 
+    color: #ED1C24; 
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-content-00 p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+  .cards-00 {
     /* display: flex; */
     /* gap: 20px; */
     padding: 50px;
+    
   }
 
   
-  .card {
+  .card-00 {
     flex: 1;
     background: linear-gradient(145deg, #1a1a1a, #0c0c0c);
     padding: 30px;
@@ -66,7 +80,7 @@
     animation: fadeUp 1.5s ease;
   }
   
-  .card:hover {
+  .card-00:hover {
     transform: translateY(-10px) scale(1.02);
     border-color: red;
   }
@@ -77,30 +91,27 @@
     color: #d1bfa3;
   }
   
-  .card h3 {
+  .card-00 h3 {
     margin-bottom: 10px;
   }
   
-  .card p {
+  .card-00 p {
     margin-bottom: 15px;
     opacity: 0.7;
   }
   
-  .card span {
-    color: red;
-  }
-  
-  .card ul {
+
+  .card-00 ul {
     list-style: none;
   }
   
-  .card li {
+  .card-00 li {
     margin-bottom: 8px;
     position: relative;
     padding-left: 20px;
   }
   
-  .card li::before {
+  .card-00 li::before {
     content: "✔";
     color: red;
     position: absolute;
@@ -121,11 +132,11 @@
 
   
   @media (max-width: 1024px) {
-    .cards {
+    .cards-00 {
       flex-direction: column;
     }
   
-    .hero h1 {
+    .hero-00 h1 {
       font-size: 36px;
     }
   }
@@ -135,15 +146,15 @@
       display: none;
     }
   
-    .hero {
+    .hero-00 {
       padding: 0 20px;
     }
   
-    .hero h1 {
+    .hero-00 h1 {
       font-size: 28px;
     }
   
-    .cards {
+    .cards-00 {
       padding: 20px;
     }
   }
@@ -155,24 +166,24 @@
       text-align: center;
     }
   
-    .hero p {
+    .hero-00 p {
       font-size: 14px;
     }
   }
 
 @media (max-width: 1024px) {
-    .hero {
+    .hero-00 {
       height: 80vh;
       padding: 0 30px;
     }
   
-    .hero h1 {
+    .hero-00 h1 {
       font-size: 36px;
     }
   }
   
   @media (max-width: 768px) {
-    .hero {
+    .hero-00 {
         height: 70vh; 
         display: flex;
         flex-direction: column;
@@ -198,22 +209,22 @@
         background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
     }
 
-    .hero-content {
+    .hero-content-00 {
         position: relative;
         z-index: 2;
         padding: 0 20px;
         text-align: center;
     }
 
-    .hero-content h1 {
+    .hero-content-00 h1 {
         font-size: 2rem !important; 
         line-height: 1.2;
         margin-bottom: 10px;
         text-transform: uppercase;
-        color: #ff0000; 
+        color: #ED1C24; 
     }
 
-    .hero-content p {
+    .hero-content-00 p {
         font-size: 1rem !important;
         color: #ddd;
         max-width: 90%;
