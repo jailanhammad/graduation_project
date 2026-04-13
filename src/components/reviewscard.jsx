@@ -1,115 +1,152 @@
 import React from 'react';
 import './reviewscard.css';
-import { Star, MessageSquareQuote } from 'lucide-react';
 import room6 from "../assets/gallery/room6.png";
+import client from "../assets/reviews/client.png";
+import boy from "../assets/reviews/boy.png";
+import girl from "../assets/reviews/girl.png";
+import ahmed from "../assets/reviews/ahmed.png";
 
 const ReviewsCard = () => {
 
-    const reviewsData = [
-        {
-          id: 1,
-          customer: "AHMED MANSOUR",
-          model: "PORSCHE 911 GT3",
-          text: "The best experience I've ever had buying a supercar. The team at Hammad Motors knows exactly what a car enthusiast needs.",
-        },
-        {
-          id: 2,
-          customer: "KHALED OMAR",
-          model: "LAMBORGHINI HURACAN",
-          text: "Professionalism, speed, and absolute transparency. They delivered my car right to my doorstep in perfect condition.",
-        },
-        {
-          id: 3,
-          customer: "YASMEEN ALI",
-          model: "RANGE ROVER AUTOBIOGRAPHY",
-          text: "Premium service for premium cars. Hammad Motors is definitely the first choice for luxury in the region.",
-        }
-      ];
-  const stats = [
-    { id: 1, percent: "92%", stars: 5 },
-    { id: 2, percent: "6%", stars: 4 },
-    { id: 3, percent: "2%", stars: 3 },
+
+  const testimonialsData = [
+    {
+      id: 1,
+      name: 'Mohamed Ahmed',
+      car: 'Mercedes Glc200 2020',
+      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+      rating: 5,
+      text: 'An outstanding experience from start to finish. The team is professional and helped me choose the perfect vehicle. Their transparency was key for me.',
+    },
+    {
+      id: 2,
+      name: 'Ahmed Waleed',
+      car: 'Tiguan R Line 2024',
+      avatar: ahmed,
+      rating: 5,
+      text: 'I never expected car buying to be this seamless. They handled all procedures swiftly and with great care. Highly recommend Hammad Motors.',
+    },
+    {
+      id: 3,
+      name: 'Ahmed Amer',
+      car: 'Bmw 320 2019',
+      avatar: boy,
+      rating: 5,
+      text: 'Refined, professional, and transparent. Hammad Motors sets the gold standard for luxury car acquisition. The seamless process and the immaculate condition of the vehicle exceeded all my expectations.',
+    },
+    {
+      id: 4,
+      name: 'Tasneem Mohamed',
+      car: 'Mercedes C180 2023',
+      avatar: girl,
+      rating: 5,
+      text: 'I went in to explore options and walked out with my dream car! A professional team that truly cares about every detail for client comfort.',
+    }
   ];
+
 
   return (
     <>
 
-    <div className="hm-reviews-page">
-      <img 
-        src={room6} 
-        className="hm-background-img" 
-        alt="Showroom" 
-      />
 
-      <div className="hm-overlay-content">
-{/*         
-      <header className="hm-header-section">
-          <h1 className="hm-main-title">
-            What Our <span className="hm-red-word">Customers</span> Say
-          </h1>
-          <p className="hm-tagline">Real experiences. Real trust. Real results.</p>
-        </header> */}
-
-        <div className="hm-stats-wrapper">
-          <div className="hm-rating-summary">
-            <Star className="hm-star-gold" size={22} fill="currentColor" />
-            <span>4.9 / 5 Average Rating</span>
+<div className="main-container-999">
+<img src={room6} alt="" />      
+<section className="hero-section-999">
+        <div className="hero-overlay-999">
+          <div className="hero-content-999">
+            <h1 className="hero-title-999">What Our Customers Say</h1>
+            <p className="hero-subtitle-999">Real experiences. Real trust. Real results.</p>
           </div>
-          <p className="hm-happy-text">Based on 850+ Happy Customers</p>
+        </div>
+      </section>
 
-          <div className="hm-stats-grid">
-            {stats.map((item) => (
-              <div key={item.id} className="hm-stat-item">
-                <span className="hm-percent-number">{item.percent}</span>
-                <div className="hm-gold-stars-row">
-                  {[...Array(item.stars)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
+      <section className="reviews-section-999">
+        <div className="rating-summary-999">
+          <span className="star-icon-999">⭐</span>
+          <p>4.9 / 5 Average Rating</p>
+          <span className='text-999'>Based on 850+ Happy Customers</span>
+        </div>
+
+        <div className="stats-container-999">
+          <div className="stat-card-999">
+            <h2>92%</h2>
+            <div className="stars-999">⭐⭐⭐⭐⭐</div>
+          </div>
+          <div className="stat-card-999">
+            <h2>6%</h2>
+            <div className="stars-999">⭐⭐⭐⭐</div>
+          </div>
+          <div className="stat-card-999">
+            <h2>2%</h2>
+            <div className="stars-999">⭐⭐⭐</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <div className="customer-happiness-container">
+      <div className="customer-happiness-content">
+        <div className="customer-happiness-text-section">
+          <h2 className="customer-happiness-title">Our Clients are Very Happy</h2>
+          <div className="customer-happiness-description">
+            <p>
+              A special delivery moment at Hammad Motors as the clients proudly receive their
+              new car. Smiles, celebration ribbons, and a warm showroom atmosphere capture
+              the excitement of starting a new journey.
+            </p>
+          </div>
+        </div>
+        <div className="customer-happiness-image-section">
+          <div className="customer-happiness-image-wrapper">
+            <img src={client} alt="Happy clients receiving a car" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <section className="testimonials-section-888">
+      <div className="container-888">
+        <div className="testimonials-header-888">
+          <h4 className="subtitle-888"> Customer Reviews</h4>
+          <h2 className="title-888"> What our customers say</h2>
+          <div className="title-line-888"></div>
+        </div>
+
+        <div className="testimonials-grid-888">
+          {testimonialsData.map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className="testimonial-card-888"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div className="card-header-888">
+                <img src={testimonial.avatar} alt={testimonial.name} className="avatar-888" />
+                <div className="client-info-888">
+                  <h4 className="client-name-888">{testimonial.name}</h4>
+                  <p className="client-car-888">{testimonial.car}</p>
+                </div>
+                
+                <div className="stars-888">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} style={{ color: i < testimonial.rating ? '#ff3b3b' : '#444', marginRight: '2px' }}>
+                      ★
+                    </span>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-      </div>
-
-    </div>
-
-
-<section className="hm-reviews-wrapper">
-<div className="hm-section-title">
-  <h2>What Our <span className="hm-text-red">Drivers</span> Say</h2>
-  <div style={{width: '60px', height: '4px', background: '#ff0000', margin: '10px auto'}}></div>
-</div>
-
-<div className="hm-feedback-grid">
-  {reviewsData.map((item) => (
-    <div key={item.id} className="hm-review-card">
-      <MessageSquareQuote className="hm-quote-icon" />            
-      <div className="hm-stars-row">
-        <Star size={16} fill="currentColor" />
-        <Star size={16} fill="currentColor" />
-        <Star size={16} fill="currentColor" />
-        <Star size={16} fill="currentColor" />
-        <Star size={16} fill="currentColor" />
-      </div>
-
-      <p className="hm-comment-text">"{item.text}"</p>
-
-      <div className="hm-client-box">
-        <div className="hm-client-info">
-          <h4>{item.customer}</h4>
-          <span>{item.model}</span>
+              <div className="card-body-888">
+                <p className="client-quote-888">"{testimonial.text}"</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
-  ))}
-</div>
+    </section>
 
-<div className="hm-action-area">
-  <button className="hm-btn-primary">Leave a Review</button>
-</div>
-</section>
+
  </>
   );
 };

@@ -12,9 +12,6 @@ const FloatingContact = () => {
                 <a href="tel:01000444401" className="phone-link">
                     01000444401
                 </a>
-                <a href="tel:01000004471" className="phone-link">
-                    01000004471
-                </a>
             </div>
 
             <button 
