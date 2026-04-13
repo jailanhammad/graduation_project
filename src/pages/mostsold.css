@@ -1,0 +1,142 @@
+.ms-container {
+    padding-top: 60px; 
+    background: radial-gradient(circle at top right, #1a0000, #000 60%);
+    min-height: 100vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 130px;
+    color: white;
+    font-family: 'poppins', sans-serif;
+  }
+  
+  .ms-header {
+    background: transparent !important;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+  }
+  .ms-tagline {
+    color: #e31b23;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .ms-title {
+    font-size: 4rem;
+    font-weight: 900;
+  }
+  
+  .ms-title span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #e31b23;
+  }
+  
+  .ms-line {
+    width: 120px;
+    height: 3px;
+    background: #e31b23;
+    margin: 15px auto;
+  }
+  
+  .ms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+  }
+  
+  .ms-card {
+    background: linear-gradient(145deg, #111, #080808);
+    border: 1px solid #1a1a1a;
+    border-radius: 25px;
+    padding: 20px;
+    position: relative;
+    transition: 0.4s;
+    overflow: hidden;
+  }
+  
+  .ms-card:hover {
+    border-color: #e31b23;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  }
+  
+  .ms-rank {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(227, 27, 35, 0.1);
+    color: #e31b23;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border: 1px solid #e31b23;
+  }
+  
+  .ms-img-holder {
+    position: relative;
+    margin: 30px 0;
+    transition: 0.3s;
+  }
+  
+  .ms-img-holder img {
+    width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+  }
+  
+  .ms-details h3 {
+    font-size: 1.6rem;
+    margin: 20px 0 10px;
+  }
+  
+  .ms-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .ms-rating {
+    color: #ffb400;
+  }
+  
+  .ms-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+.ms-notify-btn {
+    width: 100%;
+    padding: 14px 8px;
+    border-radius: 12px;
+    border: 1px solid #e31b23;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem; 
+    cursor: pointer;
+    transition: 0.3s all ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .ms-notify-btn:hover {
+    background: #e31b23;
+    box-shadow: 0 0 20px rgba(227, 27, 35, 0.4);
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: 768px) {
+    .ms-title { font-size: 2.5rem; }
+    .ms-grid { grid-template-columns: 1fr; }
+  }
+  
+
+  

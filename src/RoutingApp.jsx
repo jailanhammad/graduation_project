@@ -19,6 +19,8 @@ import CarDetails from "./pages/cardetails";
 import Scroll from "./Scroll";
 import Recommended from "./pages/recommended";
 import ComingSoon from './pages/comingsoon';
+import MostSold from "./pages/mostsold";
+import DownloadApp from "./pages/app";
 
 
 const RoutingApp = () => {
@@ -41,6 +43,8 @@ const RoutingApp = () => {
         <Route path="/View-Details" element={<CarDetails />} />
         <Route path="/Recommended" element={<Recommended />} />
         <Route path="/Coming-Soon" element={<ComingSoon />} />
+        <Route path="/Most-Sold" element={<MostSold />} />
+        <Route path="/App" element={<DownloadApp />} />
 
         <Route path="/Login" element={<Login />} />
         <Route path="/Reviews" element={<Reviews />} />

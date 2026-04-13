@@ -8,7 +8,7 @@ import velar from "../assets/gallery/velar.png";
 import evouqe from "../assets/gallery/evouqe.png";
 import mercedes from "../assets/gallery/mercedes.png";
 import tosan from "../assets/gallery/tosan.png";
-
+import redC from "../assets/gallery/redC.png";
 import s from "../assets/gallery/s.png";
 import c200 from "../assets/gallery/c200.png";
 import glc from "../assets/gallery/glc.png";
@@ -27,6 +27,7 @@ const Recommended = () => {
     { id: 6, name: 'Bmw 318', price: '1,350,000', category: 'Sedan', image: bmw, state: 'Used' },
     { id: 7, name: 'Mercedes C180', price: '3,000,000', category: 'Sedan', image: mercedes, state: 'Used' },
     { id: 8, name: 'Hyundai Tucson', price: '1,800,000', category: 'SUV', image: tosan, state: 'Used' },
+    { id: 9, name: 'Mercedes C200', price: '2,500,000', category: 'Luxury', image: redC, state: 'Used' },
 
 
   ];

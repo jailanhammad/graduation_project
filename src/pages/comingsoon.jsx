@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import './comingsoon.css';
 import sport from "../assets/comingsoon/sport.png";
 import b320 from "../assets/comingsoon/320.png";
@@ -29,9 +30,21 @@ const ComingSoon = () => {
   ];
 
   const handleNotify = (carName) => {
-    alert(`🔥 Success! We'll notify you the moment the ${carName} hits our floor.`);
+    Swal.fire({
+      title: 'Waitlist Joined! 🏎️',
+      html: `You're now on the VIP waitlist. <br/> We'll notify you the moment the <b>${carName}</b> hits our floor.`,
+      icon: 'success',
+      background: '#111', 
+      color: '#fff',
+      confirmButtonText: 'GREAT',
+      confirmButtonColor: '#e31b23', 
+      customClass: {
+        popup: 'ms-swal-popup',
+        title: 'ms-swal-title',
+        confirmButton: 'ms-swal-button'
+      }
+    });
   };
-
   return (
 
     <>

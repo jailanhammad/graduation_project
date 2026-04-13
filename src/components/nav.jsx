@@ -34,7 +34,7 @@ const Nav = () => {
         // Dropdown
         services: isArabic ? "خدماتنا" : "Services",
         reviews: isArabic ? "الآراء" : "Reviews",
-        brands: isArabic ? "الماركات" : "Brands",
+        App: isArabic ? "الابلكيشن" : "Our App",
         mostsold: isArabic ? "الأكثر مبيعاً" : "Most sold",
         installments: isArabic ? "تقسيط" : "Installments",
         testdrive: isArabic ? "تجربة قيادة" : "Test drive",
@@ -196,12 +196,12 @@ useEffect(() => {
 
 
                     <li>
-                    <Link to="/Brands" className="nav-link"> {t.brands}</Link>
+                    <Link to="/Gallery" className="nav-link"> {t.gallery}</Link>
                     </li>
 
 
                     <li>
-                    <Link to="/Most-sold" className="nav-link">{t.mostsold}</Link>
+                    <Link to="/Most-Sold" className="nav-link">{t.mostsold}</Link>
                     </li>
 
 
@@ -211,7 +211,7 @@ useEffect(() => {
 
 
                     <li>
-                    <Link to="/Test-drive" className="nav-link"> {t.testdrive}</Link>
+                    <Link to="/Test-Drive" className="nav-link"> {t.testdrive}</Link>
                     </li>
 
 
@@ -226,7 +226,7 @@ useEffect(() => {
 
 
                     <li>
-                    <Link to="/Gallery" className="nav-link"> {t.gallery}</Link>
+                    <Link to="/App" className="nav-link"> {t.App}</Link>
                     </li>
 
                 <li className="mobile-close-li">
