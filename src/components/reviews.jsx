@@ -5,6 +5,7 @@ import white from "../assets/home/white-arrow.svg";
 import black from "../assets/home/black-arrow.svg";
 import girl from "../assets/home/girl.svg";
 import { useLanguage } from '../LanguageContext';
+import { Link } from "react-router-dom";
 
 
 const Reviews = () => {
@@ -18,13 +19,11 @@ const Reviews = () => {
         title: isArabic ? "ماذا يقول عملاؤنا" : "What our customers say",
         viewAll: isArabic ? "عرض الكل" : "View All",
         
-        // Review 1
         name1: isArabic ? "محمد علي" : "Mohamed Ali",
         text1: isArabic 
             ? "خدمة رائعة! الفريق كان محترفاً جداً وساعدني في العثور على السيارة المثالية لاحتياجاتي. أنصح بهم بشدة!" 
             : "Great service! The team was very professional and helped me find the perfect car for my needs. Highly recommended!",
             
-        // Review 2
         name2: isArabic ? "سلمى أحمد" : "Salma Ahmed",
         text2: isArabic 
             ? "شراء سيارتي الأولى كان سهلاً وخالياً من التوتر. كل شيء كان واضحاً ومنظماً." 
@@ -92,7 +91,9 @@ const Reviews = () => {
         </div>
 
         <div class="view-all-container">
+        <Link to="/Reviews">
             <a href="#" class="view-all-link">{t.viewAll} <i class="fas fa-arrow-right"></i></a>
+        </Link>
         </div>
     </div>
 </section>

@@ -81,7 +81,6 @@
     border-color: #fff;
 
 }
-/* --- Reviews Grid --- */
 .reviews-grid {
     display: flex;
     gap: 30px;
@@ -160,9 +159,6 @@
     margin-left: 8px;
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
-
-/* Tablet (1024px) */
 @media (max-width: 1024px) {
     .reviews-grid {
         flex-direction: column;
@@ -174,7 +170,6 @@
     }
 }
 
-/* Mobile (768px) */
 @media (max-width: 768px) {
     .responsive-container {
         padding: 0 20px;
