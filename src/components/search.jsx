@@ -27,10 +27,10 @@ const Search = () => {
         <>
         
         <div class="search-section">
-    <div class="filter-tabs">
-        <button class="tab active">{t.all}</button>
-        <button class="tab">{t.new}</button>
-        <button class="tab">{t.used}</button>
+    <div class="filter-tabs-09">
+        <button className="tab-active-09">{t.all}</button>
+        <button className="tab-09">{t.new}</button>
+        <button className="tab-09">{t.used}</button>
     </div>
 
 <div className='row'>
