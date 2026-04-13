@@ -1,4 +1,4 @@
-.viewer-window {
+.viewer-window-2 {
     width: 100%;
     background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
     overflow: hidden;
@@ -9,8 +9,8 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.viewer-window::before,
-.viewer-window::after {
+.viewer-window-2::before,
+.viewer-window-2::after {
     content: '';
     position: absolute;
     left: 10%;
@@ -22,15 +22,15 @@
     box-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
     border-radius: 50%;
 }
-.viewer-window::before { top: 8%; }
-.viewer-window::after { bottom: 8%; }
+.viewer-window-2::before { top: 8%; }
+.viewer-window-2::after { bottom: 8%; }
 
 .container-6 {
     box-sizing: border-box;
 
 }
 
-.gallery-section{
+.gallery-section-2{
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -59,14 +59,11 @@
 }
 
 @media (max-width: 768px) {
-    .container-6 {
-        padding: 0 20px; 
-    }
-    
+ 
     .section-title-6 {
         margin-bottom: 25px;
     }
-    .gallery-section{
+    .gallery-section-2{
      margin-left: 20px;
     }
 }
@@ -118,14 +115,14 @@
     50% { transform: translate(-50%, -10px); opacity: 1; }
 }
 
-.viewer-window::-webkit-scrollbar {
+.viewer-window-2::-webkit-scrollbar {
     height: 4px;
 }
-.viewer-window::-webkit-scrollbar-thumb {
+.viewer-window-2::-webkit-scrollbar-thumb {
     background: linear-gradient(90deg, #ff4d4d, #ff8080);
     border-radius: 10px;
 }
-.viewer-window {
+.viewer-window-2 {
     width: 100%;
     background: #000;
     overflow: hidden;
@@ -158,7 +155,7 @@
     .range {
         height: 350px;
     }
-    .viewer-window {
+    .viewer-window-2 {
         clip-path: ellipse(160% 100% at 50% 50%); 
         padding: 30px 0;
     }
@@ -169,13 +166,13 @@
         height: 220px; 
     }
 
-    .viewer-window {
+    .viewer-window-2 {
         clip-path: ellipse(200% 100% at 50% 50%); 
         padding: 20px 0;
     }
 
-    .viewer-window::before { top: 2%; }
-    .viewer-window::after { bottom: 2%; }
+    .viewer-window-2::before { top: 2%; }
+    .viewer-window-2::after { bottom: 2%; }
 
   
     .scroll-hint {

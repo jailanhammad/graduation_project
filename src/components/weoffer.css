@@ -4,7 +4,11 @@
     color: #fff;
     text-align: center;
 }
-
+@media (max-width: 768px) {
+    .hmo-services-section {
+        margin-top: -100px; 
+    }
+}
 .hmo-container {
     max-width: 1350px;
     margin: 0 auto;

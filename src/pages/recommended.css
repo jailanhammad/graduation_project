@@ -1,7 +1,6 @@
 .rec-wrapper {
-    padding-top: 240px; 
+    padding-top: 80px; 
     background: radial-gradient(circle at top right, #1a0000, #000 60%);
-    min-height: 100vh;
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 130px;
@@ -16,9 +15,7 @@
     position: relative;
     z-index: 1;
   }
-.rec-wrapper {
-    padding-top: 20px; 
-  }
+
 
   .subtitle-09 { color: #e31b23; letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
   

@@ -16,19 +16,16 @@ const Whyus = () => {
             ? "التميز ليس مجرد معيار، بل هو نقطة انطلاقنا." 
             : "Excellence is not just a standard, it's our starting point.",
         
-        // Feature 1
         qTitle: isArabic ? "جودة ممتازة" : "Premium Quality",
         qDesc: isArabic 
             ? "تخضع كل سيارة لفحص دقيق يشمل 150 نقطة لضمان المثالية." 
             : "Every vehicle undergoes a rigorous 150-point inspection to ensure perfection.",
             
-        // Feature 2
         fTitle: isArabic ? "أفضل تمويل" : "Best Financing",
         fDesc: isArabic 
             ? "أسعار تمويل حصرية وباقات مخصصة لتناسب أسلوب حياتك." 
             : "Exclusive financing rates and tailored packages to suit your lifestyle.",
             
-        // Feature 3
         sTitle: isArabic ? "دعم عالمي" : "Global Support",
         sDesc: isArabic 
             ? "من خلال فروعنا المتعددة، نقدم التميز في كل مكان." 

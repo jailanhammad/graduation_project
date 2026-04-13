@@ -1,12 +1,12 @@
 
 .get-in-touch {
     background: #0a0a0a;
-    padding: 80px 20px;
+    padding: 40px 20px;
     color: #fff;
 }
 
 .get-coloumn {
-    max-width: 1300px;
+    max-width: 1350px;
     margin: 0 auto;
 }
 
@@ -161,5 +161,5 @@
     .send-btn {
         width: 100%; 
     }
+    
 }
-

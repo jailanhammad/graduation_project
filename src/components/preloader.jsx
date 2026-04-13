@@ -7,15 +7,13 @@ const Preloader = () => {
     const [show, setShow] = useState(true);
 
     useEffect(() => {
-        // This event fires when the ENTIRE page (images, CSS, etc.) is fully loaded
         window.addEventListener('load', () => {
             setShow(false);
         });
 
-        // Fallback: If the page takes too long, hide it after 4 seconds anyway
         const backupTimer = setTimeout(() => {
             setShow(false);
-        }, 4000);
+        }, 2000);
 
         return () => {
             window.removeEventListener('load', () => setShow(false));

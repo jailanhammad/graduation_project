@@ -32,6 +32,7 @@ const RoutingApp = () => {
     <BrowserRouter>
     <Scroll />
       <Routes>
+      <Route path="/Vehicles/:id" element={<Vehicles/>} />
         <Route path="/" element={<Home />} />
         <Route path="/About-us" element={<About />} />
         <Route path="/Contact-us" element={<Contact />} />
@@ -60,7 +61,7 @@ const RoutingApp = () => {
 
 
 
-        <Route path="/*" element={<Error />} />
+        <Route path="*" element={<Error />} />
 
       </Routes>
     </BrowserRouter>

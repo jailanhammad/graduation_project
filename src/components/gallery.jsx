@@ -26,12 +26,12 @@ const Gallery = () => {
 
     return ( 
 <section className="interior-360-section">
-        <div className='gallery-section'>
+        <div className='gallery-section-2'>
             <h2 className="section-title-6">{t.title}</h2>
         </div>
 
         <div className="container-6" dir="ltr"> 
-            <div className="viewer-window">
+            <div className="viewer-window-2">
                 <div className="panorama-loop">
                     <div className="row-img">
                         {images.map((img, i) => <img key={i} src={img} className='range' alt="car" />)}

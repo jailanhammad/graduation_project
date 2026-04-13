@@ -1,6 +1,5 @@
 .values-section {
-    background-color: #0c0c0c;
-    padding: 100px 0;
+    background-color: #0B0606;
     color: #fff;
     font-family: 'Poppins', sans-serif;
 }
@@ -12,13 +11,13 @@
 }
 
 .section-title-8 {
-    font-size: 26px; /* Your requested size */
+    font-size: 26px; 
     font-weight: 700;
     margin-bottom: 60px;
     text-align: left;
     color: #ffffff;
-    position: relative; /* Essential for the absolute line positioning */
-    display: inline-block; /* Ensures the underline only spans the width of the text */
+    position: relative; 
+    display: inline-block; 
 }
 
 .section-title-8::after {
@@ -83,7 +82,7 @@
 }
 
 .value-card h3 {
-    font-size: 22px; /* Normal size range as requested */
+    font-size: 22px; 
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -96,7 +95,6 @@
     margin: 0 auto;
 }
 
-/* Keyframe for staggered entrance */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -104,28 +102,24 @@
     }
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
-
-/* Tablet (1024px to 768px) */
 @media (max-width: 1024px) {
     .values-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+        grid-template-columns: repeat(2, 1fr);
     }
     .section-title-8{
         font-size: 24px;
     }
 }
 
-/* Mobile (768px and below) */
 @media (max-width: 768px) {
     .responsive-container {
         padding: 0 20px;
     }
     .values-grid {
-        grid-template-columns: 1fr; /* 1 column for mobile */
+        grid-template-columns: 1fr;
     }
     .section-title-8{
-        font-size: 22px; /* Minimum requested size */
+        font-size: 22px; 
         text-align: center;
     }
     .value-card {
