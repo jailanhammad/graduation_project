@@ -9,7 +9,7 @@ import './vehiclescard.css';
 const Vehiclescard = () => {
     const [cars, setCars] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [fetchError, setFetchError] = useState(null); // New state for errors
+    const [fetchError, setFetchError] = useState(null); 
 
     useEffect(() => {
         fetchCars();
@@ -21,7 +21,7 @@ const Vehiclescard = () => {
             const { data, error } = await supabase
                 .from('vehiclescards')
                 .select('*')
-                .order('created_at', { ascending: false }); // Always show newest first
+                .order('created_at', { ascending: false }); 
             
             if (error) throw error;
             setCars(data);
@@ -54,13 +54,11 @@ const Vehiclescard = () => {
                                     key={car.id}
                                     img={car.thumbnail_url} 
                                     alt={car.name_en}
-                                    // Improved Logic for Badge
                                     stock={!car.is_instock ? "Sold Out" : car.condition_en}
                                     carname={car.name_en}
                                     carmodel={car.year}
                                     kilometer={`${car.mileage?.toLocaleString()} km`} 
                                     category={car.category}
-                                    // Added Price formatting
                                     price={`${car.price?.toLocaleString()} EGP`}
                                     btn1="View Details"
                                     btn2="Test Drive"

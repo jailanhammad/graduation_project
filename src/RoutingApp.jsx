@@ -14,6 +14,8 @@ import Exterior from "./components/exterior";
 import Showroom from "./components/showroom";
 import Tvshows from "./components/tvshows";
 import Installments from "./pages/installments";
+import TestDrive from "./pages/testdrive";
+import CarDetails from "./pages/cardetails";
 
 
 const RoutingApp = () => {
@@ -29,6 +31,8 @@ const RoutingApp = () => {
         <Route path="/Vehicles" element={<Vehicles />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/Installments" element={<Installments />} />
+        <Route path="/Test-Drive" element={<TestDrive />} />
+        <Route path="/View-Details" element={<CarDetails />} />
 
         <Route path="/Login" element={<Login />} />
         <Route path="/Reviews" element={<Reviews />} />

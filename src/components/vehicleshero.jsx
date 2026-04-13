@@ -2,7 +2,7 @@ import React from 'react';
 import './vehicleshero.css';
 import vehicleVideo from '../assets/vehicles/vd.mp4';
 
-const Vehicleshero = () => {
+const Vehicleshero = (props) => {
     return ( 
         <>
         
@@ -20,7 +20,7 @@ const Vehicleshero = () => {
     
     <div class="hmv-hero-container">
         <div class="hmv-hero-text hmv-animate-up">
-            <h5>Inventory</h5>
+            <h5>{props.h5}</h5>
             <h1>Explore Our Premium Collection</h1>
             <p>Browse our latest new and pre-owned vehicles. Quality guaranteed.</p>
         </div>

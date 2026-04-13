@@ -1,5 +1,6 @@
 import React from 'react';
 import './carcard.css'
+import { Link, useLocation } from 'react-router-dom';
 
 const Carcard = (props) => {
 
@@ -25,8 +26,12 @@ const Carcard = (props) => {
                     </div>
 
                     <div class="hmv-action-row">
-                        <a href="#" class="btn-outlined">{props.btn1}</a>
-                        <a href="#" class="btn-outlined">{props.btn2}</a>
+                    <Link to="/View-Details">
+                    <a href="#View-Details" class="btn-outlined">{props.btn1}</a>
+                    </Link>   
+                     <Link to="/Test-Drive">
+                     <a href="#Test-Drive" class="btn-outlined">{props.btn2}</a>
+                     </Link>   
                     </div>
                 </div>
             </article>

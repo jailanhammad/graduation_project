@@ -9,7 +9,7 @@ const Vehicles = () => {
         <>
 
         <Nav />
-        <Vehicleshero />
+        <Vehicleshero  h5="Inventory"/>
         <Vehiclescard />
         
         

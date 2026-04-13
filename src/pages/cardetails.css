@@ -1,0 +1,200 @@
+.car-dash-main-wrapper {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 50px 5%;
+    font-family: poppins;
+    min-height: 100vh;
+  }
+  
+  .car-dash-main-heading {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+  
+  .car-dash-text-accent {
+    color: #ff0000;
+  }
+  
+  .car-dash-stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 70px;
+  }
+  
+  .car-dash-stat-box {
+    background: linear-gradient(145deg, #1a0a0a, #0d0505);
+    padding: 35px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #221111;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: carDashSlideUp 0.6s ease-out;
+  }
+  
+  .car-dash-stat-box:hover {
+    transform: translateY(-10px);
+    border-color: #ff0000;
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.1);
+  }
+  
+  .car-dash-stat-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .car-dash-stat-tag { color: #666; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+  .car-dash-stat-info { font-size: 22px; font-weight: 700; margin-top: 8px; }
+  
+  .car-dash-specs-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 80px;
+  }
+  
+  .car-dash-info-panel {
+    background-color: #0f0b08;
+    padding: 30px;
+    border: 1px solid #2a1f18;
+    border-top: 3px solid #ED1C24; 
+  }
+  
+  .car-dash-panel-title {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2a1818;
+  }
+  
+  .car-dash-details-list { list-style: none; padding: 0; margin: 0; }
+  .car-dash-details-list li { margin-bottom: 15px; font-size: 14px; color: #b7b7b7; display: flex; justify-content: space-between; }
+  .car-dash-label-dim { color: #555; }
+  
+  .car-dash-metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 70px;
+  }
+  
+  .car-dash-metric-card {
+    background-color: #11110d;
+    padding: 25px;
+    border-left: 6px solid #ff0000;
+  }
+  
+  .car-dash-metric-card.gold-border { border-left-color: #ED1C24; }
+  .car-dash-metric-name { color: #777; font-size: 12px; text-transform: uppercase; }
+  .car-dash-metric-num { font-size: 26px; font-weight: 400; margin-top: 5px; }
+  
+  .car-dash-colors-area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .car-dash-swatch-card {
+    background-color: #0a0a0a;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .car-dash-color-view {
+    width: 100%;
+    height: 120px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  
+  @keyframes carDashSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @media (min-width: 768px) {
+    .car-dash-stats-container { grid-template-columns: repeat(4, 1fr); }
+    .car-dash-specs-layout { grid-template-columns: repeat(3, 1fr); }
+    .car-dash-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .car-dash-colors-area { grid-template-columns: repeat(4, 1fr); }
+  }
+
+
+.car-dash-images-scroll-wrapper {
+    display: flex; 
+    gap: 15px; 
+    overflow-x: auto;
+    padding: 10px 0 20px 0;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+  }
+  
+  .car-dash-images-scroll-wrapper::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .car-dash-images-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #ED1C24; 
+    border-radius: 10px;
+  }
+  
+  .car-dash-single-item-container {
+    flex: 0 0 85%; 
+    scroll-snap-align: center; 
+  }
+  
+  .car-dash-actual-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #222;
+    display: block;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .car-dash-single-item-container {
+      flex: 0 0 45%; 
+    }
+    .car-dash-main-heading {
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+      }
+  }
+
+.car-dash-images-section {
+    width: 100%;
+    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .car-dash-images-scroll-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 15px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 10px 0; 
+  }
+  
+ 
+  .car-dash-single-item-container {
+    flex: 0 0 100%; 
+    scroll-snap-align: start;
+  }
+  
+  @media (min-width: 1024px) {
+    .car-dash-single-item-container {
+      flex: 0 0 40%;
+    }
+  }
