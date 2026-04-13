@@ -74,7 +74,9 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">{t.price}</span>
                     </div>
-                    <a href="#" class="view-details-btn-2">{t.view}</a>
+                    <Link to="/View-Details">
+                    <a href="#View-Details" class="view-details-btn-2">{t.view}</a>
+                    </Link>
                 </div>
             </div>
 
@@ -92,8 +94,10 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">{t.price2}</span>
                     </div>
-                    <a href="#" class="view-details-btn-2">{t.view}</a>
-                </div>
+                    <Link to="/View-Details">
+                    <a href="#View-Details" class="view-details-btn-2">{t.view}</a>
+                    </Link>                
+                    </div>
             </div>
 
             <div class="vehicle-card">
@@ -110,8 +114,10 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">{t.price3}</span>
                     </div>
-                    <a href="#" class="view-details-btn-2">{t.view}</a>
-                </div>
+                    <Link to="/View-Details">
+                    <a href="#View-Details" class="view-details-btn-2">{t.view}</a>
+                    </Link>                
+                    </div>
             </div>
 
             <div class="vehicle-card">
@@ -128,8 +134,10 @@ const Featured = () => {
                     <div class="price-row">
                         <span class="price">{t.price4}</span>
                     </div>
-                    <a href="#" class="view-details-btn-2">{t.view}</a>
-                </div>
+                    <Link to="/View-Details">
+                    <a href="#View-Details" class="view-details-btn-2">{t.view}</a>
+                    </Link>               
+                    </div>
             </div>
 
         </div> 

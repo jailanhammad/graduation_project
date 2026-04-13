@@ -16,14 +16,19 @@ import Tvshows from "./components/tvshows";
 import Installments from "./pages/installments";
 import TestDrive from "./pages/testdrive";
 import CarDetails from "./pages/cardetails";
+import Scroll from "./Scroll";
+import Recommended from "./pages/recommended";
+import ComingSoon from './pages/comingsoon';
 
 
 const RoutingApp = () => {
+
     return (
         <>
         
 
     <BrowserRouter>
+    <Scroll />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About-us" element={<About />} />
@@ -33,6 +38,9 @@ const RoutingApp = () => {
         <Route path="/Installments" element={<Installments />} />
         <Route path="/Test-Drive" element={<TestDrive />} />
         <Route path="/View-Details" element={<CarDetails />} />
+        <Route path="/View-Details" element={<CarDetails />} />
+        <Route path="/Recommended" element={<Recommended />} />
+        <Route path="/Coming-Soon" element={<ComingSoon />} />
 
         <Route path="/Login" element={<Login />} />
         <Route path="/Reviews" element={<Reviews />} />

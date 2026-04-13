@@ -38,7 +38,7 @@ const Nav = () => {
         mostsold: isArabic ? "الأكثر مبيعاً" : "Most sold",
         installments: isArabic ? "تقسيط" : "Installments",
         testdrive: isArabic ? "تجربة قيادة" : "Test drive",
-        servicecenter: isArabic ? "مركز الخدمة" : "Service center",
+        ComingSoon: isArabic ? " قريباً" : "Coming Soon",
         recommended: isArabic ? "مقترح لك" : "Recommended",
         gallery: isArabic ? "المعرض" : "Gallery"
     };
@@ -216,7 +216,7 @@ useEffect(() => {
 
 
                     <li>
-                    <Link to="/Service-center" className="nav-link"> {t.servicecenter}</Link>
+                    <Link to="/Coming-Soon" className="nav-link"> {t.ComingSoon}</Link>
                     </li>
 
 

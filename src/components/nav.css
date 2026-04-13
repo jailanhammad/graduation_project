@@ -124,7 +124,10 @@ body {
 
 .main-nav {
     padding: 20px 0;
+    height: 90px;
     position: relative;
+    align-content: center;
+
     z-index: 100;
     backdrop-filter: blur(10px);
 

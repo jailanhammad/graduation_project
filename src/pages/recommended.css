@@ -1,0 +1,107 @@
+.rec-wrapper {
+    padding-top: 240px; 
+    background: radial-gradient(circle at top right, #1a0000, #000 60%);
+    min-height: 100vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 130px;
+    color: white;
+    font-family: 'poppins', sans-serif;
+  }
+.rec-header {
+    background: transparent !important;
+    margin-top: 100px; 
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+  }
+.rec-wrapper {
+    padding-top: 20px; 
+  }
+
+  .subtitle-09 { color: #e31b23; letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
+  
+  .title-09 { font-size: 3rem; font-weight: 900; letter-spacing: -1px; }
+  .title-09 span { color: transparent; -webkit-text-stroke: 1px #e31b23; }
+  
+  .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+  
+  .tab {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    padding: 8px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .tab.active, .tab:hover {
+    background: #e31b23;
+    color: white;
+    border-color: #e31b23;
+    box-shadow: 0 0 15px rgba(227, 27, 35, 0.4);
+  }
+  
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+  }
+  
+  .modern-card {
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 25px;
+    position: relative;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .modern-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(227, 27, 35, 0.5);
+  }
+  
+  .card-top { display: flex; justify-content: space-between; font-size: 0.75rem; color: #666; font-weight: bold; }
+  
+  .car-img-box {
+    position: relative;
+    margin: 30px 0;
+    transition: 0.3s;
+  }
+  
+  .car-img-box img { width: 100%; transition: 0.4s; }
+  
+  .glow-effect {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 150px; height: 150px;
+    background: #e31b23;
+    filter: blur(80px);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+  }
+  
+  .modern-card:hover .glow-effect { opacity: 0.3; }
+  .modern-card:hover img { transform: scale(1.1) }
+  
+  .card-content-09 h3 { font-size: 1.5rem; margin-bottom: 15px; }
+  
+  .card-footer { display: flex; justify-content: space-between; align-items: center; }
+  
+  .price-tag { font-size: 1.3rem; font-weight: bold; color: #e31b23; }
+  
+  .icon-btn-09 {
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    border: none; background: #e31b23;
+    color: white; font-size: 1.2rem;
+    cursor: pointer; transition: 0.3s;
+  }
+  
+  .icon-btn-09:hover { transform: scale(1.1); background: white; color: #000; }
