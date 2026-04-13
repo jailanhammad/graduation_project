@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './footer.css';
 import logo from "../assets/home/logo.svg";
 import fb from "../assets/home/fb.svg";
@@ -58,28 +59,56 @@ const Footer = () => {
                 {t.desc}
                 </p>
                 <div class="social-links">
-                    <a href="#"><i class="fab">
-                    <img src={fb} className='fb-svg'/>
-                    </i></a>
-                    <a href="#"><i class="fab">
-                    <img src={ig} className='fb-svg'/>
-                    </i></a>
-                    <a href="#"><i class="fab">
-                    <img src={twitt} className='fb-svg'/>
-                    </i></a>
-                    <a href="#"><i class="fab">
-                    <img src={wp} className='fb-svg'/>
-                    </i></a>
+                    <a href="https://www.facebook.com/hammad4motors" target="_blank" rel="noreferrer">
+                        <i className="fab">
+                            <img src={fb} className='fb-svg' alt="Facebook" />
+                        </i>
+                    </a>
+                    <a 
+                    href="https://www.instagram.com/hammad_motors" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    >
+                    <i className="fab">
+                        <img src={ig} className='fb-svg' alt="Instagram" />
+                    </i>
+                    </a>
+                    <a 
+                    href="https://twitter.com/YourUsername" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    >
+                    <i className="fab">
+                        <img src={twitt} className='fb-svg' alt="Twitter" />
+                    </i>
+                    </a>
+                    <a 
+                    href="https://wa.me/201000444401?text=Hello Hammad Motors! I'm interested in exploring your car collection."
+                    rel="noreferrer"
+                    >
+                    <i className="fab">
+                        <img src={wp} className='fb-svg' alt="WhatsApp" />
+                    </i>
+                    </a>
                 </div>
             </div>
 
             <div class="footer-col">
                 <h4 class="col-title">{t.col1Title}</h4>
                 <ul class="footer-links">
+                <Link to="/About-us">
                     <li><a href="#">{t.about}</a></li>
+                </Link>
+                <Link to="/Vehicles">
                     <li><a href="#">{t.allVehicles}</a></li>
+                </Link>
+                <Link to="/Services">
                     <li><a href="#">{t.services}</a></li>
+                </Link>
+                <Link to="/Contact-us">
                     <li><a href="#">{t.contact}</a></li>
+                </Link>
+
                     <li><a href="#">{t.privacy}</a></li>
                 </ul>
             </div>
