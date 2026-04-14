@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './carsection.css';
 import { Link } from "react-router-dom";
 import { useLanguage } from '../LanguageContext';
+import { supabase } from '../supabase'; 
 import car1 from "../assets/home/car1.svg";
 import car2 from "../assets/home/car2.svg";
 import up from "../assets/home/up.svg";
 
 const Cars = () => {
-
-
-
     const { isArabic } = useLanguage();
-
-    const t = {
-        buytitle: isArabic ? <>هل تبحث عن<br/>سيارة؟</> : <>Are You Looking <br/> For a Car?</>,
-        selltitle: isArabic ? <>هل تريد<br/>بيع سيارة؟</> : <>Do You Want to <br/> Sell a Car?</>,
-        description: isArabic 
-            ? "نحن ملتزمون بتقديم خدمة استثنائية لعملائنا." 
-            : "We are committed to providing our customers with exceptional service.",
-        btntext: isArabic ? "ابدأ الآن" : "Get Started"
-    };
+    const [ctaData, setCtaData] = useState([]); 
 
     useEffect(() => {
+        const fetchCTA = async () => {
+            const { data, error } = await supabase
+                .from('home_cta_sections')
+                .select('*')
+                .order('type', { ascending: true }); 
+            if (data) setCtaData(data);
+        };
+
+        fetchCTA();
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -36,44 +36,46 @@ const Cars = () => {
         return () => observer.disconnect();
     }, []);
 
+    const getCard = (type) => ctaData.find(item => item.type === type) || {};
+
+    const buyCard = getCard('buy');
+    const sellCard = getCard('sell');
+
     return (
-        <>
-    
-
-
-
-<section className="cta-section">
+        <section className="cta-section">
             <div className="container-2">
                 
                 <div className="cta-card hms-reveal-left">
-                    <img src={car1} className='car-img' alt="Buy" />
+                    <img src={buyCard.image_url || car1} className='car-img' alt="Buy" />
                     <div className="cta-overlay">
-                        <h3>{t.buytitle}</h3>
-                        <p>{t.description}</p>
+                        <h3>{isArabic ? buyCard.title_ar : buyCard.title_en}</h3>
+                        <p>{isArabic ? buyCard.sub_title_ar : buyCard.sub_title_en}</p>
                         <button className="cta-btn">
-                        <Link to="/Vehicles">{t.btntext}</Link>
-                        <img src={up} className='up-icon' alt="up" /> 
+                            <Link to={buyCard.btn_link || "/Vehicles"}>
+                                {isArabic ? buyCard.btn_text_ar : buyCard.btn_text_en}
+                            </Link>
+                            <img src={up} className='up-icon' alt="up" /> 
                         </button>
                     </div>
                 </div>
 
                 <div className="cta-card card-right hms-reveal-right">
-                    <img src={car2} className='car-img' alt="Sell" />
+                    <img src={sellCard.image_url || car2} className='car-img' alt="Sell" />
                     <div className="cta-overlay">
-                        <h3 className='h3'>{t.selltitle}</h3>
-                        <p>{t.description}</p>
+                        <h3 className='h3'>{isArabic ? sellCard.title_ar : sellCard.title_en}</h3>
+                        <p>{isArabic ? sellCard.sub_title_ar : sellCard.sub_title_en}</p>
                         <button className="cta-btn">
-                        <Link to="/Services">{t.btntext}</Link>
-                        <img src={up} className='up-icon' alt="up" /> 
+                            <Link to={sellCard.btn_link || "/Services"}>
+                                {isArabic ? sellCard.btn_text_ar : sellCard.btn_text_en}
+                            </Link>
+                            <img src={up} className='up-icon' alt="up" /> 
                         </button>
                     </div>
                 </div>
 
             </div>
-</section>
-
-        </>
-      );
+        </section>
+    );
 }
- 
+
 export default Cars;

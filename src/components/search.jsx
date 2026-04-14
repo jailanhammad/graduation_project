@@ -11,7 +11,6 @@ const Search = () => {
     const [allData, setAllData] = useState([]); 
     const [results, setResults] = useState([]); 
     const [loading, setLoading] = useState(false);
-    // ------------------------------------------
 
     const [selectedMake, setSelectedMake] = useState("");
     const [selectedModel, setSelectedModel] = useState("");
