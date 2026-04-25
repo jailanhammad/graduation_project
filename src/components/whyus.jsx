@@ -4,6 +4,7 @@ import quality from "../assets/home/quality.svg";
 import best from "../assets/home/best.svg";
 import support from "../assets/home/support.svg";
 import { useLanguage } from '../LanguageContext';
+            import BorderGlow from './BorderGlow';
 
 const Whyus = () => {
 
@@ -38,6 +39,8 @@ const Whyus = () => {
         
         
         <section class="why-choose-section">
+
+
     <div class="responsive-container">
         <div class="section-header-7">
             <h2 class="title">{t.title}</h2>
@@ -45,16 +48,53 @@ const Whyus = () => {
         </div>
 
         <div class="features-grid-2">
-            <div class="feature-card">
+
+
+   
+<BorderGlow
+  edgeSensitivity={30}
+  glowColor="40 80 80"
+  backgroundColor="#170f0f"
+  borderRadius={28}
+  glowRadius={40}
+  glowIntensity={1}
+  coneSpread={25}
+  animated={false}
+  colors={['#d32f2f', '#170f0f', '#d32f2f']}
+>
+  <div>
+ 
+
+  <div class="feature-card">
                 <div class="icon-wrapper">
                     <i class="icon-shield"></i> 
                     <img src={quality}/>
                 </div>
                 <h3>{t.qTitle}</h3>
                 <p>{t.qDesc}</p>
-            </div>
+  </div>
 
-            <div class="feature-card">
+
+  </div>
+</BorderGlow>
+
+
+   
+<BorderGlow
+  edgeSensitivity={30}
+  glowColor="40 80 80"
+  backgroundColor="#170f0f"
+  borderRadius={28}
+  glowRadius={40}
+  glowIntensity={1}
+  coneSpread={25}
+  animated={false}
+  colors={['#d32f2f', '#170f0f', '#d32f2f']}
+>
+  <div>
+ 
+
+  <div class="feature-card">
                 <div class="icon-wrapper">
                     <i class="icon-medal">
                     <img src={best}/>
@@ -62,9 +102,28 @@ const Whyus = () => {
                 </div>
                 <h3>{t.fTitle}</h3>
                 <p>{t.fDesc}</p>
-            </div>
+  </div>
 
-            <div class="feature-card">
+
+  </div>
+</BorderGlow>
+
+        
+<BorderGlow
+  edgeSensitivity={30}
+  glowColor="40 80 80"
+  backgroundColor="#170f0f"
+  borderRadius={28}
+  glowRadius={40}
+  glowIntensity={1}
+  coneSpread={25}
+  animated={false}
+  colors={['#d32f2f', '#170f0f', '#d32f2f']}
+>
+  <div>
+ 
+
+  <div class="feature-card">
                 <div class="icon-wrapper">
                     <i class="icon-globe">
                     <img src={support}/>
@@ -72,7 +131,13 @@ const Whyus = () => {
                 </div>
                 <h3>{t.sTitle}</h3>
                 <p>{t.sDesc}</p>
-            </div>
+  </div>
+
+  </div>
+</BorderGlow>
+
+
+         
         </div>
     </div>
 </section>
