@@ -1,6 +1,7 @@
 import React from 'react';
 import './contacthero.css';
 import contacthero from "../assets/contact/hero.svg";
+import Particles from './Particles';
 
 const Contacthero = () => {
     return ( 
@@ -9,7 +10,24 @@ const Contacthero = () => {
         
 <section class="contact-hero">
     <div class="hero-overlay">
-        <img src={contacthero} className='contacthero-img'/>
+
+
+
+
+<div style={{ width: '100%', height: '600px', position: 'relative' }}>
+  <Particles
+    particleColors={["#ff0000"]}
+    particleCount={200}
+    particleSpread={10}
+    speed={0.1}
+    particleBaseSize={100}
+    moveParticlesOnHover
+    alphaParticles={false}
+    disableRotation={false}
+    pixelRatio={1}
+/>
+</div>
+        {/* <img src={contacthero} className='contacthero-img'/> */}
     </div>
     <div class="hero-content">
         <h1 class="animate-up">Contact Us</h1>

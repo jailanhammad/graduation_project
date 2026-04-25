@@ -35,7 +35,7 @@
 
 .hero-content h1 {
     font-size: 3rem;
-    color: #d32f2f;
+    color: #ED1C24;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -45,7 +45,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-up { animation: fadeInUp 0.8s ease forwards; }
+.animate-up { animation: fadeInUp 0.8s ease forwards; color: #ED1C24; }
 .delay-1 { 
     animation-delay: 0.2s;
     font-size: 1.5rem;
@@ -58,7 +58,7 @@
 
     .hero-content h1 {
         font-size: 2rem;
-        color: #d32f2f;
+        color: #ED1C24;
         text-transform: uppercase;
         margin-bottom: 10px;
     }

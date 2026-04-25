@@ -1,14 +1,20 @@
 .values-section {
-    background-color: #0B0606;
     color: #fff;
     font-family: 'Poppins', sans-serif;
+    background-color: rgba(0, 0, 0, 0.7);
+    
 }
 
-.responsive-container {
+.responsive-container-001 {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 40px;
+    margin-bottom: 40px;
+    position: relative; 
+    z-index: 2;
 }
+
+
 
 .section-title-8 {
     font-size: 26px; 
@@ -50,7 +56,7 @@
 }
 
 .value-card {
-    background: #151515;
+    background: #15151559;
     padding: 50px 30px;
     border-radius: 24px;
     border: 1px solid #222;
@@ -112,7 +118,7 @@
 }
 
 @media (max-width: 768px) {
-    .responsive-container {
+    .responsive-container-001 {
         padding: 0 20px;
     }
     .values-grid {

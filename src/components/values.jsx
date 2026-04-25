@@ -6,6 +6,7 @@ import inno from "../assets/about/inno.svg";
 import quality from "../assets/about/quality.svg";
 import customer from "../assets/about/customer.svg";
 import ex from "../assets/about/ex.svg";
+import DotField from './DotField';
 
 
 const Values = () => {
@@ -28,8 +29,34 @@ const Values = () => {
 
 
 
-    <section className="values-section">
-      <div className="responsive-container">
+    <section className="values-section" style={{ position: 'relative', overflow: 'hidden' }}>
+
+    <div style={{ 
+    position: 'absolute', 
+    top: 0, 
+    left: 0, 
+    width: '100%', 
+    height: '100%', 
+    zIndex: 1 
+  }}>
+    <DotField
+      dotRadius={1.5}
+      dotSpacing={14}
+      bulgeStrength={67}
+      glowRadius={160}
+      sparkle={false}
+      waveAmplitude={0}
+      cursorRadius={500}
+      cursorForce={0.1}
+      bulgeOnly
+      gradientFrom="#4f0003"
+      gradientTo="#ff0000"
+      glowColor="#410101"
+    />
+  </div>
+
+
+      <div className="responsive-container-001">
         <h2 className="section-title-8">Our Values</h2>
         
         <div className="values-grid">
