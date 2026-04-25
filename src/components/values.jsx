@@ -7,6 +7,7 @@ import quality from "../assets/about/quality.svg";
 import customer from "../assets/about/customer.svg";
 import ex from "../assets/about/ex.svg";
 
+
 const Values = () => {
 
 

@@ -733,3 +733,31 @@ header {
         display: none;
     }
 }
+
+
+/* HERO CSS */
+
+@keyframes shiny {
+    0% { background-position: 100%; }
+    100% { background-position: -100%; }
+  }
+  
+  .shiny-text {
+    display: inline-block;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shiny-text.animate {
+    animation: shiny var(--speed) linear infinite;
+  }
+
+  
