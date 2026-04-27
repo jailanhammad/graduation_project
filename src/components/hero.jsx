@@ -39,9 +39,9 @@ const Hero = () => {
 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
                 <LightRays
                     raysOrigin="top-center"
-                    raysColor="#ff0000" // تقدري تغيريه لـ #ffffff لو عايزاه أبيض
+                    raysColor="#ff0000" 
                     raysSpeed={1}
-                    lightSpread={0.5}
+                    lightSpread={4}
                     rayLength={3}
                     followMouse={true}
                     mouseInfluence={1}
