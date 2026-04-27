@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import './footer.css';
+import { supabase } from '../supabase';
 import logo from "../assets/home/logo.svg";
 import fb from "../assets/home/fb.svg";
 import ig from "../assets/home/ig.svg";
@@ -9,148 +10,115 @@ import wp from "../assets/home/wp.svg";
 import loc from "../assets/home/loc.svg";
 import mobile2 from "../assets/home/mobile2.svg";
 import email2 from "../assets/home/email2.svg";
-import { useLanguage } from '../LanguageContext';
 
 const Footer = () => {
+    const [t, setT] = useState({});
+    const [lang, setLang] = useState(document.documentElement.dir === 'rtl' ? 'ar' : 'en');
 
-
-    const { isArabic } = useLanguage();
-
-    const t = {
-        brand: isArabic ? "حماد موتورز" : "HAMMAD MOTORS",
-        desc: isArabic 
-            ? "شريكك الموثوق للعثور على السيارة المثالية. نقدم مجموعة واسعة من السيارات الفاخرة مع خدمة استثنائية." 
-            : "Your trusted partner for finding the perfect vehicle. We offer a wide range of premium cars with exceptional service.",
-        
-        col1Title: isArabic ? "روابط سريعة" : "Quick Links",
-        about: isArabic ? "من نحن" : "About Us",
-        allVehicles: isArabic ? "كل السيارات" : "All Vehicles",
-        services: isArabic ? "خدماتنا" : "Our Services",
-        contact: isArabic ? "اتصل بنا" : "Contact Us",
-        privacy: isArabic ? "سياسة الخصوصية" : "Privacy Policy",
-
-        col2Title: isArabic ? "معلومات الاتصال" : "Contact Info",
-        address: isArabic ? "١٥ عمار بن ياسر، مصر الجديدة" : "15 Ammar ibn yasser, Masr El Gdida",
-        phone: "+02 01000444401",
-
-        col3Title: isArabic ? "النشرة الإخبارية" : "Newsletter",
-        newsletterText: isArabic ? "اشترك في نشرتنا الإخبارية للحصول على أحدث التحديثات والعروض." : "Subscribe to our newsletter for the latest updates and offers.",
-        placeholder: isArabic ? "عنوان بريدك الإلكتروني" : "Your Email Address",
-        subscribe: isArabic ? "اشترك الآن" : "Subscribe Now",
-
-        copyright: isArabic ? "٢٠٢٦ حماد موتورز. جميع الحقوق محفوظة." : " 2026 Hammad Motors. All rights reserved.",
-        terms: isArabic ? "الشروط والأحكام" : "Terms & Conditions"
+    const fetchFooterData = async (currentLang) => {
+        const { data, error } = await supabase
+            .from('footer_v2')
+            .select(`key, ${currentLang}`);
+    
+        if (!error && data) {
+            const transMap = {};
+            data.forEach(item => {
+                transMap[item.key] = item[currentLang];
+            });
+            setT(transMap);
+        }
     };
 
+    useEffect(() => {
+        fetchFooterData(lang);
+        const observer = new MutationObserver(() => {
+            const newLang = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
+            setLang(newLang);
+            fetchFooterData(newLang);
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+        return () => observer.disconnect();
+    }, [lang]);
+
+    const isRtl = lang === 'ar';
+
     return (
-        <>
-        
-        
-        <footer class="footer-section">
-    <div class="responsive-container">
-        <div class="footer-grid">
-            
-            <div class="footer-col branding">
-                <div class="footer-logo">
-                <img src={logo} className='logo-svg'/>
-                    <span class="logo-text">{t.brand}</span>
+        <footer className="footer-section" style={{ textAlign: isRtl ? 'right' : 'left' }}>
+            <div className="responsive-container">
+                <div className="footer-grid">
+                    
+                    <div className="footer-col branding">
+                        <div className="footer-logo">
+                            <img src={logo} className='logo-svg' alt="logo"/>
+                            <span className="logo-text">{t.brand}</span>
+                        </div>
+                        <p className="footer-desc">{t.desc}</p>
+                        <div className="social-links" style={{ justifyContent: isRtl ? 'flex-end' : 'flex-start' }}>
+                            <a href="https://www.facebook.com/hammad4motors" target="_blank" rel="noreferrer">
+                                <i className="fab"><img src={fb} className='fb-svg' alt="Facebook" /></i>
+                            </a>
+                            <a href="https://www.instagram.com/hammad_motors" target="_blank" rel="noreferrer">
+                                <i className="fab"><img src={ig} className='fb-svg' alt="Instagram" /></i>
+                            </a>
+                            <a href="https://twitter.com/YourUsername" target="_blank" rel="noreferrer">
+                                <i className="fab"><img src={twitt} className='fb-svg' alt="Twitter" /></i>
+                            </a>
+                            <a href="https://wa.me/201000444401?text=Hello Hammad Motors!" rel="noreferrer">
+                                <i className="fab"><img src={wp} className='fb-svg' alt="WhatsApp" /></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="footer-col">
+                        <h4 className="col-title">{t.col1Title}</h4>
+                        <ul className="footer-links">
+                            <li><Link to="/About-us">{t.about}</Link></li>
+                            <li><Link to="/Vehicles">{t.allVehicles}</Link></li>
+                            <li><Link to="/Services">{t.services}</Link></li>
+                            <li><Link to="/Contact-us">{t.contact}</Link></li>
+                            <li><a href="#">{t.privacy}</a></li>
+                        </ul>
+                    </div>
+
+                    <div className="footer-col">
+                        <h4 className="col-title">{t.col2Title}</h4>
+                        <ul className="contact-list">
+                            <li>
+                                <i className="fas"><img src={loc} className='fb-svg' alt="loc"/></i>
+                                {t.address}
+                            </li>
+                            <li>
+                                <i className="fas"><img src={mobile2} className='fb-svg' alt="phone"/></i> 
+                                +02 01000444401
+                            </li>
+                            <li>
+                                <i className="fas"><img src={email2} className='fb-svg' alt="email"/></i> 
+                                mahmoud@hammadmotors.com
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="footer-col">
+                        <h4 className="col-title">{t.col3Title}</h4>
+                        <p className="newsletter-text">{t.newsletterText}</p>
+                        <form className="newsletter-form">
+                            <input type="email" placeholder={t.placeholder} required 
+                                   style={{ textAlign: isRtl ? 'right' : 'left' }} />
+                            <button type="submit" className="btn-subscribe">{t.subscribe}</button>
+                        </form>
+                    </div>
                 </div>
-                <p class="footer-desc">
-                {t.desc}
-                </p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/hammad4motors" target="_blank" rel="noreferrer">
-                        <i className="fab">
-                            <img src={fb} className='fb-svg' alt="Facebook" />
-                        </i>
-                    </a>
-                    <a 
-                    href="https://www.instagram.com/hammad_motors" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    >
-                    <i className="fab">
-                        <img src={ig} className='fb-svg' alt="Instagram" />
-                    </i>
-                    </a>
-                    <a 
-                    href="https://twitter.com/YourUsername" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    >
-                    <i className="fab">
-                        <img src={twitt} className='fb-svg' alt="Twitter" />
-                    </i>
-                    </a>
-                    <a 
-                    href="https://wa.me/201000444401?text=Hello Hammad Motors! I'm interested in exploring your car collection."
-                    rel="noreferrer"
-                    >
-                    <i className="fab">
-                        <img src={wp} className='fb-svg' alt="WhatsApp" />
-                    </i>
-                    </a>
+
+                <div className="footer-bottom" style={{ flexDirection: isRtl ? 'row-reverse' : 'row' }}>
+                    <p>&copy; {t.copyright}</p>
+                    <div className="bottom-links">
+                        <a href="#">{t.terms}</a>
+                        <a href="#">{t.privacy}</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="footer-col">
-                <h4 class="col-title">{t.col1Title}</h4>
-                <ul class="footer-links">
-                <Link to="/About-us">
-                    <li><a href="#">{t.about}</a></li>
-                </Link>
-                <Link to="/Vehicles">
-                    <li><a href="#">{t.allVehicles}</a></li>
-                </Link>
-                <Link to="/Services">
-                    <li><a href="#">{t.services}</a></li>
-                </Link>
-                <Link to="/Contact-us">
-                    <li><a href="#">{t.contact}</a></li>
-                </Link>
-
-                    <li><a href="#">{t.privacy}</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4 class="col-title">{t.col2Title}</h4>
-                <ul class="contact-list">
-                    <li><i class="fas fa-map-marker-alt">
-                    <img src={loc} className='fb-svg'/>
-                    </i>{t.address}</li>
-                    <li><i class="fas fa-phone-alt">
-                    <img src={mobile2} className='fb-svg'/>
-                    </i> {t.phone}</li>
-                    <li><i class="fas fa-envelope">
-                    <img src={email2} className='fb-svg'/>
-                    </i> mahmoud@hammadmotors.com</li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4 class="col-title">{t.col3Title}</h4>
-                <p class="newsletter-text">{t.newsletterText}</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder={t.placeholder} required/>
-                    <button type="submit" class="btn-subscribe">{t.subscribe}</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy;{t.copyright}</p>
-            <div class="bottom-links">
-                <a href="#">{t.terms}</a>
-                <a href="#">{t.privacy}</a>
-            </div>
-        </div>
-    </div>
-</footer>
-        
-        
-        </>
-      );
+        </footer>
+    );
 }
- 
+
 export default Footer;

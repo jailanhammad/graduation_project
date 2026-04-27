@@ -1,79 +1,95 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './whysection.css';
+import { supabase } from '../supabase';
 import offers from "../assets/about/offers.svg";
 import price from "../assets/about/price.svg";
 import daimond from "../assets/about/daimond.svg";
 import car from "../assets/about/car.svg";
 
 const Whysection = () => {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    const fetchWhyData = async () => {
+        const currentLang = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
+        const { data: dbData, error } = await supabase
+            .from('why_choose_us_v2')
+            .select(`key, ${currentLang}_title, ${currentLang}_desc`);
+
+        if (!error && dbData) {
+            const transMap = {};
+            dbData.forEach(item => {
+                transMap[item.key] = {
+                    title: item[`${currentLang}_title`],
+                    desc: item[`${currentLang}_desc`]
+                };
+            });
+            setData(transMap);
+        }
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        fetchWhyData();
+        const observer = new MutationObserver(() => fetchWhyData());
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+        return () => observer.disconnect();
+    }, []);
+
+    if (loading) return null;
+
     return ( 
-        <>
-        
-        
-        
-        <section class="benefits-section">
-    <div class="responsive-container">
-        <div class="benefits-header">
-            <span class="sub-label">WE'RE HERE FOR WHATEVER YOU NEED</span>
-            <h2 class="section-title">Why Choose Us?</h2>
-        </div>
+        <section className="benefits-section">
+            <div className="responsive-container">
+                <div className="benefits-header">
+                    <span className="sub-label">{data.header?.desc}</span>
+                    <h2 className="section-title">{data.header?.title}</h2>
+                </div>
 
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <div class="benefit-icon">
-                    <i class="fas fa-percentage">
-                        <img src={offers}/>
-                    </i> </div>
-                <div class="benefit-info">
-                    <h3>Special Financing Offers</h3>
-                    <p>Drive your dream car today with our flexible financing plans. Enjoy low interest rates and tailored payment solutions.</p>
+                <div className="benefits-grid">
+                    <div className="benefit-item">
+                        <div className="benefit-icon">
+                            <i className="fas fa-percentage"><img src={offers} alt="offers" /></i>
+                        </div>
+                        <div className="benefit-info">
+                            <h3>{data.item1?.title}</h3>
+                            <p>{data.item1?.desc}</p>
+                        </div>
+                    </div>
+
+                    <div className="benefit-item">
+                        <div className="benefit-icon">
+                            <i className="fas fa-tag"><img src={price} alt="price" /></i>
+                        </div>
+                        <div className="benefit-info">
+                            <h3>{data.item2?.title}</h3>
+                            <p>{data.item2?.desc}</p>
+                        </div>
+                    </div>
+
+                    <div className="benefit-item">
+                        <div className="benefit-icon">
+                            <i className="fas fa-handshake"><img src={daimond} alt="trust" /></i>
+                        </div>
+                        <div className="benefit-info">
+                            <h3>{data.item3?.title}</h3>
+                            <p>{data.item3?.desc}</p>
+                        </div>
+                    </div>
+
+                    <div className="benefit-item">
+                        <div className="benefit-icon">
+                            <i className="fas fa-user-heart"><img src={car} alt="service" /></i>
+                        </div>
+                        <div className="benefit-info">
+                            <h3>{data.item4?.title}</h3>
+                            <p>{data.item4?.desc}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="benefit-item">
-                <div class="benefit-icon">
-                    <i class="fas fa-tag">
-                    <img src={price}/>
-                    </i>
-                </div>
-                <div class="benefit-info">
-                    <h3>Transparent Pricing</h3>
-                    <p>No hidden fees, no surprises — just clear, competitive prices you can trust every single time.</p>
-                </div>
-            </div>
-
-            <div class="benefit-item">
-                <div class="benefit-icon">
-                    <i class="fas fa-handshake">
-                    <img src={daimond}/>
-                    </i>
-                </div>
-                <div class="benefit-info">
-                    <h3>Trusted Car Dealership</h3>
-                    <p>With decades of experience, we've built a reputation for honesty, reliability, and excellence in the car market.</p>
-                </div>
-            </div>
-
-            <div class="benefit-item">
-                <div class="benefit-icon">
-                    <i class="fas fa-user-heart">
-                    <img src={car}/>
-                    </i>
-                </div>
-                <div class="benefit-info">
-                    <h3>Customer-Centered Service</h3>
-                    <p>Our team is dedicated to helping you every step of the way, from choosing the right car to after-sales support.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        
-        
-        
-        
-        </>
-     );
+        </section>
+    );
 }
- 
+
 export default Whysection;
