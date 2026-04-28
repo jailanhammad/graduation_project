@@ -1,0 +1,34 @@
+@media (max-width: 768px) {
+
+    .hms-sell-content, 
+    .hms-fin-header, 
+    .hmo-sub-label {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .hms-sell-features {
+        display: inline-block !important;
+        text-align: right !important; 
+        padding: 0 !important;
+        margin: 20px auto !important;
+    }
+
+    .hms-sell-features li {
+        justify-content: center !important;
+        margin-bottom: 15px !important;
+    }
+
+    .hms-whatsapp-link, 
+    .hms-hero-btns {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+    }
+
+
+}
