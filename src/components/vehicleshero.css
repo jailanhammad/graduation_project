@@ -113,3 +113,50 @@
         text-align: center; 
     }
 }
+
+[dir="rtl"] .hmv-hero-text {
+    text-align: right;
+}
+
+[dir="rtl"] .hmv-hero-text h1 {
+    line-height: 1.4; 
+    margin-bottom: 20px;
+    font-size: 3.5rem;
+}
+
+[dir="rtl"] .hmv-hero-text p {
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+[dir="rtl"] .hmv-hero-container {
+    padding-right: 5%; 
+    padding-left: 0;
+
+}
+
+@media screen and (max-width: 768px) {
+    .hmv-hero-text {
+        margin-top: 100px; 
+  
+    }
+
+    .hmv-hero-text h1 {
+        font-size: 2.5rem; 
+        line-height: 1.2;
+    }
+    [dir="rtl"] .hmv-hero-text {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hmv-hero-text {
+        margin-top: 120px;
+    }
+    [dir="rtl"] .hmv-hero-text {
+        text-align: center;
+    }
+}

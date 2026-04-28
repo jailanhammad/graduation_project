@@ -8,12 +8,12 @@ import quality from "../assets/about/quality.svg";
 import customer from "../assets/about/customer.svg";
 import ex from "../assets/about/ex.svg";
 import DotField from './DotField';
+const iconImages = { v1: trust, v2: trans, v3: inno, v4: quality, v5: customer, v6: ex };
 
 const Values = () => {
     const [valuesData, setValuesData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const iconImages = { v1: trust, v2: trans, v3: inno, v4: quality, v5: customer, v6: ex };
 
     const fetchValues = async () => {
         const currentLang = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
@@ -59,7 +59,7 @@ const Values = () => {
                     />
                 </div>
 
-                <div className="responsive-container-001" style={{ position: 'relative', zIndex: 2 }}>
+                <div className="responsive-container-001">
                     <h2 className="section-title-8">
                         {document.documentElement.dir === 'rtl' ? 'قيمنا' : 'Our Values'}
                     </h2>

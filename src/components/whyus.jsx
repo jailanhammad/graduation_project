@@ -1,152 +1,85 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './whyus.css';
-import quality from "../assets/home/quality.svg";
-import best from "../assets/home/best.svg";
-import support from "../assets/home/support.svg";
-import { useLanguage } from '../LanguageContext';
-            import BorderGlow from './BorderGlow';
+import qualityIcon from "../assets/home/quality.svg";
+import bestIcon from "../assets/home/best.svg";
+import supportIcon from "../assets/home/support.svg";
+import { supabase } from '../supabase';
+import BorderGlow from './BorderGlow';
 
 const Whyus = () => {
+    // 1. ميكانزم مراقبة زرار الترجمة (الـ Observer المعتمد في مشروعك)
+    const [lang, setLang] = useState(document.documentElement.dir === 'rtl' ? 'ar' : 'en');
+    const isArabic = lang === 'ar';
 
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            const newLang = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
+            setLang(newLang);
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+        return () => observer.disconnect();
+    }, []);
 
-    const { isArabic } = useLanguage();
+    // 2. جلب البيانات من سوبابيز
+    const [features, setFeatures] = useState([]);
+    
+    useEffect(() => {
+        const fetchFeatures = async () => {
+            const { data } = await supabase
+                .from('why_us_features')
+                .select('*')
+                .order('display_order', { ascending: true });
+            if (data) setFeatures(data);
+        };
+        fetchFeatures();
+    }, []);
 
-    const t = {
-        title: isArabic ? "لماذا تختار حماد موتورز" : "Why Choose Hammad Motors",
-        subtitle: isArabic 
-            ? "التميز ليس مجرد معيار، بل هو نقطة انطلاقنا." 
-            : "Excellence is not just a standard, it's our starting point.",
-        
-        qTitle: isArabic ? "جودة ممتازة" : "Premium Quality",
-        qDesc: isArabic 
-            ? "تخضع كل سيارة لفحص دقيق يشمل 150 نقطة لضمان المثالية." 
-            : "Every vehicle undergoes a rigorous 150-point inspection to ensure perfection.",
-            
-        fTitle: isArabic ? "أفضل تمويل" : "Best Financing",
-        fDesc: isArabic 
-            ? "أسعار تمويل حصرية وباقات مخصصة لتناسب أسلوب حياتك." 
-            : "Exclusive financing rates and tailored packages to suit your lifestyle.",
-            
-        sTitle: isArabic ? "دعم عالمي" : "Global Support",
-        sDesc: isArabic 
-            ? "من خلال فروعنا المتعددة، نقدم التميز في كل مكان." 
-            : "With multiple branches, we deliver excellence everywhere.",
+    // 3. ربط الأيقونات بالـ Keys (عشان الصور تفضل بجودة عالية من الـ assets)
+    const iconMap = {
+        quality: qualityIcon,
+        financing: bestIcon,
+        support: supportIcon
     };
 
+    // نصوص العناوين الثابتة
+    const sectionTitle = isArabic ? "لماذا تختار حماد موتورز" : "Why Choose Hammad Motors";
+    const sectionSubtitle = isArabic ? "التميز ليس مجرد معيار، بل هو نقطة انطلاقنا." : "Excellence is not just a standard, it's our starting point.";
+
     return ( 
-        <>
-        
-        
-        
-        <section class="why-choose-section">
-
-
-    <div class="responsive-container">
-        <div class="section-header-7">
-            <h2 class="title">{t.title}</h2>
-            <p class="subtitle">{t.subtitle}</p>
-        </div>
-
-        <div class="features-grid-2">
-
-
-   
-<BorderGlow
-  edgeSensitivity={30}
-  glowColor="40 80 80"
-  backgroundColor="#170f0f"
-  borderRadius={28}
-  glowRadius={40}
-  glowIntensity={1}
-  coneSpread={25}
-  animated={false}
-  colors={['#d32f2f', '#170f0f', '#d32f2f']}
->
-  <div>
- 
-
-  <div class="feature-card">
-                <div class="icon-wrapper">
-                    <i class="icon-shield"></i> 
-                    <img src={quality}/>
+        <section className="why-choose-section" dir={isArabic ? "rtl" : "ltr"}>
+            <div className="responsive-container">
+                <div className="section-header-7">
+                    <h2 className="title">{sectionTitle}</h2>
+                    <p className="subtitle">{sectionSubtitle}</p>
                 </div>
-                <h3>{t.qTitle}</h3>
-                <p>{t.qDesc}</p>
-  </div>
 
-
-  </div>
-</BorderGlow>
-
-
-   
-<BorderGlow
-  edgeSensitivity={30}
-  glowColor="40 80 80"
-  backgroundColor="#170f0f"
-  borderRadius={28}
-  glowRadius={40}
-  glowIntensity={1}
-  coneSpread={25}
-  animated={false}
-  colors={['#d32f2f', '#170f0f', '#d32f2f']}
->
-  <div>
- 
-
-  <div class="feature-card">
-                <div class="icon-wrapper">
-                    <i class="icon-medal">
-                    <img src={best}/>
-                    </i>
+                <div className="features-grid-2">
+                    {features.map((feature) => (
+                        <BorderGlow
+                            key={feature.id}
+                            edgeSensitivity={30}
+                            glowColor="40 80 80"
+                            backgroundColor="#170f0f"
+                            borderRadius={28}
+                            glowRadius={40}
+                            glowIntensity={1}
+                            coneSpread={25}
+                            animated={false}
+                            colors={['#d32f2f', '#170f0f', '#d32f2f']}
+                        >
+                            <div className="feature-card">
+                                <div className="icon-wrapper">
+                                    <img src={iconMap[feature.feature_key]} alt="icon" />
+                                </div>
+                                <h3>{isArabic ? feature.title_ar : feature.title_en}</h3>
+                                <p>{isArabic ? feature.desc_ar : feature.desc_en}</p>
+                            </div>
+                        </BorderGlow>
+                    ))}
                 </div>
-                <h3>{t.fTitle}</h3>
-                <p>{t.fDesc}</p>
-  </div>
-
-
-  </div>
-</BorderGlow>
-
-        
-<BorderGlow
-  edgeSensitivity={30}
-  glowColor="40 80 80"
-  backgroundColor="#170f0f"
-  borderRadius={28}
-  glowRadius={40}
-  glowIntensity={1}
-  coneSpread={25}
-  animated={false}
-  colors={['#d32f2f', '#170f0f', '#d32f2f']}
->
-  <div>
- 
-
-  <div class="feature-card">
-                <div class="icon-wrapper">
-                    <i class="icon-globe">
-                    <img src={support}/>
-                    </i>
-                </div>
-                <h3>{t.sTitle}</h3>
-                <p>{t.sDesc}</p>
-  </div>
-
-  </div>
-</BorderGlow>
-
-
-         
-        </div>
-    </div>
-</section>
-        
-        
-        
-        
-        </>
-     );
+            </div>
+        </section>
+    );
 }
- 
+
 export default Whyus;

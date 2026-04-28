@@ -2,12 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabase';
 import './search.css';
 import searchIcon from "../assets/home/search.svg";
-import { useLanguage } from '../LanguageContext';
 import { Link } from 'react-router-dom';
 
 const Search = () => {
-    const { isArabic } = useLanguage();
-    
+
+    const [lang, setLang] = useState(
+        document.documentElement.dir === 'rtl' ? 'ar' : 'en'
+    );
+
+    const isArabic = lang === 'ar';
+
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            const newLang = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
+            setLang(newLang);
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['dir']
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
     const [allData, setAllData] = useState([]); 
     const [results, setResults] = useState([]); 
     const [loading, setLoading] = useState(false);
@@ -73,7 +91,9 @@ const Search = () => {
                         className={condition === type ? "tab-active-09" : "tab-09"} 
                         onClick={() => setCondition(type)}
                     >
-                        {isArabic ? (type === "all" ? "الكل" : type === "new" ? "زيرو" : "مستعمل") : type.toUpperCase()}
+                        {isArabic 
+                            ? (type === "all" ? "الكل" : type === "new" ? "زيرو" : "مستعمل") 
+                            : type.toUpperCase()}
                     </button>
                 ))}
             </div>
@@ -81,18 +101,37 @@ const Search = () => {
             <div className='row'>
                 <div className="search-item">
                     <label>{isArabic ? "الماركة" : "MAKE"}</label>
-                    <select value={selectedMake} onChange={(e) => {setSelectedMake(e.target.value); setSelectedModel("");}}>
-                        <option value="">{isArabic ? "اختر الماركة" : "Select Make"}</option>
-                        {uniqueMakes.map(make => <option key={make} value={make}>{make}</option>)}
+                    <select 
+                        value={selectedMake} 
+                        onChange={(e) => {
+                            setSelectedMake(e.target.value); 
+                            setSelectedModel("");
+                        }}
+                    >
+                        <option value="">
+                            {isArabic ? "اختر الماركة" : "Select Make"}
+                        </option>
+                        {uniqueMakes.map(make => (
+                            <option key={make} value={make}>{make}</option>
+                        ))}
                     </select>
                 </div>
 
                 <div className="search-item">
                     <label>{isArabic ? "الموديل" : "MODEL"}</label>
-                    <select value={selectedModel} onChange={(e) => setSelectedModel(e.target.value)} disabled={!selectedMake}>
-                        <option value="">{isArabic ? "اختر الموديل" : "Select Model"}</option>
+                    <select 
+                        value={selectedModel} 
+                        onChange={(e) => setSelectedModel(e.target.value)} 
+                        disabled={!selectedMake}
+                    >
+                        <option value="">
+                            {isArabic ? "اختر الموديل" : "Select Model"}
+                        </option>
                         {availableModels.map(item => (
-                            <option key={item.id} value={isArabic ? item.model_ar : item.model_en}>
+                            <option 
+                                key={item.id} 
+                                value={isArabic ? item.model_ar : item.model_en}
+                            >
                                 {isArabic ? item.model_ar : item.model_en}
                             </option>
                         ))}
@@ -110,42 +149,75 @@ const Search = () => {
                 </button>
             </div>
 
-        
-
-<div className="results-grid-container">
-    {loading && <p>Searching for your car...</p>}
-    
-    <div className="cars-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px', marginTop: '20px' }}>
-        {results.map((car) => (
-            <Link 
-                to={`/Vehicles/${car.id}`} 
-                key={car.id} 
-                style={{ textDecoration: 'none' }}
-            >
-                <div className="car-card" style={{ background: '#fff', padding: '15px', borderRadius: '15px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', cursor: 'pointer' }}>
-                    <img src={car.thumbnail_url} alt={car.name_en} style={{ width: '100%', borderRadius: '10px' }} />
-                    
-                    <div className="car-info" style={{ color: '#000', marginTop: '10px' }}>
-                        <h3 style={{ fontSize: '18px' }}>
-                            {isArabic ? car.name_ar : car.name_en}
-                        </h3>
-                        <p className="price" style={{ fontWeight: 'bold', color: '#d32f2f' }}>
-                            {car.price} EGP
-                        </p>
-                        <div className="car-tags" style={{ display: 'flex', gap: '10px', fontSize: '12px', color: '#666' }}>
-                            <span>{car.year}</span>
-                            <span>{isArabic ? car.condition_ar : car.condition_en}</span>
-                        </div>
-                    </div>
+            <div className="results-grid-container">
+                {loading && (
+                    <p>
+                        {isArabic ? "جاري البحث..." : "Searching for your car..."}
+                    </p>
+                )}
+                
+                <div className="cars-grid" style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+                    gap: '20px',
+                    marginTop: '20px'
+                }}>
+                    {results.map((car) => (
+                        <Link 
+                            to={`/Vehicles/${car.id}`} 
+                            key={car.id} 
+                            style={{ textDecoration: 'none' }}
+                        >
+                            <div className="car-card" style={{
+                                background: '#fff',
+                                padding: '15px',
+                                borderRadius: '15px',
+                                boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                                cursor: 'pointer'
+                            }}>
+                                <img 
+                                    src={car.thumbnail_url} 
+                                    alt={car.name_en} 
+                                    style={{ width: '100%', borderRadius: '10px' }} 
+                                />
+                                
+                                <div className="car-info" style={{ color: '#000', marginTop: '10px' }}>
+                                    <h3 style={{ fontSize: '18px' }}>
+                                        {isArabic ? car.name_ar : car.name_en}
+                                    </h3>
+                                    <p className="price" style={{ fontWeight: 'bold', color: '#d32f2f' }}>
+                                        {car.price} EGP
+                                    </p>
+                                    <div className="car-tags" style={{
+                                        display: 'flex',
+                                        gap: '10px',
+                                        fontSize: '12px',
+                                        color: '#666'
+                                    }}>
+                                        <span>{car.year}</span>
+                                        <span>
+                                            {isArabic ? car.condition_ar : car.condition_en}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
-            </Link>
-        ))}
-    </div>
 
-    {!loading && results.length === 0 && selectedMake && (
-        <p className="no-results" style={{ textAlign: 'center', marginTop: '20px', color: '#888' }}>No cars found matching your search.</p>
-    )}
-</div>
+                {!loading && results.length === 0 && selectedMake && (
+                    <p className="no-results" style={{
+                        textAlign: 'center',
+                        marginTop: '20px',
+                        color: '#888'
+                    }}>
+                        {isArabic 
+                            ? "لا توجد سيارات مطابقة للبحث" 
+                            : "No cars found matching your search."
+                        }
+                    </p>
+                )}
+            </div>
         </div>
     );
 }
