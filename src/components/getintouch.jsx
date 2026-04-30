@@ -65,7 +65,7 @@ const Getintouch = () => {
                     <p>{t.subtitle}</p>
                 </div>
                 
-                <div className='rows' style={{ display: 'flex', gap: '40px', flexDirection: isRtl ? 'row' : 'row' }}>
+                <div className='rows'>
                     <form className="contact-form" onSubmit={handleFormSubmit} style={{ flex: 1 }}>
                         <div className="input-box" style={{ textAlign: isRtl ? 'right' : 'left' }}>
                             <label style={{ display: 'block', marginBottom: '8px' }}>{t.name_lbl}</label>

@@ -53,7 +53,7 @@ const Footer = () => {
                             <span className="logo-text">{t.brand}</span>
                         </div>
                         <p className="footer-desc">{t.desc}</p>
-                        <div className="social-links" style={{ justifyContent: isRtl ? 'flex-end' : 'flex-start' }}>
+                        <div className="social-links">
                             <a href="https://www.facebook.com/hammad4motors" target="_blank" rel="noreferrer">
                                 <i className="fab"><img src={fb} className='fb-svg' alt="Facebook" /></i>
                             </a>

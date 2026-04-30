@@ -43,9 +43,6 @@ const Serviceshero = () => {
             <div className="hms-container">
     <div 
         className="hms-content-box hms-animate-left" 
-        style={{ 
-        marginRight: '35px',
-        }}
     >
         <div className="hms-tag-line">{t.tag}</div>
         <h1 dangerouslySetInnerHTML={{ __html: t.title }}></h1>
