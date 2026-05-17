@@ -2,16 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './nav.css';
 import { supabase } from '../supabase';
 import logo from "../assets/home/logo.svg";
-import phone from "../assets/home/phone.svg";
-import email from "../assets/home/email.svg";
+import phoneIcon from "../assets/home/phone.svg";
+import emailIcon from "../assets/home/email.svg";
 import loginIcon from "../assets/home/login.svg"; 
 import music from "../assets/home/music.svg";
 import translate from "../assets/home/translate.svg";
 import { Link, useLocation } from 'react-router-dom';
 
 const Nav = () => {
-
-    
     const [lang, setLang] = useState(document.documentElement.dir === 'rtl' ? 'ar' : 'en');
     const [t, setT] = useState({}); 
     const [isMusicPlaying, setIsMusicPlaying] = useState(false);
@@ -45,13 +43,19 @@ const Nav = () => {
 
         const checkStatus = (e) => setIsMusicPlaying(e.detail);
         window.addEventListener('music-status', checkStatus);
-        return () => window.removeEventListener('music-status', checkStatus);
-    }, []);
+        
+        const observer = new MutationObserver(() => {
+            const currentLang = document.documentElement.dir === 'rtl' ? 'ar' : 'en';
+            setLang(currentLang);
+            fetchNavData(currentLang);
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
 
-    const staticInfo = {
-        phone: "+02 01000444401",
-        email: "mahmoud@hammadmotors.com"
-    };
+        return () => {
+            window.removeEventListener('music-status', checkStatus);
+            observer.disconnect();
+        };
+    }, [lang]);
 
     return ( 
         <header className="header">
@@ -59,12 +63,12 @@ const Nav = () => {
                 <div className="container-0">
                     <div className="contact-info">
                         <div className='phone-div'>
-                            <img src={phone} className='small-icon' alt="phone"/>
-                            <span><i className="fas fa-phone"></i> {staticInfo.phone}</span>
+                            <img src={phoneIcon} className='small-icon' alt="phone"/>
+                            <span><i className="fas fa-phone"></i> {t.phone || "+02 01000444401"}</span>
                         </div>
                         <div className='phone-div'>
-                            <img src={email} className='small-icon' alt="email" />
-                            <span><i className="fas fa-envelope"></i>{staticInfo.email}</span>
+                            <img src={emailIcon} className='small-icon' alt="email" />
+                            <span><i className="fas fa-envelope"></i>{t.email || "mahmoud@hammadmotors.com"}</span>
                         </div>
                     </div>
 
@@ -85,9 +89,9 @@ const Nav = () => {
 
                     <div className='login-div'>
                         <img src={loginIcon} className='small-icon' alt="login" />
-                        <a href="#" className="login-btn">
+                        <span className="login-btn">
                             <Link to="/Login">{t.login || "Login"}</Link>
-                        </a>
+                        </span>
                     </div>
                 </div>
             </div>

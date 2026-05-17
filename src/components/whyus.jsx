@@ -7,7 +7,6 @@ import { supabase } from '../supabase';
 import BorderGlow from './BorderGlow';
 
 const Whyus = () => {
-    // 1. ميكانزم مراقبة زرار الترجمة (الـ Observer المعتمد في مشروعك)
     const [lang, setLang] = useState(document.documentElement.dir === 'rtl' ? 'ar' : 'en');
     const isArabic = lang === 'ar';
 
@@ -20,7 +19,6 @@ const Whyus = () => {
         return () => observer.disconnect();
     }, []);
 
-    // 2. جلب البيانات من سوبابيز
     const [features, setFeatures] = useState([]);
     
     useEffect(() => {
@@ -34,14 +32,12 @@ const Whyus = () => {
         fetchFeatures();
     }, []);
 
-    // 3. ربط الأيقونات بالـ Keys (عشان الصور تفضل بجودة عالية من الـ assets)
     const iconMap = {
         quality: qualityIcon,
         financing: bestIcon,
         support: supportIcon
     };
 
-    // نصوص العناوين الثابتة
     const sectionTitle = isArabic ? "لماذا تختار حماد موتورز" : "Why Choose Hammad Motors";
     const sectionSubtitle = isArabic ? "التميز ليس مجرد معيار، بل هو نقطة انطلاقنا." : "Excellence is not just a standard, it's our starting point.";
 

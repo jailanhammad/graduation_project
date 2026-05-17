@@ -63,7 +63,7 @@ const Footer = () => {
                             <a href="https://twitter.com/YourUsername" target="_blank" rel="noreferrer">
                                 <i className="fab"><img src={twitt} className='fb-svg' alt="Twitter" /></i>
                             </a>
-                            <a href="https://wa.me/201000444401?text=Hello Hammad Motors!" rel="noreferrer">
+                            <a href={`https://wa.me/201000444401?text=Hello Hammad Motors!`} rel="noreferrer" target="_blank">
                                 <i className="fab"><img src={wp} className='fb-svg' alt="WhatsApp" /></i>
                             </a>
                         </div>
@@ -89,11 +89,11 @@ const Footer = () => {
                             </li>
                             <li>
                                 <i className="fas"><img src={mobile2} className='fb-svg' alt="phone"/></i> 
-                                +02 01000444401
+                                {t.phone}
                             </li>
                             <li>
                                 <i className="fas"><img src={email2} className='fb-svg' alt="email"/></i> 
-                                mahmoud@hammadmotors.com
+                                {t.email}
                             </li>
                         </ul>
                     </div>
@@ -101,7 +101,7 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4 className="col-title">{t.col3Title}</h4>
                         <p className="newsletter-text">{t.newsletterText}</p>
-                        <form className="newsletter-form">
+                        <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
                             <input type="email" placeholder={t.placeholder} required 
                                    style={{ textAlign: isRtl ? 'right' : 'left' }} />
                             <button type="submit" className="btn-subscribe">{t.subscribe}</button>
