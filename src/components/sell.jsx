@@ -18,8 +18,29 @@ const Sell = () => {
 
         const fetchData = async () => {
             try {
-                const { data: sectionData, error } = await supabase.from('sell_section').select('*').single();
-                if (sectionData && !error) setData(sectionData);
+                const { data: sectionData, error } = await supabase
+                    .from('sell_section')
+                    .select('*')
+                    .eq('id', 1)
+                    .single();
+
+                if (sectionData && !error) {
+                    let parsedFeaturesEn = sectionData.features_en;
+                    let parsedFeaturesAr = sectionData.features_ar;
+
+                    if (typeof sectionData.features_en === 'string') {
+                        try { parsedFeaturesEn = JSON.parse(sectionData.features_en); } catch(e) { parsedFeaturesEn = []; }
+                    }
+                    if (typeof sectionData.features_ar === 'string') {
+                        try { parsedFeaturesAr = JSON.parse(sectionData.features_ar); } catch(e) { parsedFeaturesAr = []; }
+                    }
+
+                    setData({
+                        ...sectionData,
+                        features_en: Array.isArray(parsedFeaturesEn) ? parsedFeaturesEn : [],
+                        features_ar: Array.isArray(parsedFeaturesAr) ? parsedFeaturesAr : []
+                    });
+                }
             } catch (err) {
                 console.log("Supabase error or empty table:", err);
             }
@@ -36,7 +57,10 @@ const Sell = () => {
         const hiddenElements = document.querySelectorAll('.hms-hidden');
         hiddenElements.forEach((el) => animObserver.observe(el));
 
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+            animObserver.disconnect();
+        };
     }, []);
 
     const defaultData = {
@@ -45,7 +69,7 @@ const Sell = () => {
         subtitle_en: 'Sell To Us Today',
         subtitle_ar: 'بع لنا سيارتك اليوم',
         description_en: 'We are committed to providing our customers with exceptional service, competitive pricing, and a wide range of options.',
-        description_ar: 'نحن ملتزمون بتزويد عملائنا بخدمة استثنائية، وأسعار تنافسية، ومجموعة واسعة من الخيارات.',
+        description_ar: 'نحن ملتزمون بتزويد عملائنا بخدمة استثنائية، وأسعار تنسيقية، ومجموعة واسعة من الخيارات.',
         badge_text: '100%',
         badge_sub_en: 'Trusted Service',
         badge_sub_ar: 'خدمة موثوقة',
@@ -57,7 +81,7 @@ const Sell = () => {
         ],
         features_ar: [
             'تقييم فوري للسيارة - احصل على عرض عادل في دقائق',
-            'لا توجد رسوم خفية - عملية شفافة بنسبة 100%',
+            'لا توجد رسوم خفية - عملية شفافية بنسبة 100%',
             'بدون متاعب - نحن نتولى جميع الأوراق',
             'دفع سريع - استلم مستحقاتك فوراً'
         ],
@@ -66,6 +90,11 @@ const Sell = () => {
     };
 
     const finalData = data || defaultData;
+    const currentFeatures = isArabic ? finalData.features_ar : finalData.features_en;
+
+    const whatsappMessage = isArabic 
+        ? encodeURIComponent(`مرحباً حماد موتورز، أريد عرض سيارتي للبيع.`)
+        : encodeURIComponent(`Hello Hammad Motors, I want to offer my car for sale.`);
 
     return (  
         <section className="hms-sell-section" dir={isArabic ? "rtl" : "ltr"}>
@@ -87,7 +116,7 @@ const Sell = () => {
                     </p>
 
                     <ul className="hms-sell-features">
-                        {(isArabic ? finalData.features_ar : finalData.features_en).map((feature, index) => (
+                        {Array.isArray(currentFeatures) && currentFeatures.map((feature, index) => (
                             <li key={index}>
                                 <i className="fas fa-check-circle">
                                     <img src={check} alt="check icon" />
@@ -98,12 +127,12 @@ const Sell = () => {
                     </ul>
 
                     <a 
-                    href="https://wa.me/201000444401?text=Hello%20Hammad%20Motors,%20I%20want%20to%20offer%20my%20car%20for%20sale." 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hms-whatsapp-link"
+                        href={`https://wa.me/201000444401?text=${whatsappMessage}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hms-whatsapp-link"
                     >
-                        <button className="hms-whatsapp-btn hms-hidden hms-from-bottom">
+                        <button className="hms-whatsapp-btn" style={{ opacity: 1, visibility: 'visible', display: 'flex', alignItems: 'center', gap: '10px' }}>
                             {isArabic ? finalData.whatsapp_text_ar : finalData.whatsapp_text_en} 
                             <i className="fab fa-whatsapp">
                                 <img src={whatsapp} alt="whatsapp icon" />

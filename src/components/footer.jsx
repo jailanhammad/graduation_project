@@ -76,7 +76,7 @@ const Footer = () => {
                             <li><Link to="/Vehicles">{t.allVehicles}</Link></li>
                             <li><Link to="/Services">{t.services}</Link></li>
                             <li><Link to="/Contact-us">{t.contact}</Link></li>
-                            <li><a href="#">{t.privacy}</a></li>
+                            <li>{t.privacy}</li>
                         </ul>
                     </div>
 
@@ -112,8 +112,8 @@ const Footer = () => {
                 <div className="footer-bottom" style={{ flexDirection: isRtl ? 'row-reverse' : 'row' }}>
                     <p>&copy; {t.copyright}</p>
                     <div className="bottom-links">
-                        <a href="#">{t.terms}</a>
-                        <a href="#">{t.privacy}</a>
+                        <a href="#!">{t.terms}</a>
+                        <a href="#!">{t.privacy}</a>
                     </div>
                 </div>
             </div>
