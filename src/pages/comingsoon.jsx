@@ -1,42 +1,110 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { supabase } from '../supabase';
 import './comingsoon.css';
-import sport from "../assets/comingsoon/sport.png";
-import b320 from "../assets/comingsoon/320.png";
 import Nav from '../components/nav';
 import Whyus from '../components/whyus';
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
 
-const ComingSoon = () => {
+const CountdownTimer = ({ targetDate, lang }) => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
 
-  const upcomingCars = [
-    {
-      id: 1,
-      img: sport,
-      name: 'Range Rover Sport',
-      releaseDate: '2026-07-01', 
-      specs: '0-100: 3.0s | 523 – 626 HP',
-      category: 'Luxury Car'
-    },
-    {
-      id: 2,
-      img: b320,
-      name: 'Bmw 320',
-      releaseDate: '2026-08-15',
-      specs: '2.0L Turbo | 184 HP',
-      category: 'Sport Car'
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = +new Date(targetDate) - +new Date();
+      let timeLeftObj = { days: 0, hours: 0, minutes: 0 };
+
+      if (difference > 0) {
+        timeLeftObj = {
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+        };
+      }
+      return timeLeftObj;
+    };
+
+    setTimeLeft(calculateTimeLeft());
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 60000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  const formatNum = (num) => String(num).padStart(2, '0');
+
+  return (
+    <div className="countdown-timer">
+      <div className="time-unit">
+        <span>{formatNum(timeLeft.days)}</span>
+        {lang === 'ar' ? 'يوم' : 'D'}
+      </div>
+      <div className="time-unit">
+        <span>{formatNum(timeLeft.hours)}</span>
+        {lang === 'ar' ? 'ساعة' : 'H'}
+      </div>
+      <div className="time-unit">
+        <span>{formatNum(timeLeft.minutes)}</span>
+        {lang === 'ar' ? 'دقيقة' : 'M'}
+      </div>
+    </div>
+  );
+};
+
+const ComingSoon = () => {
+  const [lang, setLang] = useState('en'); 
+  const [hero, setHero] = useState(null);
+  const [upcomingCars, setUpcomingCars] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchComingSoonData = async () => {
+    try {
+      setLoading(true);
+      
+      const { data: heroData, error: heroError } = await supabase
+        .from('coming_soon_hero')
+        .select('*')
+        .eq('id', 1)
+        .single();
+        
+      if (heroData) setHero(heroData);
+      if (heroError) console.error("Hero fetch error:", heroError.message);
+
+      const { data: carsData, error: carsError } = await supabase
+        .from('coming_soon_cars')
+        .select('*')
+        .order('id', { ascending: true });
+        
+      if (carsData) setUpcomingCars(carsData);
+      if (carsError) console.error("Cars fetch error:", carsError.message);
+
+    } catch (err) {
+      console.error("Error loading coming soon data:", err.message);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  useEffect(() => {
+    fetchComingSoonData();
+    
+    const htmlLang = document.documentElement.lang || 'en';
+    setLang(htmlLang);
+  }, []);
 
   const handleNotify = (carName) => {
     Swal.fire({
-      title: 'Waitlist Joined! 🏎️',
-      html: `You're now on the VIP waitlist. <br/> We'll notify you the moment the <b>${carName}</b> hits our floor.`,
+      title: lang === 'ar' ? 'تم الانضمام لقائمة الانتظار! 🏎️' : 'Waitlist Joined! 🏎️',
+      html: lang === 'ar' 
+        ? `أنت الآن في قائمة انتظار كبار الشخصيات VIP. <br/> سنقوم بإشعارك فور وصول <b>${carName}</b> إلى صالة العرض لدينا.`
+        : `You're now on the VIP waitlist. <br/> We'll notify you the moment the <b>${carName}</b> hits our floor.`,
       icon: 'success',
       background: '#111', 
       color: '#fff',
-      confirmButtonText: 'GREAT',
+      confirmButtonText: lang === 'ar' ? 'ممتاز' : 'GREAT',
       confirmButtonColor: '#e31b23', 
       customClass: {
         popup: 'ms-swal-popup',
@@ -45,59 +113,74 @@ const ComingSoon = () => {
       }
     });
   };
-  return (
 
-    <>
-    
-<Nav />
-  
-    <div className="coming-soon-wrapper">
-      <div className="bg-overlay-00">
+  if (loading) {
+    return (
+      <div style={{ background: '#000', color: '#fff', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'sans-serif', letterSpacing: '1px' }}>
+        LOADING FUTURE OF SPEED...
       </div>
+    );
+  }
+
+  return (
+    <>
+      <Nav />
       
-      <header className="cs-header">
-        <span className="badge-new">Next Generation</span>
-        <h1 className="cs-title">COMING <span>SOON</span></h1>
-        <p className="cs-desc">Be the first to experience the future of speed at <br /> Hammad Motors.</p>
-      </header>
+      <div className="coming-soon-wrapper" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+        <div className="bg-overlay-00"></div>
+        
+        <header className="cs-header">
+          <span className="badge-new">
+            {lang === 'ar' ? (hero?.badge_ar || 'الجيل القادم') : (hero?.badge_en || 'Next Generation')}
+          </span>
 
-      <div className="cs-grid">
-        {upcomingCars.map(car => (
-          <div key={car.id} className="cs-card">
-            <div className="cs-card-inner">
-              <div className="cs-image-box">
-                <img src={car.img} alt={car.name} className="car-silhouette" />
-                <div className="reveal-overlay"></div>
-              </div>
+          <h1 className="cs-title">
+            {lang === 'ar' ? (hero?.title_ar || 'قريباً جداً') : (hero?.title_en || 'COMING SOON')}
+          </h1>
 
-              <div className="cs-info">
-                <div className="specs-line">{car.specs}</div>
-                <h3>{car.name}</h3>
-                
-                <div className="countdown-timer">
-                  <div className="time-unit"><span>12</span>D</div>
-                  <div className="time-unit"><span>05</span>H</div>
-                  <div className="time-unit"><span>44</span>M</div>
+          <p className="cs-desc">
+            {lang === 'ar' 
+              ? (hero?.desc_ar || 'كن أول من يختبر مستقبل السرعة في حماد موتورز.') 
+              : (hero?.desc_en || 'Be the first to experience the future of speed at Hammad Motors.')
+            }
+          </p>
+        </header>
+
+        <div className="cs-grid">
+          {upcomingCars.map(car => (
+            <div key={car.id} className="cs-card">
+              <div className="cs-card-inner">
+                <div className="cs-image-box">
+                  <img src={car.img_url} alt={lang === 'ar' ? car.name_ar : car.name_en} className="car-silhouette" />
+                  <div className="reveal-overlay"></div>
                 </div>
 
-                <div className="cs-actions">
-                  <button className="notify-btn" onClick={() => handleNotify(car.name)}>Notify Me When Arrives</button>
+                <div className="cs-info">
+                  <div className="specs-line">
+                    {lang === 'ar' ? car.specs_ar : car.specs_en}
+                  </div>
+                  <h3>
+                    {lang === 'ar' ? car.name_ar : car.name_en}
+                  </h3>
+                  
+                  <CountdownTimer targetDate={car.release_date} lang={lang} />
+
+                  <div className="cs-actions">
+                    <button className="notify-btn" onClick={() => handleNotify(lang === 'ar' ? car.name_ar : car.name_en)}>
+                      {lang === 'ar' ? 'أعلمني عند الوصول' : 'Notify Me When Arrives'}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      
-    </div>
-
-<Whyus />
-<Reviews />
-<Footer />
-
+      <Whyus />
+      <Reviews />
+      <Footer />
     </>
-
   );
 };
 
