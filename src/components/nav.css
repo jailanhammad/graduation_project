@@ -254,7 +254,6 @@ header, .header-container {
 .dropdown-content {
     position: absolute;
     top: 100%;
-    right: 0;
     background: #000000c2;
     border-radius: 10px;
     min-width: 200px;
@@ -265,6 +264,8 @@ header, .header-container {
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     backdrop-filter: blur(10px);
 
+
+    inset-inline-end: 0;
 }
 
 
