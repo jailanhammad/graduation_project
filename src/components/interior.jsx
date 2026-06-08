@@ -17,6 +17,7 @@ import in3 from "../assets/gallery/in3.png";
 import img13 from "../assets/gallery/img13.png";
 import img14 from "../assets/gallery/img14.png";
 import img15 from "../assets/gallery/img15.png";
+import video from '../assets/gallery/hammadvideo.mp4';
 
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
@@ -137,6 +138,7 @@ const Interior = () => {
                     <h2 className="gal-section-heading">{t.cinematic}</h2>
                     <div className="gal-video-wrapper">
                         <video controls poster={img} className="gal-video-player">
+                            <source src={video} type="video/mp4"/>
                             {t.videoSupport}
                         </video>
                     </div>

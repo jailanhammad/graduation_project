@@ -5,7 +5,7 @@ import velar from "../assets/gallery/velar.png";
 import mercedes from "../assets/gallery/mercedes.png";
 import glc from "../assets/gallery/glc.png";
 import bmw from "../assets/gallery/bmw.png";
-// import video from '../assets/gallery/Hammad Video.mp4';
+import video from '../assets/gallery/hammadvideo.mp4';
 import img from "../assets/gallery/front.png";
 import tosan from "../assets/gallery/tosan.png";
 import rangler from "../assets/gallery/rangler.png";
@@ -158,7 +158,7 @@ const AllCars = () => {
                 <h2 className="gal-section-heading">{t.cinematic}</h2>
                 <div className="gal-video-wrapper">
                     <video controls poster={img} className="gal-video-player">
-                        {/* <source src={video} type="video/mp4"/> */}
+                        <source src={video} type="video/mp4"/>
                         {t.videoSupport}
                     </video>
                 </div>

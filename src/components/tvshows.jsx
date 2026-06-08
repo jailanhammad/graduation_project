@@ -3,6 +3,7 @@ import './allcars.css';
 import hero from "../assets/gallery/back.svg";
 import img from "../assets/gallery/front.png";
 import thumb from "../assets/gallery/thumb.png";
+import video from '../assets/gallery/hammadvideo.mp4';
 
 import tv1 from "../assets/gallery/tv1.png";
 import tv2 from "../assets/gallery/tv2.png";
@@ -133,6 +134,7 @@ const Tvshows = () => {
                     <h2 className="gal-section-heading">{t.cinematic}</h2>
                     <div className="gal-video-wrapper">
                         <video controls poster={img} className="gal-video-player">
+                          <source src={video} type="video/mp4"/>
                             {t.videoSupport}
                         </video>
                     </div>

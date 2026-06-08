@@ -17,6 +17,7 @@ import h3 from "../assets/gallery/h3.png";
 import t1 from "../assets/gallery/t1.png";
 import t2 from "../assets/gallery/t2.png";
 import t3 from "../assets/gallery/t3.png";
+import video from '../assets/gallery/hammadvideo.mp4';
 
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
@@ -142,6 +143,7 @@ const Exterior = () => {
                     <h2 className="gal-section-heading">{t.cinematic}</h2>
                     <div className="gal-video-wrapper">
                         <video controls poster={img} className="gal-video-player">
+                            <source src={video} type="video/mp4"/>
                             {t.videoSupport}
                         </video>
                     </div>

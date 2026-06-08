@@ -8,6 +8,7 @@ import room3 from "../assets/gallery/room3.png";
 import room4 from "../assets/gallery/room4.png";
 import room5 from "../assets/gallery/room5.png";
 import room6 from "../assets/gallery/room6.png";
+import video from '../assets/gallery/hammadvideo.mp4';
 
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
@@ -114,6 +115,7 @@ const Showroom = () => {
                     <h2 className="gal-section-heading">{t.cinematic}</h2>
                     <div className="gal-video-wrapper">
                         <video controls poster={img} className="gal-video-player">
+                            <source src={video} type="video/mp4"/>
                             {t.videoSupport}
                         </video>
                     </div>
