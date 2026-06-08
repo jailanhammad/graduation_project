@@ -1,101 +1,3 @@
-// import React, { useState } from 'react';
-// import './recommended.css';
-// import Nav from '../components/nav';
-// import Whyus from '../components/whyus';
-// import Reviews from '../components/reviews';
-// import Footer from '../components/footer';
-// import velar from "../assets/gallery/velar.png";
-// import evouqe from "../assets/gallery/evouqe.png";
-// import mercedes from "../assets/gallery/mercedes.png";
-// import tosan from "../assets/gallery/tosan.png";
-// import redC from "../assets/gallery/redC.png";
-// import s from "../assets/gallery/s.png";
-// import c200 from "../assets/gallery/c200.png";
-// import glc from "../assets/gallery/glc.png";
-// import bmw from "../assets/vehicles/318.svg";
-
-// const Recommended = () => {
-//   const [filter, setFilter] = useState('All');
-
-//   const cars = [
-//     { id: 1, name: 'Mercedes S450', price: '6,000,000', category: 'Luxury', image: s, state: 'Used' },
-//     { id: 2, name: 'Range Rover Velar', price: '4,500,000', category: 'Luxury', image: velar, state: 'Used' },
-//     { id: 3, name: 'Range Rover Evouqe', price: '2,550,000', category: 'SUV', image: evouqe, state: 'Used' },
-//     { id: 4, name: 'Mercedes Glc300', price: '4,000,000', category: 'SUV', image: glc, state: 'Used' },
-
-//     { id: 5, name: 'Mercedes C200', price: '2,450,000', category: 'Sedan', image: c200, state: 'Used' },
-//     { id: 6, name: 'Bmw 318', price: '1,350,000', category: 'Sedan', image: bmw, state: 'Used' },
-//     { id: 7, name: 'Mercedes C180', price: '3,000,000', category: 'Sedan', image: mercedes, state: 'Used' },
-//     { id: 8, name: 'Hyundai Tucson', price: '1,800,000', category: 'SUV', image: tosan, state: 'Used' },
-//     { id: 9, name: 'Mercedes C200', price: '2,500,000', category: 'Luxury', image: redC, state: 'Used' },
-
-
-//   ];
-
-//   const filteredCars = filter === 'All' ? cars : cars.filter(car => car.category === filter);
-
-//   return (
-
-//     <>
-// <Nav />
-    
-    
-//     <div className="rec-wrapper">
-//       <header className="rec-header">
-//         <p className="subtitle-09">Premium Selection</p>
-//         <h2 className="title-09">RECOMMENDED <span>VEHICLES</span></h2>
-        
-//         <div className="filter-tabs">
-//           {['All', 'Sedan', 'SUV', 'Luxury'].map(cat => (
-//             <button 
-//               key={cat} 
-//               className={filter === cat ? 'tab active' : 'tab'} 
-//               onClick={() => setFilter(cat)}
-//             >
-//               {cat}
-//             </button>
-//           ))}
-//         </div>
-//       </header>
-
-//       <div className="rec-grid">
-//         {filteredCars.map(car => (
-//           <div key={car.id} className="modern-card">
-//             <div className="card-top">
-//               <span className="car-type">{car.category}</span>
-//               <span className="car-speed">{car.state}</span>
-//             </div>
-            
-//             <div className="car-img-box">
-//               <img src={car.image} alt={car.name} />
-//               <div className="glow-effect"></div>
-//             </div>
-
-//             <div className="card-content-09">
-//               <h3>{car.name}</h3>
-//               <div className="card-footer">
-//                 <span className="price-tag">{car.price}</span>
-//                 <button className="icon-btn-09">→</button>
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-
-// <Whyus />
-// <Reviews />
-// <Footer />
-//     </>
-
-//   );
-// };
-
-// export default Recommended;
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import './recommended.css';
 import Nav from '../components/nav';
@@ -103,13 +5,55 @@ import Whyus from '../components/whyus';
 import Reviews from '../components/reviews';
 import Footer from '../components/footer';
 import { supabase } from '../supabase'; 
+import { Link } from 'react-router-dom';
+
 
 const Recommended = () => {
   const [filter, setFilter] = useState('All');
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [lang, setLang] = useState(document.documentElement.dir === 'rtl' ? 'ar' : 'en');
+
+  const t = {
+    en: {
+      subtitle: "Premium Selection",
+      titlePart1: "RECOMMENDED ",
+      titlePart2: "VEHICLES",
+      loadingText: "Loading Premium Fleet...",
+      noVehicles: "No vehicles available in this category yet.",
+      currency: "EGP",
+      tabs: [
+        { id: 'All', label: 'All' },
+        { id: 'Sedan', label: 'Sedan' },
+        { id: 'SUV', label: 'SUV' },
+        { id: 'Luxury', label: 'Luxury' }
+      ]
+    },
+    ar: {
+      subtitle: "مجموعة مميزة",
+      titlePart1: "السيارات ",
+      titlePart2: "الموصى بها",
+      loadingText: "جاري تحميل الأسطول المميز...",
+      noVehicles: "لا توجد سيارات متاحة في هذه الفئة حالياً.",
+      currency: "جنيه",
+      tabs: [
+        { id: 'All', label: 'الكل' },
+        { id: 'Sedan', label: 'سيدان' },
+        { id: 'SUV', label: 'SUV' },
+        { id: 'Luxury', label: 'فاخرة' }
+      ]
+    }
+  }[lang];
 
   useEffect(() => {
+
+    const updateLang = () => {
+      setLang(document.documentElement.dir === 'rtl' ? 'ar' : 'en');
+    };
+
+    const observer = new MutationObserver(updateLang);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
     const fetchRecommendedCars = async () => {
       setLoading(true);
       try {
@@ -131,6 +75,7 @@ const Recommended = () => {
     };
 
     fetchRecommendedCars();
+    return () => observer.disconnect();
   }, []);
 
   const filteredCars = filter === 'All' 
@@ -141,19 +86,19 @@ const Recommended = () => {
     <>
       <Nav />
       
-      <div className="rec-wrapper">
+      <div className="rec-wrapper" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
         <header className="rec-header">
-          <p className="subtitle-09">Premium Selection</p>
-          <h2 className="title-09">RECOMMENDED <span>VEHICLES</span></h2>
+          <p className="subtitle-09">{t.subtitle}</p>
+          <h2 className="title-09">{t.titlePart1}<span>{t.titlePart2}</span></h2>
           
           <div className="filter-tabs">
-            {['All', 'Sedan', 'SUV', 'Luxury'].map(cat => (
+            {t.tabs.map(cat => (
               <button 
-                key={cat} 
-                className={filter === cat ? 'tab active' : 'tab'} 
-                onClick={() => setFilter(cat)}
+                key={cat.id} 
+                className={filter === cat.id ? 'tab active' : 'tab'} 
+                onClick={() => setFilter(cat.id)}
               >
-                {cat}
+                {cat.label}
               </button>
             ))}
           </div>
@@ -161,7 +106,7 @@ const Recommended = () => {
 
         {loading ? (
           <div className="loading-container" style={{ textAlign: 'center', padding: '50px', color: '#fff' }}>
-            <p>Loading Premium Fleet...</p>
+            <p>{t.loadingText}</p>
           </div>
         ) : (
           <div className="rec-grid">
@@ -181,15 +126,20 @@ const Recommended = () => {
                   <div className="card-content-09">
                     <h3>{car.name}</h3>
                     <div className="card-footer">
-                      <span className="price-tag">{car.price} EGP</span>
-                      <button className="icon-btn-09">→</button>
+                      <span className="price-tag">
+                        {lang === 'ar' ? `${car.price} ${t.currency}` : `${car.price} ${t.currency}`}
+                      </span>
+                      <Link to="/Vehicles">
+                      <button className="icon-btn-09" style={{ transform: lang === 'ar' ? 'rotate(180deg)' : 'none' }}>→</button>
+                      </Link>
+
                     </div>
                   </div>
                 </div>
               ))
             ) : (
               <div style={{ color: '#777', textAlign: 'center', gridColumn: '1/-1', padding: '40px' }}>
-                No vehicles available in this category yet.
+                {t.noVehicles}
               </div>
             )}
           </div>
