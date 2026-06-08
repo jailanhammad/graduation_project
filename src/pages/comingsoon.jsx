@@ -55,10 +55,13 @@ const CountdownTimer = ({ targetDate, lang }) => {
 };
 
 const ComingSoon = () => {
-  const [lang, setLang] = useState('en'); 
+
+  const [lang, setLang] = useState(document.documentElement.dir === 'rtl' ? 'ar' : 'en'); 
   const [hero, setHero] = useState(null);
   const [upcomingCars, setUpcomingCars] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const loadingText = lang === 'ar' ? 'جاري تحميل مستقبل السرعة...' : 'LOADING FUTURE OF SPEED...';
 
   const fetchComingSoonData = async () => {
     try {
@@ -91,8 +94,14 @@ const ComingSoon = () => {
   useEffect(() => {
     fetchComingSoonData();
     
-    const htmlLang = document.documentElement.lang || 'en';
-    setLang(htmlLang);
+    const updateLang = () => {
+      setLang(document.documentElement.dir === 'rtl' ? 'ar' : 'en');
+    };
+
+    const observer = new MutationObserver(updateLang);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
+    return () => observer.disconnect();
   }, []);
 
   const handleNotify = (carName) => {
@@ -117,7 +126,7 @@ const ComingSoon = () => {
   if (loading) {
     return (
       <div style={{ background: '#000', color: '#fff', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'sans-serif', letterSpacing: '1px' }}>
-        LOADING FUTURE OF SPEED...
+        {loadingText}
       </div>
     );
   }
