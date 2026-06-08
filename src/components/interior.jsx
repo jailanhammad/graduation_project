@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './allcars.css';
 import hero from "../assets/gallery/back.svg";
-// import video from '../assets/gallery/Hammad Video.mp4';
 import img from "../assets/gallery/front.png";
 import img1 from "../assets/gallery/img1.png";
 import img2 from "../assets/gallery/img2.png";
@@ -25,101 +24,129 @@ import CarImg from './carimg';
 import { Link } from "react-router-dom";
 import Nav from './nav';
 
+const translations = {
+    en: {
+        gallery: "OUR GALLERY",
+        subtitle: "Explore the Power. Experience the Detail.",
+        allCars: "All Cars",
+        interior: "Interior",
+        exterior: "Exterior",
+        showroom: "Showroom",
+        tvShows: "Tv Shows",
+        cinematic: "Cinematic Showcase",
+        videoSupport: "Your browser does not support the video tag.",
+        c200: "Mercedes C200",
+        evoque: "Range Rover Evouqe",
+        c180: "Mercedes C180",
+        cla200: "Mercedes CLA200",
+        tucson: "Hyundai Tucson"
+    },
+    ar: {
+        gallery: "معرضنا",
+        subtitle: "اكتشف القوة. عِش تفاصيل الفخامة.",
+        allCars: "كل السيارات",
+        interior: "التصميم الداخلي",
+        exterior: "التصميم الخارجي",
+        showroom: "صالة العرض",
+        tvShows: "البرامج التلفزيونية",
+        cinematic: "العرض السينمائي",
+        videoSupport: "متصفحك لا يدعم تشغيل الفيديو.",
+        c200: "مرسيدس C200",
+        evoque: "رينج روفر إيفوك",
+        c180: "مرسيدس C180",
+        cla200: "مرسيدس CLA200",
+        tucson: "هيونداي توسان"
+    }
+};
 
 const Interior = () => {
+    const [t, setT] = useState(document.documentElement.dir === 'rtl' ? translations.ar : translations.en);
+
+    useEffect(() => {
+        const updateLang = () => {
+            const isRtl = document.documentElement.dir === 'rtl';
+            setT(isRtl ? translations.ar : translations.en);
+        };
+
+        updateLang();
+
+        const observer = new MutationObserver(updateLang);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
-        
-<Nav />
+            <Nav />
+            <section className="gal-hero-wrapper">
+                <div className="gal-hero-bg">
+                    <img src={hero} alt="Hero" className="gal-hero-img" />
+                </div>
+                <div className="gal-hero-overlay">
+                    <div className="gal-hero-text">
+                        <h1 className="gal-main-title">{t.gallery}</h1>
+                        <p className="gal-main-subtitle">{t.subtitle}</p>
+                    </div>
+                </div>
+            </section>
 
+            <div className="gal-container">
+                <div className="gal-nav-container">
+                    <nav className="gal-filter-nav">
+                        <button className="gal-filter-btn">
+                            <Link to="/Gallery">{t.allCars}</Link>
+                        </button>
+                        <button className="gal-filter-btn active">
+                            <Link to="/Interior">{t.interior}</Link>
+                        </button>
+                        <button className="gal-filter-btn">
+                            <Link to="/Exterior">{t.exterior}</Link>
+                        </button>
+                        <button className="gal-filter-btn">
+                            <Link to="/Showroom">{t.showroom}</Link>
+                        </button>
+                        <button className="gal-filter-btn">
+                            <Link to="/Tv-shows">{t.tvShows}</Link>
+                        </button>
+                    </nav>
+                </div>
 
- <section class="gal-hero-wrapper">
-    <div class="gal-hero-bg">
-    <img src={hero}  alt="Range Rover Hero" class="gal-hero-img" />
-    </div>
+                <section className="gal-main-section">
+                    <h2 className="gal-section-heading">{t.interior}</h2>
+                    <div className="gal-grid">
+                        <CarImg img={img1} span={t.c200} />
+                        <CarImg img={img2} span={t.c200} />
+                        <CarImg img={img3} span={t.c200} />
+                        <CarImg img={img4} span={t.evoque} />
+                        <CarImg img={img5} span={t.evoque} />
+                        <CarImg img={img6} span={t.evoque} />
+                        <CarImg img={img7} span={t.c180} />
+                        <CarImg img={img8} span={t.c180} />
+                        <CarImg img={img9} span={t.c180} />
+                        <CarImg img={in1} span={t.cla200} />
+                        <CarImg img={in2} span={t.cla200} />
+                        <CarImg img={in3} span={t.cla200} />
+                        <CarImg img={img13} span={t.tucson} />
+                        <CarImg img={img14} span={t.tucson} />
+                        <CarImg img={img15} span={t.tucson} />
+                    </div>
+                </section>
 
-    <div class="gal-hero-overlay">
-
-        <div class="gal-hero-text">
-            <h1 class="gal-main-title">OUR GALLERY</h1>
-            <p class="gal-main-subtitle">Explore the Power. Experience the Detail.</p>
-        </div>
-    </div>
-</section>
-        
-
-
-    <div class="gal-container">
-
-    <div className="gal-nav-container">
-    <nav className="gal-filter-nav">
-        <button className="gal-filter-btn">
-        <Link to="/Gallery">All Cars</Link>
-        </button>
-        <button className="gal-filter-btn active">
-        <Link to="/Interior">Interior</Link>
-        </button>
-        <button className="gal-filter-btn">
-        <Link to="/Exterior">Exterior</Link>
-        </button>
-        <button className="gal-filter-btn">
-        <Link to="/Showroom">Showroom</Link>
-        </button>
-        <button className="gal-filter-btn">
-        <Link to="/Tv-shows">Tv Shows</Link>
-        </button>
-    </nav>
-    </div>
-
-        <section class="gal-main-section">
-
-            <h2 class="gal-section-heading">Interior</h2>
-
-        <div class="gal-grid">
-            <CarImg  img={img1} span="Mercedes C200" />
-            <CarImg  img={img2} span="Mercedes C200" />
-            <CarImg  img={img3} span="Mercedes C200" />
-
-            <CarImg  img={img4} span="Range Rover Evouqe" />
-            <CarImg  img={img5} span="Range Rover Evouqe" />
-            <CarImg  img={img6} span="Range Rover Evouqe" />
-
-            <CarImg  img={img7} span="Mercedes C180" />
-            <CarImg  img={img8} span="Mercedes C180" />
-            <CarImg  img={img9} span="Mercedes C180" />
-
-            <CarImg  img={in1} span="Mercedes CLA200" />
-            <CarImg  img={in2} span="Mercedes CLA200" />
-            <CarImg  img={in3} span="Mercedes CLA200" />
-
-            <CarImg  img={img13} span="Hyundai Tucson" />
-            <CarImg  img={img14} span="Hyundai Tucson" />
-            <CarImg  img={img15} span="Hyundai Tucson" />
-
-        </div>
-        </section>
-
-
-        <section class="gal-video-section">
-            <h2 class="gal-section-heading">Cinematic Showcase</h2>
-            <div class="gal-video-wrapper">
-                <video controls poster={img} class="gal-video-player">
-                    {/* <source src={video} type="video/mp4"/> */}
-                    Your browser does not support the video tag.
-                </video>
+                <section className="gal-video-section">
+                    <h2 className="gal-section-heading">{t.cinematic}</h2>
+                    <div className="gal-video-wrapper">
+                        <video controls poster={img} className="gal-video-player">
+                            {t.videoSupport}
+                        </video>
+                    </div>
+                </section>
             </div>
-        </section>
-    </div>
 
-
-<Reviews />
-<Footer />    
-        
-        
-        
-        
+            <Reviews />
+            <Footer />
         </>
-      );
+    );
 }
- 
+
 export default Interior;

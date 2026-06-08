@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './allcars.css';
 import hero from "../assets/gallery/back.svg";
-// import video from '../assets/gallery/Hammad Video.mp4';
 import img from "../assets/gallery/front.png";
 import bmw1 from "../assets/gallery/bmw1.png";
 import bmw2 from "../assets/gallery/bmw2.png";
@@ -25,100 +24,134 @@ import CarImg from './carimg';
 import { Link } from "react-router-dom";
 import Nav from './nav';
 
+const translations = {
+    en: {
+        gallery: "OUR GALLERY",
+        subtitle: "Explore the Power. Experience the Detail.",
+        allCars: "All Cars",
+        interior: "Interior",
+        exterior: "Exterior",
+        showroom: "Showroom",
+        tvShows: "Tv Shows",
+        cinematic: "Cinematic Showcase",
+        videoSupport: "Your browser does not support the video tag.",
+        bmw318: "Bmw 318",
+        c180: "Mercedes C180",
+        cn7: "Elantra Cn7",
+        evoque: "Range Rover Evouqe",
+        tucson: "Hyundai Tucson"
+    },
+    ar: {
+        gallery: "معرضنا",
+        subtitle: "اكتشف القوة. عِش تفاصيل الفخامة.",
+        allCars: "كل السيارات",
+        interior: "التصميم الداخلي",
+        exterior: "التصميم الخارجي",
+        showroom: "صالة العرض",
+        tvShows: "البرامج التلفزيونية",
+        cinematic: "العرض السينمائي",
+        videoSupport: "متصفحك لا يدعم تشغيل الفيديو.",
+        bmw318: "بي إم دبليو 318",
+        c180: "مرسيدس C180",
+        cn7: "إلنترا Cn7",
+        evoque: "رينج روفر إيفوك",
+        tucson: "هيونداي توسان"
+    }
+};
 
 const Exterior = () => {
+
+    const [t, setT] = useState(document.documentElement.dir === 'rtl' ? translations.ar : translations.en);
+
+    useEffect(() => {
+        const updateLang = () => {
+            const isRtl = document.documentElement.dir === 'rtl';
+            setT(isRtl ? translations.ar : translations.en);
+        };
+
+        updateLang();
+
+        const observer = new MutationObserver(updateLang);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
-        
-<Nav />
- <section class="gal-hero-wrapper">
-    <div class="gal-hero-bg">
-    <img src={hero}  alt="Range Rover Hero" class="gal-hero-img" />
-    </div>
+            <Nav />
+            <section className="gal-hero-wrapper">
+                <div className="gal-hero-bg">
+                    <img src={hero} alt="Range Rover Hero" className="gal-hero-img" />
+                </div>
+                <div className="gal-hero-overlay">
+                    <div className="gal-hero-text">
+                        <h1 className="gal-main-title">{t.gallery}</h1>
+                        <p className="gal-main-subtitle">{t.subtitle}</p>
+                    </div>
+                </div>
+            </section>
 
-    <div class="gal-hero-overlay">
+            <div className="gal-container">
+                <div className="gal-nav-container">
+                    <nav className="gal-filter-nav">
+                        <button className="gal-filter-btn">
+                            <Link to="/Gallery">{t.allCars}</Link>
+                        </button>
+                        <button className="gal-filter-btn">
+                            <Link to="/Interior">{t.interior}</Link>
+                        </button>
+                        <button className="gal-filter-btn active">
+                            <Link to="/Exterior">{t.exterior}</Link>
+                        </button>
+                        <button className="gal-filter-btn">
+                            <Link to="/Showroom">{t.showroom}</Link>
+                        </button>
+                        <button className="gal-filter-btn">
+                            <Link to="/Tv-shows">{t.tvShows}</Link>
+                        </button>
+                    </nav>
+                </div>
 
-        <div class="gal-hero-text">
-            <h1 class="gal-main-title">OUR GALLERY</h1>
-            <p class="gal-main-subtitle">Explore the Power. Experience the Detail.</p>
-        </div>
-    </div>
-</section>
-        
+                <section className="gal-main-section">
+                    <h2 className="gal-section-heading">{t.exterior}</h2>
+                    <div className="gal-grid">
+                        <CarImg img={bmw1} span={t.bmw318} />
+                        <CarImg img={bmw2} span={t.bmw318} />
+                        <CarImg img={bmw3} span={t.bmw318} />
 
+                        <CarImg img={m1} span={t.c180} />
+                        <CarImg img={m2} span={t.c180} />
+                        <CarImg img={m3} span={t.c180} />
 
-    <div class="gal-container">
+                        <CarImg img={h1} span={t.cn7} />
+                        <CarImg img={h2} span={t.cn7} />
+                        <CarImg img={h3} span={t.cn7} />
 
-    <div className="gal-nav-container">
-    <nav className="gal-filter-nav">
-        <button className="gal-filter-btn">
-        <Link to="/Gallery">All Cars</Link>
-        </button>
-        <button className="gal-filter-btn">
-        <Link to="/Interior">Interior</Link>
-        </button>
-        <button className="gal-filter-btn active">
-        <Link to="/Exterior">Exterior</Link>
-        </button>
-        <button className="gal-filter-btn">
-        <Link to="/Showroom">Showroom</Link>
-        </button>
-        <button className="gal-filter-btn">
-        <Link to="/Tv-shows">Tv Shows</Link>
-        </button>
-    </nav>
-    </div>
+                        <CarImg img={r1} span={t.evoque} />
+                        <CarImg img={r2} span={t.evoque} />
+                        <CarImg img={r3} span={t.evoque} />
 
-        <section class="gal-main-section">
+                        <CarImg img={t1} span={t.tucson} />
+                        <CarImg img={t2} span={t.tucson} />
+                        <CarImg img={t3} span={t.tucson} />
+                    </div>
+                </section>
 
-            <h2 class="gal-section-heading">Exterior</h2>
-
-        <div class="gal-grid">
-
-            <CarImg  img={bmw1} span="Bmw 318" />
-            <CarImg  img={bmw2} span="Bmw 318" />
-            <CarImg  img={bmw3} span="Bmw 318" />
-
-            <CarImg  img={m1} span="Mercedes C180" />
-            <CarImg  img={m2} span="Mercedes C180" />
-            <CarImg  img={m3} span="Mercedes C180" />
-
-            <CarImg  img={h1} span="Elantra Cn7" />
-            <CarImg  img={h2} span="Elantra Cn7" />
-            <CarImg  img={h3} span="Elantra Cn7" />
-
-            <CarImg  img={r1} span="Range Rover Evouqe" />
-            <CarImg  img={r2} span="Range Rover Evouqe" />
-            <CarImg  img={r3} span="Range Rover Evouqe" />
-
-            <CarImg  img={t1} span="Hyundai Tucson" />
-            <CarImg  img={t2} span="Hyundai Tucson" />
-            <CarImg  img={t3} span="Hyundai Tucson" />
-
-        </div>
-        </section>
-
-
-        <section class="gal-video-section">
-            <h2 class="gal-section-heading">Cinematic Showcase</h2>
-            <div class="gal-video-wrapper">
-                <video controls poster={img} class="gal-video-player">
-                    {/* <source src={video} type="video/mp4"/> */}
-                    Your browser does not support the video tag.
-                </video>
+                <section className="gal-video-section">
+                    <h2 className="gal-section-heading">{t.cinematic}</h2>
+                    <div className="gal-video-wrapper">
+                        <video controls poster={img} className="gal-video-player">
+                            {t.videoSupport}
+                        </video>
+                    </div>
+                </section>
             </div>
-        </section>
-    </div>
 
-
-<Reviews />
-<Footer />    
-        
-        
-        
-        
+            <Reviews />
+            <Footer />
         </>
-      );
+    );
 }
- 
+
 export default Exterior;
