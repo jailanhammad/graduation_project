@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { Link } from "react-router-dom";
-import heroo from "../assets/home/heroo.svg";
+import hero from "../assets/home/heroo.svg";
 
 
 const Login = () => {
@@ -35,7 +35,7 @@ const Login = () => {
             <div className="hml-login-card">
                 <div className="hml-login-header">
                 <div class="car-wrapper">
-                <img src={heroo} className='hero-car'/>
+               <img src={hero} alt="Hammad Motors Car" className='hero-car'/>
                 </div>
                     <h2>Welcome Back</h2>
                     <p>Login to your Hammad Motors account</p>

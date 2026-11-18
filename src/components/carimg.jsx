@@ -6,7 +6,7 @@ const CarImg = (props) => {
         <>
         
             <div class="gal-item">
-                <img src={props.img} alt="car image"/>
+                <img src={props.img} alt="Car"/>
                 <div class="gal-overlay"><span className='span-text'>{props.span}</span></div>
             </div>
     

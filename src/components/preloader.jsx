@@ -26,7 +26,7 @@ const Preloader = () => {
     return (
         <div className="preloader-overlay">
         <div className="loader-content">
-        <img src={logo} className='logo-preloader'/>
+        <img src={logo} alt="Hammad Motors Logo" className='logo-preloader'/>
            <h1 className='hammad-preloader'>HAMMAD MOTORS</h1>
             <div className="loader-bar">
                 <div className="loader-progress"></div>
